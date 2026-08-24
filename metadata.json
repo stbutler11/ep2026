@@ -1,0 +1,6 @@
+{
+  "name": "Electric Picnic Schedule & Clash Planner",
+  "description": "Interactive festival timetable, clash resolver, and personalized schedule planner for Electric Picnic with stage-by-stage line-ups and priority tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
