@@ -1,67 +1,67 @@
-Day,Time,Stage,Band
-Friday,18:00-19:00,Main Stage,Jade
-Friday,19:30-20:30,Main Stage,Zara Larsson
-Friday,21:00-22:00,Main Stage,Sombr
-Friday,22:45-00:00,Main Stage,Lewis Capaldi
-Friday,18:30-19:15,Electric Arena,Gurriers
-Friday,19:45-20:45,Electric Arena,Wunderhorse
-Friday,21:15-22:15,Electric Arena,Wolf Alice
-Friday,22:45-00:00,Electric Arena,Ben Hemsley
-Friday,18:30-19:15,Rankin's Wood,Darren Kiely
-Friday,19:45-20:45,Rankin's Wood,Men I Trust
-Friday,21:30-22:30,Rankin's Wood,JPEGMAFIA
-Friday,23:00-00:00,Rankin's Wood,Loyle Carner
-Friday,18:30-19:30,Terminus,Faster Horses
-Friday,19:30-21:00,Terminus,Dart
-Friday,21:00-22:30,Terminus,X Club.
-Saturday,14:00-15:00,Main Stage,City Stages ft. Tinie Tempah
-Saturday,17:30-18:30,Main Stage,Role Model
-Saturday,19:15-20:15,Main Stage,The Mary Wallopers
-Saturday,21:00-22:15,Main Stage,CMAT
-Saturday,23:05-00:35,Main Stage,Gorillaz
-Saturday,14:00-14:30,Electric Arena,Violet Grohl
-Saturday,15:00-15:45,Electric Arena,Jessie Murph
-Saturday,16:15-17:00,Electric Arena,The Undertones
-Saturday,17:15-18:00,Electric Arena,Kyla Cobbler
-Saturday,18:30-19:30,Electric Arena,The Stunning
-Saturday,20:00-21:00,Electric Arena,Damien Dempsey
-Saturday,21:30-23:00,Electric Arena,Interplanetary Criminal
-Saturday,23:00-00:30,Electric Arena,Duke Dumont
-Saturday,14:15-15:00,Rankin's Wood,Nieve Ella
-Saturday,15:30-16:15,Rankin's Wood,Cliffords
-Saturday,16:45-17:30,Rankin's Wood,Audrey Hobert
-Saturday,18:15-19:00,Rankin's Wood,Aaron Rowe
-Saturday,19:30-20:15,Rankin's Wood,Oklou
-Saturday,21:00-22:00,Rankin's Wood,The Academic
-Saturday,22:30-23:30,Rankin's Wood,The Scratch
-Saturday,16:30-17:30,Terminus,ETC
-Saturday,17:30-18:30,Terminus,Kayleigh Glynn
-Saturday,18:30-20:00,Terminus,Twofaced
-Saturday,20:00-21:30,Terminus,Clouds
-Saturday,21:35-23:00,Terminus,Belters Only
-Sunday,13:00-14:00,Main Stage,RTÉ Céilí Mór
-Sunday,14:45-15:30,Main Stage,James Marriott
-Sunday,16:00-17:00,Main Stage,Van Morrison
-Sunday,17:30-18:30,Main Stage,The Saw Doctors
-Sunday,19:00-20:00,Main Stage,Djo
-Sunday,20:30-21:45,Main Stage,Amble
-Sunday,22:30-00:00,Main Stage,Fontaines D.C.
-Sunday,14:20-15:00,Electric Arena,People I've Met
-Sunday,15:30-16:15,Electric Arena,Rose Gray
-Sunday,16:45-17:30,Electric Arena,Florence Road
-Sunday,18:00-18:45,Electric Arena,Skye Newman
-Sunday,19:15-20:15,Electric Arena,Mick Flannery
-Sunday,21:00-22:00,Electric Arena,Skepta
-Sunday,22:45-00:00,Electric Arena,Obskür
-Sunday,14:00-14:30,Rankin's Wood,Bleech 9:3
-Sunday,15:00-15:30,Rankin's Wood,Keo
-Sunday,16:00-16:45,Rankin's Wood,Tyler Ballgame
-Sunday,17:15-18:00,Rankin's Wood,Madra Salach
-Sunday,18:30-19:15,Rankin's Wood,Adéla
-Sunday,19:50-20:30,Rankin's Wood,Ravyn Lenae
-Sunday,21:00-22:00,Rankin's Wood,Geese
-Sunday,22:30-23:30,Rankin's Wood,Hermitage Green
-Sunday,17:30-18:30,Terminus,Derv
-Sunday,18:30-19:45,Terminus,CamrinWatsin
-Sunday,19:45-21:00,Terminus,Effy
-Sunday,21:00-22:30,Terminus,Malugi
+Stage,Day,Time,Act
+Main Stage,Friday,18:00-19:00,Jade
+Main Stage,Friday,19:30-20:30,Zara Larsson
+Main Stage,Friday,21:00-22:00,Sombr
+Main Stage,Friday,22:45-00:00,Lewis Capaldi
+Electric Arena,Friday,18:30-19:15,Gurriers
+Electric Arena,Friday,19:45-20:45,Wunderhorse
+Electric Arena,Friday,21:15-22:15,Wolf Alice
+Electric Arena,Friday,22:45-00:00,Ben Hemsley
+Rankin's Wood,Friday,18:30-19:15,Darren Kiely
+Rankin's Wood,Friday,19:45-20:45,Men I Trust
+Rankin's Wood,Friday,21:30-22:30,JPEGMAFIA
+Rankin's Wood,Friday,23:00-00:00,Loyle Carner
+Terminus,Friday,18:30-19:30,Faster Horses
+Terminus,Friday,19:30-21:00,Dart
+Terminus,Friday,21:00-22:30,X Club.
+Main Stage,Saturday,14:00-15:00,City Stages ft. Tinie Tempah
+Main Stage,Saturday,17:30-18:30,Role Model
+Main Stage,Saturday,19:15-20:15,The Mary Wallopers
+Main Stage,Saturday,21:00-22:15,CMAT
+Main Stage,Saturday,23:05-00:35,Gorillaz
+Electric Arena,Saturday,14:00-14:30,Violet Grohl
+Electric Arena,Saturday,15:00-15:45,Jessie Murph
+Electric Arena,Saturday,16:15-17:00,The Undertones
+Electric Arena,Saturday,17:15-18:00,Kyla Cobbler
+Electric Arena,Saturday,18:30-19:30,The Stunning
+Electric Arena,Saturday,20:00-21:00,Damien Dempsey
+Electric Arena,Saturday,21:30-23:00,Interplanetary Criminal
+Electric Arena,Saturday,23:00-00:30,Duke Dumont
+Rankin's Wood,Saturday,14:15-15:00,Nieve Ella
+Rankin's Wood,Saturday,15:30-16:15,Cliffords
+Rankin's Wood,Saturday,16:45-17:30,Audrey Hobert
+Rankin's Wood,Saturday,18:15-19:00,Aaron Rowe
+Rankin's Wood,Saturday,19:30-20:15,Oklou
+Rankin's Wood,Saturday,21:00-22:00,The Academic
+Rankin's Wood,Saturday,22:30-23:30,The Scratch
+Terminus,Saturday,16:30-17:30,ETC
+Terminus,Saturday,17:30-18:30,Kayleigh Glynn
+Terminus,Saturday,18:30-20:00,Twofaced
+Terminus,Saturday,20:00-21:30,Clouds
+Terminus,Saturday,21:35-23:00,Belters Only
+Main Stage,Sunday,13:00-14:00,RTÉ Céilí Mór
+Main Stage,Sunday,14:45-15:30,James Marriott
+Main Stage,Sunday,16:00-17:00,Van Morrison
+Main Stage,Sunday,17:30-18:30,The Saw Doctors
+Main Stage,Sunday,19:00-20:00,Djo
+Main Stage,Sunday,20:30-21:45,Amble
+Main Stage,Sunday,22:30-00:00,Fontaines D.C.
+Electric Arena,Sunday,14:20-15:00,People I've Met
+Electric Arena,Sunday,15:30-16:15,Rose Gray
+Electric Arena,Sunday,16:45-17:30,Florence Road
+Electric Arena,Sunday,18:00-18:45,Skye Newman
+Electric Arena,Sunday,19:15-20:15,Mick Flannery
+Electric Arena,Sunday,21:00-22:00,Skepta
+Electric Arena,Sunday,22:45-00:00,Obskür
+Rankin's Wood,Sunday,14:00-14:30,Bleech 9:3
+Rankin's Wood,Sunday,15:00-15:30,Keo
+Rankin's Wood,Sunday,16:00-16:45,Tyler Ballgame
+Rankin's Wood,Sunday,17:15-18:00,Madra Salach
+Rankin's Wood,Sunday,18:30-19:15,Adéla
+Rankin's Wood,Sunday,19:50-20:30,Ravyn Lenae
+Rankin's Wood,Sunday,21:00-22:00,Geese
+Rankin's Wood,Sunday,22:30-23:30,Hermitage Green
+Terminus,Sunday,17:30-18:30,Derv
+Terminus,Sunday,18:30-19:45,CamrinWatsin
+Terminus,Sunday,19:45-21:00,Effy
+Terminus,Sunday,21:00-22:30,Malugi
