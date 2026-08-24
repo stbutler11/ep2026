@@ -1,17 +1,18 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import {
   Search,
   Filter,
   Flame,
   Star,
   Eye,
-  ExternalLink,
   MapPin,
   Clock,
   Sparkles,
   Music,
   Check,
   X,
+  Calendar,
+  Layers,
 } from 'lucide-react';
 import { Act, FestivalDay, PriorityLevel, UserActPreference } from '../types';
 import { FESTIVAL_ACTS, FESTIVAL_STAGES } from '../data/festivalData';
@@ -25,6 +26,20 @@ interface LineupExplorerProps {
   onOpenActDetail: (act: Act) => void;
 }
 
+const DAY_ORDER: Record<FestivalDay, number> = {
+  thursday: 0,
+  friday: 1,
+  saturday: 2,
+  sunday: 3,
+};
+
+const DAY_METADATA: Record<FestivalDay, { label: string; date: string; short: string }> = {
+  thursday: { label: 'Thursday', date: 'Aug 27', short: 'Thu' },
+  friday: { label: 'Friday', date: 'Aug 28', short: 'Fri' },
+  saturday: { label: 'Saturday', date: 'Aug 29', short: 'Sat' },
+  sunday: { label: 'Sunday', date: 'Aug 30', short: 'Sun' },
+};
+
 export const LineupExplorer: React.FC<LineupExplorerProps> = ({
   dayFilter,
   onSelectDay,
@@ -32,12 +47,35 @@ export const LineupExplorer: React.FC<LineupExplorerProps> = ({
   onUpdatePriority,
   onOpenActDetail,
 }) => {
+  const [selectedDay, setSelectedDay] = useState<FestivalDay | 'all'>(dayFilter);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedStage, setSelectedStage] = useState<string>('all');
   const [selectedGenre, setSelectedGenre] = useState<string>('all');
   const [selectedPriority, setSelectedPriority] = useState<string>('all');
   const [onlyHeadliners, setOnlyHeadliners] = useState(false);
   const [onlyIrish, setOnlyIrish] = useState(false);
+
+  // Sync with prop if it changes from external navigation, unless user intentionally selected 'all'
+  useEffect(() => {
+    if (selectedDay !== 'all') {
+      setSelectedDay(dayFilter);
+    }
+  }, [dayFilter]);
+
+  // Total counts by day
+  const actCountsByDay = useMemo(() => {
+    const counts: Record<FestivalDay | 'all', number> = {
+      all: FESTIVAL_ACTS.length,
+      thursday: 0,
+      friday: 0,
+      saturday: 0,
+      sunday: 0,
+    };
+    FESTIVAL_ACTS.forEach((act) => {
+      counts[act.day] = (counts[act.day] || 0) + 1;
+    });
+    return counts;
+  }, []);
 
   // Extract distinct genres
   const allGenres = useMemo(() => {
@@ -48,11 +86,22 @@ export const LineupExplorer: React.FC<LineupExplorerProps> = ({
     return Array.from(genres).sort();
   }, []);
 
+  // Stages available based on selected day
+  const availableStages = useMemo(() => {
+    if (selectedDay === 'all') return FESTIVAL_STAGES;
+    const stageIdsOnDay = new Set(
+      FESTIVAL_ACTS.filter((a) => a.day === selectedDay).map((a) => a.stageId)
+    );
+    return FESTIVAL_STAGES.filter((s) => stageIdsOnDay.has(s.id));
+  }, [selectedDay]);
+
   // Filtered Acts list
   const filteredActs = useMemo(() => {
     return FESTIVAL_ACTS.filter((act) => {
       // Day filter
-      if (act.day !== dayFilter) return false;
+      if (selectedDay !== 'all' && act.day !== selectedDay) {
+        return false;
+      }
 
       // Search query
       if (searchQuery.trim()) {
@@ -61,7 +110,12 @@ export const LineupExplorer: React.FC<LineupExplorerProps> = ({
         const matchesDesc = act.description.toLowerCase().includes(q);
         const matchesGenre = act.genre.toLowerCase().includes(q);
         const matchesOrigin = act.membersOrOrigin?.toLowerCase().includes(q);
-        if (!matchesName && !matchesDesc && !matchesGenre && !matchesOrigin) {
+        const stage = FESTIVAL_STAGES.find((s) => s.id === act.stageId);
+        const matchesStage =
+          stage?.name.toLowerCase().includes(q) ||
+          stage?.shortName.toLowerCase().includes(q);
+
+        if (!matchesName && !matchesDesc && !matchesGenre && !matchesOrigin && !matchesStage) {
           return false;
         }
       }
@@ -97,9 +151,17 @@ export const LineupExplorer: React.FC<LineupExplorerProps> = ({
       }
 
       return true;
-    }).sort((a, b) => a.startMinutes - b.startMinutes);
+    }).sort((a, b) => {
+      // First sort by day if viewing all days
+      if (selectedDay === 'all') {
+        const dayDiff = DAY_ORDER[a.day] - DAY_ORDER[b.day];
+        if (dayDiff !== 0) return dayDiff;
+      }
+      // Then sort by start time
+      return a.startMinutes - b.startMinutes;
+    });
   }, [
-    dayFilter,
+    selectedDay,
     searchQuery,
     selectedStage,
     selectedGenre,
@@ -109,10 +171,78 @@ export const LineupExplorer: React.FC<LineupExplorerProps> = ({
     userPreferences,
   ]);
 
+  const handleDaySelect = (day: FestivalDay | 'all') => {
+    setSelectedDay(day);
+    if (day !== 'all') {
+      onSelectDay(day);
+    }
+  };
+
+  const handleResetFilters = () => {
+    setSearchQuery('');
+    setSelectedStage('all');
+    setSelectedGenre('all');
+    setSelectedPriority('all');
+    setOnlyHeadliners(false);
+    setOnlyIrish(false);
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-6">
       {/* Search & Filter Controls Card */}
       <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-4 sm:p-5 shadow-lg space-y-4">
+        {/* Day Selection Tabs with Badge Counts */}
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+          <button
+            onClick={() => handleDaySelect('all')}
+            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 ${
+              selectedDay === 'all'
+                ? 'bg-amber-500 text-neutral-950 shadow-xs'
+                : 'bg-neutral-950 text-neutral-400 hover:text-neutral-200 border border-neutral-800'
+            }`}
+          >
+            <Layers className="w-3.5 h-3.5" />
+            <span>All 4 Days</span>
+            <span
+              className={`text-[10px] px-1.5 py-0.2 rounded-full font-semibold ${
+                selectedDay === 'all'
+                  ? 'bg-neutral-950/20 text-neutral-900'
+                  : 'bg-neutral-800 text-neutral-400'
+              }`}
+            >
+              {actCountsByDay.all}
+            </span>
+          </button>
+
+          {(['thursday', 'friday', 'saturday', 'sunday'] as FestivalDay[]).map((d) => {
+            const meta = DAY_METADATA[d];
+            const isSelected = selectedDay === d;
+            return (
+              <button
+                key={d}
+                onClick={() => handleDaySelect(d)}
+                className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all shrink-0 flex items-center gap-1.5 ${
+                  isSelected
+                    ? 'bg-amber-500 text-neutral-950 font-bold shadow-xs'
+                    : 'bg-neutral-950 text-neutral-400 hover:text-neutral-200 border border-neutral-800'
+                }`}
+              >
+                <span>{meta.label}</span>
+                <span className="text-[10px] opacity-75 hidden sm:inline">({meta.date})</span>
+                <span
+                  className={`text-[10px] px-1.5 py-0.2 rounded-full font-semibold ${
+                    isSelected
+                      ? 'bg-neutral-950/20 text-neutral-900'
+                      : 'bg-neutral-800 text-neutral-400'
+                  }`}
+                >
+                  {actCountsByDay[d]}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
         {/* Search Bar */}
         <div className="relative">
           <Search className="w-4 h-4 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -120,7 +250,11 @@ export const LineupExplorer: React.FC<LineupExplorerProps> = ({
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search by artist, stage, genre (e.g., Fontaines D.C., CMAT, Techno, Post-Punk)..."
+            placeholder={
+              selectedDay === 'all'
+                ? 'Search entire 4-day lineup by artist, stage, genre (e.g. Fontaines D.C., CMAT, Terminus)...'
+                : `Search ${DAY_METADATA[selectedDay]?.label} lineup by artist, stage, genre...`
+            }
             className="w-full bg-neutral-950 border border-neutral-800 rounded-xl pl-10 pr-10 py-2.5 text-sm text-neutral-100 placeholder-neutral-500 focus:outline-hidden focus:border-amber-500 transition-colors"
           />
           {searchQuery && (
@@ -145,8 +279,8 @@ export const LineupExplorer: React.FC<LineupExplorerProps> = ({
               onChange={(e) => setSelectedStage(e.target.value)}
               className="w-full bg-neutral-950 border border-neutral-800 rounded-xl px-2.5 py-1.5 text-xs text-neutral-200 focus:outline-hidden focus:border-amber-500"
             >
-              <option value="all">All Stages</option>
-              {FESTIVAL_STAGES.map((stage) => (
+              <option value="all">All Stages ({availableStages.length})</option>
+              {availableStages.map((stage) => (
                 <option key={stage.id} value={stage.id}>
                   {stage.name}
                 </option>
@@ -218,30 +352,53 @@ export const LineupExplorer: React.FC<LineupExplorerProps> = ({
 
       {/* Results Header */}
       <div className="flex items-center justify-between">
-        <div className="text-xs text-neutral-400">
-          Showing <strong className="text-neutral-200">{filteredActs.length}</strong> acts on {dayFilter}
+        <div className="text-xs text-neutral-400 flex items-center gap-2">
+          <span>
+            Showing <strong className="text-neutral-200">{filteredActs.length}</strong> acts{' '}
+            {selectedDay === 'all' ? (
+              <span className="text-amber-400 font-semibold">across all 4 festival days</span>
+            ) : (
+              <span>on {DAY_METADATA[selectedDay]?.label}</span>
+            )}
+          </span>
+          {searchQuery && (
+            <span className="text-neutral-500">matching "{searchQuery}"</span>
+          )}
         </div>
+
+        {(searchQuery || selectedStage !== 'all' || selectedGenre !== 'all' || selectedPriority !== 'all' || onlyHeadliners || onlyIrish) && (
+          <button
+            onClick={handleResetFilters}
+            className="text-xs text-amber-400 hover:text-amber-300 transition-colors"
+          >
+            Clear all filters
+          </button>
+        )}
       </div>
 
       {/* Acts Grid */}
       {filteredActs.length === 0 ? (
         <div className="bg-neutral-900/40 border border-neutral-800 rounded-2xl p-10 text-center space-y-3">
           <p className="text-sm text-neutral-400">
-            No acts match your search filters for {dayFilter}.
+            No acts match your search filters{' '}
+            {selectedDay === 'all' ? 'across all days' : `for ${DAY_METADATA[selectedDay]?.label}`}.
           </p>
-          <button
-            onClick={() => {
-              setSearchQuery('');
-              setSelectedStage('all');
-              setSelectedGenre('all');
-              setSelectedPriority('all');
-              setOnlyHeadliners(false);
-              setOnlyIrish(false);
-            }}
-            className="px-3.5 py-1.5 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-xs font-semibold text-neutral-200"
-          >
-            Reset Filters
-          </button>
+          <div className="flex items-center justify-center gap-2">
+            {selectedDay !== 'all' && (
+              <button
+                onClick={() => setSelectedDay('all')}
+                className="px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-xs font-bold text-neutral-950 transition-colors"
+              >
+                Search All Days ({actCountsByDay.all} acts)
+              </button>
+            )}
+            <button
+              onClick={handleResetFilters}
+              className="px-3.5 py-1.5 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-xs font-semibold text-neutral-200 transition-colors"
+            >
+              Reset Filters
+            </button>
+          </div>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -251,6 +408,7 @@ export const LineupExplorer: React.FC<LineupExplorerProps> = ({
             const priority: PriorityLevel =
               typeof pref === 'string' ? pref : pref?.priority || 'none';
             const priorityStyle = getPriorityBadgeColor(priority);
+            const dayMeta = DAY_METADATA[act.day];
 
             return (
               <div
@@ -271,18 +429,26 @@ export const LineupExplorer: React.FC<LineupExplorerProps> = ({
                 />
 
                 <div className="space-y-2.5 pl-1.5">
-                  {/* Top Badges */}
+                  {/* Top Badges: Day (if all days), Stage, Headliner/Irish */}
                   <div className="flex items-center justify-between gap-1 flex-wrap">
-                    <span
-                      className="px-2 py-0.5 rounded-full text-[11px] font-bold border"
-                      style={{
-                        backgroundColor: `${stage?.color}15`,
-                        color: stage?.color,
-                        borderColor: `${stage?.color}40`,
-                      }}
-                    >
-                      {stage?.name}
-                    </span>
+                    <div className="flex items-center gap-1.5 flex-wrap">
+                      {/* Day Pill */}
+                      <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-neutral-800 border border-neutral-700 text-neutral-300">
+                        {dayMeta.label} {dayMeta.date}
+                      </span>
+
+                      {/* Stage Pill */}
+                      <span
+                        className="px-2 py-0.5 rounded-full text-[11px] font-bold border"
+                        style={{
+                          backgroundColor: `${stage?.color}15`,
+                          color: stage?.color,
+                          borderColor: `${stage?.color}40`,
+                        }}
+                      >
+                        {stage?.name}
+                      </span>
+                    </div>
 
                     <div className="flex items-center gap-1">
                       {act.isHeadliner && (
@@ -325,7 +491,7 @@ export const LineupExplorer: React.FC<LineupExplorerProps> = ({
                 {/* Bottom Priority Actions */}
                 <div className="mt-4 pt-3 border-t border-neutral-800 flex items-center justify-between gap-2 pl-1.5">
                   <span className="text-[11px] font-semibold text-neutral-400">
-                    Schedule Priority:
+                    Schedule:
                   </span>
 
                   <div className="flex items-center gap-1 bg-neutral-950 p-1 rounded-xl border border-neutral-800">

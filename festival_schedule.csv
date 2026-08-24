@@ -1,67 +1,1211 @@
 Stage,Day,Time,Act
-Main Stage,Friday,18:00-19:00,Jade
-Main Stage,Friday,19:30-20:30,Zara Larsson
-Main Stage,Friday,21:00-22:00,Sombr
-Main Stage,Friday,22:45-00:00,Lewis Capaldi
-Electric Arena,Friday,18:30-19:15,Gurriers
-Electric Arena,Friday,19:45-20:45,Wunderhorse
-Electric Arena,Friday,21:15-22:15,Wolf Alice
-Electric Arena,Friday,22:45-00:00,Ben Hemsley
-Rankin's Wood,Friday,18:30-19:15,Darren Kiely
-Rankin's Wood,Friday,19:45-20:45,Men I Trust
-Rankin's Wood,Friday,21:30-22:30,JPEGMAFIA
-Rankin's Wood,Friday,23:00-00:00,Loyle Carner
-Terminus,Friday,18:30-19:30,Faster Horses
-Terminus,Friday,19:30-21:00,Dart
-Terminus,Friday,21:00-22:30,X Club.
-Main Stage,Saturday,14:00-15:00,City Stages ft. Tinie Tempah
-Main Stage,Saturday,17:30-18:30,Role Model
-Main Stage,Saturday,19:15-20:15,The Mary Wallopers
-Main Stage,Saturday,21:00-22:15,CMAT
-Main Stage,Saturday,23:05-00:35,Gorillaz
-Electric Arena,Saturday,14:00-14:30,Violet Grohl
-Electric Arena,Saturday,15:00-15:45,Jessie Murph
-Electric Arena,Saturday,16:15-17:00,The Undertones
-Electric Arena,Saturday,17:15-18:00,Kyla Cobbler
-Electric Arena,Saturday,18:30-19:30,The Stunning
-Electric Arena,Saturday,20:00-21:00,Damien Dempsey
-Electric Arena,Saturday,21:30-23:00,Interplanetary Criminal
-Electric Arena,Saturday,23:00-00:30,Duke Dumont
-Rankin's Wood,Saturday,14:15-15:00,Nieve Ella
-Rankin's Wood,Saturday,15:30-16:15,Cliffords
-Rankin's Wood,Saturday,16:45-17:30,Audrey Hobert
-Rankin's Wood,Saturday,18:15-19:00,Aaron Rowe
-Rankin's Wood,Saturday,19:30-20:15,Oklou
-Rankin's Wood,Saturday,21:00-22:00,The Academic
-Rankin's Wood,Saturday,22:30-23:30,The Scratch
-Terminus,Saturday,16:30-17:30,ETC
-Terminus,Saturday,17:30-18:30,Kayleigh Glynn
-Terminus,Saturday,18:30-20:00,Twofaced
-Terminus,Saturday,20:00-21:30,Clouds
-Terminus,Saturday,21:35-23:00,Belters Only
-Main Stage,Sunday,13:00-14:00,RTÉ Céilí Mór
-Main Stage,Sunday,14:45-15:30,James Marriott
-Main Stage,Sunday,16:00-17:00,Van Morrison
-Main Stage,Sunday,17:30-18:30,The Saw Doctors
-Main Stage,Sunday,19:00-20:00,Djo
-Main Stage,Sunday,20:30-21:45,Amble
-Main Stage,Sunday,22:30-00:00,Fontaines D.C.
-Electric Arena,Sunday,14:20-15:00,People I've Met
-Electric Arena,Sunday,15:30-16:15,Rose Gray
-Electric Arena,Sunday,16:45-17:30,Florence Road
-Electric Arena,Sunday,18:00-18:45,Skye Newman
-Electric Arena,Sunday,19:15-20:15,Mick Flannery
-Electric Arena,Sunday,21:00-22:00,Skepta
-Electric Arena,Sunday,22:45-00:00,Obskür
-Rankin's Wood,Sunday,14:00-14:30,Bleech 9:3
-Rankin's Wood,Sunday,15:00-15:30,Keo
-Rankin's Wood,Sunday,16:00-16:45,Tyler Ballgame
-Rankin's Wood,Sunday,17:15-18:00,Madra Salach
-Rankin's Wood,Sunday,18:30-19:15,Adéla
-Rankin's Wood,Sunday,19:50-20:30,Ravyn Lenae
-Rankin's Wood,Sunday,21:00-22:00,Geese
-Rankin's Wood,Sunday,22:30-23:30,Hermitage Green
-Terminus,Sunday,17:30-18:30,Derv
-Terminus,Sunday,18:30-19:45,CamrinWatsin
-Terminus,Sunday,19:45-21:00,Effy
-Terminus,Sunday,21:00-22:30,Malugi
+Main Stage,Friday 28th August,18:00 - 19:00,JADE
+Main Stage,Friday 28th August,19:30 - 20:30,Zara Larsson
+Main Stage,Friday 28th August,21:00 - 22:00,SOMBR
+Main Stage,Friday 28th August,22:45 - 00:00,Lewis Capaldi
+Main Stage,Saturday 29th August,14:00 - 15:00,City Stages ft Tinie Tempah
+Main Stage,Saturday 29th August,17:30 - 18:30,Role Model
+Main Stage,Saturday 29th August,19:15 - 20:15,The Mary Wallopers
+Main Stage,Saturday 29th August,21:00 - 22:15,CMAT
+Main Stage,Saturday 29th August,23:05 - 00:35,Gorillaz
+Main Stage,Sunday 30th August,13:00 - 14:00,RTÉ Céili Mór
+Main Stage,Sunday 30th August,14:45 - 15:30,James Marriott
+Main Stage,Sunday 30th August,16:00 - 17:00,Van Morrison
+Main Stage,Sunday 30th August,17:30 - 18:30,The Saw Doctors (Main Stage)
+Main Stage,Sunday 30th August,19:00 - 20:00,Djo
+Main Stage,Sunday 30th August,20:30 - 21:45,Amble
+Main Stage,Sunday 30th August,22:30 - 00:00,Fontaines D.C.
+Electric Arena,Friday 28th August,18:30 - 19:15,Gurriers
+Electric Arena,Friday 28th August,19:45 - 20:45,Wunderhorse
+Electric Arena,Friday 28th August,21:14 - 22:14,Wolf Alice
+Electric Arena,Friday 28th August,22:45 - 00:00,Ben Hemsley
+Electric Arena,Saturday 29th August,14:00 - 14:30,Violet Grohl
+Electric Arena,Saturday 29th August,15:00 - 15:45,Jessie Murph
+Electric Arena,Saturday 29th August,16:15 - 17:00,The Undertones
+Electric Arena,Saturday 29th August,17:15 - 18:00,Kyla Cobbler
+Electric Arena,Saturday 29th August,18:30 - 19:30,The Stunning
+Electric Arena,Saturday 29th August,20:00 - 21:00,Damien Dempsey
+Electric Arena,Saturday 29th August,21:30 - 23:00,Interplanetary Criminal
+Electric Arena,Saturday 29th August,23:00 - 00:30,Duke Dumont
+Electric Arena,Sunday 30th August,14:20 - 15:00,People I've Met
+Electric Arena,Sunday 30th August,15:30 - 16:15,Rose Gray
+Electric Arena,Sunday 30th August,16:45 - 17:30,Florence Road
+Electric Arena,Sunday 30th August,18:00 - 18:45,Skye Newman
+Electric Arena,Sunday 30th August,19:15 - 20:15,Mick Flannery
+Electric Arena,Sunday 30th August,21:00 - 22:00,Skepta
+Electric Arena,Sunday 30th August,22:30 - 00:00,Obskür
+Rankins Wood,Friday 28th August,18:30 - 19:15,Darren Kiely
+Rankins Wood,Friday 28th August,19:45 - 20:45,Men I Trust
+Rankins Wood,Friday 28th August,21:30 - 22:30,JPEGMAFIA
+Rankins Wood,Friday 28th August,23:00 - 00:00,Loyle Carner
+Rankins Wood,Saturday 29th August,14:15 - 15:00,Nieve Ella
+Rankins Wood,Saturday 29th August,15:30 - 16:15,Cliffords
+Rankins Wood,Saturday 29th August,16:45 - 17:30,Audrey Hobert
+Rankins Wood,Saturday 29th August,18:15 - 19:00,Aaron Rowe
+Rankins Wood,Saturday 29th August,19:30 - 20:15,Oklou
+Rankins Wood,Saturday 29th August,21:00 - 22:00,The Academic
+Rankins Wood,Saturday 29th August,22:30 - 23:30,The Scratch
+Rankins Wood,Sunday 30th August,14:00 - 14:30,Bleech 9:3
+Rankins Wood,Sunday 30th August,15:00 - 15:30,Keo
+Rankins Wood,Sunday 30th August,16:00 - 16:45,Tyler Ballgame
+Rankins Wood,Sunday 30th August,17:15 - 18:00,Madra Salach
+Rankins Wood,Sunday 30th August,18:30 - 19:15,ADÉLA
+Rankins Wood,Sunday 30th August,19:50 - 20:30,Ravyn Lenae
+Rankins Wood,Sunday 30th August,21:00 - 22:00,Geese
+Rankins Wood,Sunday 30th August,22:30 - 23:30,Hermitage Green
+Terminus,Friday 28th August,18:00 - 19:30,Faster Horses
+Terminus,Friday 28th August,19:30 - 21:00,DART
+Terminus,Friday 28th August,21:00 - 22:30,X Club.
+Terminus,Saturday 29th August,16:39 - 17:30,E.T.C
+Terminus,Saturday 29th August,17:30 - 18:30,Kayleigh Glynn
+Terminus,Saturday 29th August,18:30 - 20:00,TWOFACED
+Terminus,Saturday 29th August,20:00 - 21:30,Clouds
+Terminus,Saturday 29th August,21:35 - 23:00,Belters Only
+Terminus,Sunday 30th August,17:30 - 18:30,Derv
+Terminus,Sunday 30th August,18:30 - 19:45,CamrinWatsin
+Terminus,Sunday 30th August,19:45 - 21:00,EFFY
+Terminus,Sunday 30th August,21:00 - 22:30,MALUGI
+Comedy Arena,Friday 28th August,18:00 - 18:15,MC Damian Clark
+Comedy Arena,Friday 28th August,18:15 - 18:35,Eric Lawlor
+Comedy Arena,Friday 28th August,18:35 - 18:50,Ailish McCarthy
+Comedy Arena,Friday 28th August,18:50 - 19:15,Fred Cooke
+Comedy Arena,Friday 28th August,19:20 - 19:35,Ian Burke
+Comedy Arena,Friday 28th August,19:35 - 19:50,Taran O'Sullivan
+Comedy Arena,Friday 28th August,19:50 - 20:15,Martin Angolo
+Comedy Arena,Friday 28th August,20:20 - 20:35,Louisa Ní Éideáin
+Comedy Arena,Friday 28th August,20:35 - 20:50,Darren Gaffney
+Comedy Arena,Friday 28th August,20:55 - 21:20,Diona Doherty
+Comedy Arena,Friday 28th August,21:20 - 21:35,Steve Spade
+Comedy Arena,Friday 28th August,21:35 - 22:10,Deirdre O'Kane
+Comedy Arena,Saturday 29th August,14:00 - 14:15,MC Karl Spain
+Comedy Arena,Saturday 29th August,14:15 - 14:35,Richie Bree
+Comedy Arena,Saturday 29th August,14:35 - 14:45,Dame Stuffy
+Comedy Arena,Saturday 29th August,14:45 - 15:05,Patrick McDonnell
+Comedy Arena,Saturday 29th August,15:05 - 15:35,David McSavage
+Comedy Arena,Saturday 29th August,15:35 - 15:55,Anna Clifford
+Comedy Arena,Saturday 29th August,15:55 - 16:15,Breda Hegarty
+Comedy Arena,Saturday 29th August,16:15 - 16:30,Sadhbh McLoughlin
+Comedy Arena,Saturday 29th August,16:35 - 17:00,Bernard O'Shea
+Comedy Arena,Saturday 29th August,17:00 - 17:25,Thomas Greene
+Comedy Arena,Saturday 29th August,17:25 - 17:50,Willie White
+Comedy Arena,Saturday 29th August,17:50 - 18:15,Paddy McDonnell
+Comedy Arena,Saturday 29th August,18:15 - 18:40,Kevin McGahern
+Comedy Arena,Saturday 29th August,18:45 - 19:10,Bernard Casey
+Comedy Arena,Saturday 29th August,19:15 - 19:40,Enya Martin
+Comedy Arena,Saturday 29th August,19:45 - 20:10,Emer Maguire
+Comedy Arena,Saturday 29th August,20:15 - 20:40,Vittorio Angelone
+Comedy Arena,Saturday 29th August,20:45 - 21:25,Mario Rosenstock
+Comedy Arena,Sunday 30th August,13:55 - 14:10,MC Karl Spain
+Comedy Arena,Sunday 30th August,14:10 - 14:35,Thomas Greene
+Comedy Arena,Sunday 30th August,14:35 - 14:45,Michael Roche
+Comedy Arena,Sunday 30th August,14:45 - 15:05,Paul Marsh
+Comedy Arena,Sunday 30th August,15:05 - 15:20,Keith Fox
+Comedy Arena,Sunday 30th August,15:20 - 15:40,Ger Staunton
+Comedy Arena,Sunday 30th August,15:40 - 16:00,Sinéad Quinlan
+Comedy Arena,Sunday 30th August,16:00 - 16:25,Alison Spittle
+Comedy Arena,Sunday 30th August,16:25 - 16:50,Katie Boyle
+Comedy Arena,Sunday 30th August,16:50 - 17:10,Simon Hennessey
+Comedy Arena,Sunday 30th August,17:15 - 17:35,Owen Colgan
+Comedy Arena,Sunday 30th August,17:40 - 18:00,John Colleary
+Comedy Arena,Sunday 30th August,18:05 - 18:25,Aoife Dunne
+Comedy Arena,Sunday 30th August,18:25 - 18:50,Michael Fry
+Comedy Arena,Sunday 30th August,18:55 - 19:20,David Nihill
+Comedy Arena,Sunday 30th August,19:25 - 19:50,Rachel Galvo
+Comedy Arena,Sunday 30th August,19:50 - 20:15,Mike Rice
+Comedy Arena,Sunday 30th August,20:20 - 20:50,Reggie Watts
+Comedy Arena,Sunday 30th August,20:55 - 21:30,Shane Todd
+3 Charge and Chill,Friday 28th August,16:00 - 17:00,?
+3 Charge and Chill,Friday 28th August,17:00 - 18:00,?
+3 Charge and Chill,Friday 28th August,19:00 - 20:00,?
+3 Charge and Chill,Friday 28th August,21:30 - 22:30,?
+3 Charge and Chill,Saturday 29th August,14:45 - 15:30,?
+3 Charge and Chill,Saturday 29th August,16:30 - 16:55,?
+3 Charge and Chill,Saturday 29th August,18:00 - 19:00,?
+3 Charge and Chill,Saturday 29th August,19:15 - 19:45,?
+3 Charge and Chill,Saturday 29th August,20:45 - 21:30,?
+3 Charge and Chill,Saturday 29th August,21:30 - 23:00,?
+3 Charge and Chill,Sunday 30th August,14:30 - 15:30,?
+3 Charge and Chill,Sunday 30th August,16:30 - 17:00,?
+3 Charge and Chill,Sunday 30th August,18:15 - 19:00,?
+3 Charge and Chill,Sunday 30th August,20:00 - 20:45,?
+3 Charge and Chill,Sunday 30th August,21:45 - 22:30,?
+Anachronica,Friday 28th August,22:00 - 23:30,Shauna Dee
+Anachronica,Friday 28th August,23:30 - 01:00,Modeā
+Anachronica,Friday 28th August,01:00 - 02:30,Bryan Kearney
+Anachronica,Friday 28th August,02:30 - 04:00,MAV666
+Anachronica,Saturday 29th August,22:00 - 23:30,FAXE ON FAXE
+Anachronica,Saturday 29th August,23:30 - 01:00,LAWRENCE B2B Kule
+Anachronica,Saturday 29th August,01:00 - 02:30,Lorcan Kelly
+Anachronica,Saturday 29th August,02:30 - 04:00,DIEBYVEG B2B Charlotte Walsh
+Anachronica,Sunday 30th August,22:00 - 23:30,BRONWYN
+Anachronica,Sunday 30th August,22:00 - 23:30,DJ Scenic
+Anachronica,Sunday 30th August,23:30 - 01:00,Taurean
+Anachronica,Sunday 30th August,01:00 - 02:30,Collie
+Anachronica,Sunday 30th August,02:30 - 04:00,OISINOK
+Artlot,Thursday 27th August,22:00 - 23:00,Jordo Byrne
+Artlot,Thursday 27th August,23:00 - 00:00,FLOODY
+Artlot,Friday 28th August,13:00 - 13:45,The Wires
+Artlot,Friday 28th August,14:15 - 15:00,The Voodoo Kitchen
+Artlot,Friday 28th August,15:30 - 16:30,Lemonade Shoelace
+Artlot,Friday 28th August,17:00 - 17:15,Bevel & Embody
+Artlot,Friday 28th August,17:15 - 18:15,Kapayja
+Artlot,Friday 28th August,18:45 - 19:30,Smithereens
+Artlot,Friday 28th August,20:00 - 21:00,Croíthe
+Artlot,Friday 28th August,21:25 - 21:30,KAY
+Artlot,Friday 28th August,21:30 - 22:30,Claudia O
+Artlot,Friday 28th August,22:30 - 23:30,AdzyOB
+Artlot,Friday 28th August,23:30 - 02:00,Jamie Ennis
+Artlot,Friday 28th August,02:00 - 04:00,Modeā
+Artlot,Saturday 29th August,12:30 - 13:30,The Dirty Circus
+Artlot,Saturday 29th August,14:00 - 14:50,The Gladstone Band
+Artlot,Saturday 29th August,15:10 - 16:10,and he the fool
+Artlot,Saturday 29th August,16:40 - 17:00,KAY
+Artlot,Saturday 29th August,17:00 - 18:00,Curfew
+Artlot,Saturday 29th August,18:30 - 19:30,Ember
+Artlot,Saturday 29th August,20:00 - 21:00,The WU
+Artlot,Saturday 29th August,21:45 - 22:30,SEANEM
+Artlot,Saturday 29th August,22:30 - 23:30,Barry Bolger
+Artlot,Saturday 29th August,23:30 - 01:30,A/K
+Artlot,Saturday 29th August,01:30 - 04:00,Sharpson
+Artlot,Sunday 30th August,12:20 - 12:40,Phil Kenny
+Artlot,Sunday 30th August,12:40 - 13:00,THE VAGABOND QUEEN
+Artlot,Sunday 30th August,13:50 - 14:40,Mykology
+Artlot,Sunday 30th August,15:00 - 15:45,Some One's Sons
+Artlot,Sunday 30th August,16:15 - 17:15,Mac Steady
+Artlot,Sunday 30th August,17:45 - 18:45,Child of Prague
+Artlot,Sunday 30th August,19:00 - 20:00,The Blow In's
+Artlot,Sunday 30th August,20:15 - 20:30,Bevel & Embody
+Artlot,Sunday 30th August,21:00 - 22:00,BUDLY
+Artlot,Sunday 30th August,22:00 - 23:00,DJ BEKS
+Artlot,Sunday 30th August,23:00 - 00:00,People_Like_Us
+Artlot,Sunday 30th August,00:00 - 01:30,Lucas Ogma
+Artlot,Sunday 30th August,01:30 - 03:30,RATHAUS
+ArtLot Groove & Palette,Friday 28th August,12:00 - 18:00,Groove & Palette
+ArtLot Groove & Palette,Saturday 29th August,12:00 - 18:00,Groove & Palette
+ArtLot Groove & Palette,Sunday 30th August,12:00 - 18:00,Groove & Palette
+Brutropolis - Metro,Thursday 27th August,17:30 - 18:50,DJ Sonic Boom B2B Jammy Dodger
+Brutropolis - Metro,Thursday 27th August,19:00 - 20:00,Madonna Kebab
+Brutropolis - Metro,Thursday 27th August,20:10 - 21:40,DJ Battery Acid
+Brutropolis - Metro,Thursday 27th August,21:50 - 23:50,Donna Leake
+Brutropolis - Metro,Friday 28th August,17:00 - 18:30,THXXTI
+Brutropolis - Metro,Friday 28th August,20:20 - 21:50,DJ PCP's 21st Century Carnival
+Brutropolis - Metro,Friday 28th August,22:00 - 22:45,Fessa
+Brutropolis - Metro,Friday 28th August,22:55 - 00:25,Gaff-e
+Brutropolis - Metro,Friday 28th August,00:35 - 02:05,DJ B.Augustus B2B Milis
+Brutropolis - Metro,Friday 28th August,02:15 - 03:55,DJ Dewalt B2B DJ Hanibal Selector
+Brutropolis - Metro,Saturday 29th August,17:05 - 17:50,Tailor Birds
+Brutropolis - Metro,Saturday 29th August,18:00 - 18:45,SheLovesCalpol
+Brutropolis - Metro,Saturday 29th August,19:00 - 20:00,Emma Lohan
+Brutropolis - Metro,Saturday 29th August,20:15 - 21:00,Na Dord & na Rialtáin
+Brutropolis - Metro,Saturday 29th August,21:10 - 22:40,DJ Karmawi
+Brutropolis - Metro,Saturday 29th August,22:50 - 00:20,Лукас Огма
+Brutropolis - Metro,Saturday 29th August,00:30 - 02:00,Magz
+Brutropolis - Metro,Saturday 29th August,02:10 - 04:00,DJackulate
+Brutropolis - Metro,Sunday 30th August,17:00 - 18:00,DJ Transit
+Brutropolis - Metro,Sunday 30th August,19:20 - 20:50,StrangeLove
+Brutropolis - Metro,Sunday 30th August,21:00 - 21:45,Éabha
+Brutropolis - Metro,Sunday 30th August,21:55 - 23:05,Hykken
+Brutropolis - Metro,Sunday 30th August,23:15 - 00:35,INFLUX
+Brutropolis - Metro,Sunday 30th August,00:45 - 02:15,Azu Tiwaline
+Brutropolis - Ministry of Misinformation,Friday 28th August,19:00 - 19:40,?
+Brutropolis - Ministry of Misinformation,Friday 28th August,20:25 - 21:05,?
+Brutropolis - Ministry of Misinformation,Friday 28th August,21:45 - 22:10,?
+Brutropolis - Ministry of Misinformation,Friday 28th August,23:55 - 00:40,?
+Brutropolis - Ministry of Misinformation,Friday 28th August,01:25 - 02:20,?
+Brutropolis - Ministry of Misinformation,Friday 28th August,03:00 - 04:00,?
+Brutropolis - Ministry of Misinformation,Saturday 29th August,16:00 - 16:30,?
+Brutropolis - Ministry of Misinformation,Saturday 29th August,17:40 - 18:30,?
+Brutropolis - Ministry of Misinformation,Saturday 29th August,19:30 - 20:00,?
+Brutropolis - Ministry of Misinformation,Saturday 29th August,20:55 - 21:40,?
+Brutropolis - Ministry of Misinformation,Saturday 29th August,22:25 - 23:10,?
+Brutropolis - Ministry of Misinformation,Saturday 29th August,01:30 - 02:40,?
+Brutropolis - Ministry of Misinformation,Saturday 29th August,03:00 - 04:00,?
+Brutropolis - Ministry of Misinformation,Sunday 30th August,16:30 - 17:05,?
+Brutropolis - Ministry of Misinformation,Sunday 30th August,18:30 - 19:10,?
+Brutropolis - Ministry of Misinformation,Sunday 30th August,20:00 - 20:40,?
+Brutropolis - Ministry of Misinformation,Sunday 30th August,21:30 - 22:10,?
+Brutropolis - Ministry of Misinformation,Sunday 30th August,23:10 - 00:00,?
+Cerebral Fortress,Friday 28th August,22:00 - 23:30,?
+Cerebral Fortress,Friday 28th August,23:30 - 01:00,?
+Cerebral Fortress,Friday 28th August,01:00 - 03:00,?
+Cerebral Fortress,Friday 28th August,03:00 - 04:00,?
+Cerebral Fortress,Saturday 29th August,22:00 - 23:00,?
+Cerebral Fortress,Saturday 29th August,23:00 - 00:00,?
+Cerebral Fortress,Saturday 29th August,00:00 - 01:00,?
+Cerebral Fortress,Saturday 29th August,01:00 - 02:30,?
+Cerebral Fortress,Saturday 29th August,02:30 - 04:00,?
+Cerebral Fortress,Sunday 30th August,22:00 - 23:00,?
+Cerebral Fortress,Sunday 30th August,23:00 - 00:30,?
+Coke Studio,Friday 28th August,15:00 - 17:00,Ab Stylez
+Coke Studio,Friday 28th August,17:30 - 18:15,Anna's Number
+Coke Studio,Friday 28th August,18:45 - 19:15,Allie Sherlock
+Coke Studio,Friday 28th August,19:45 - 20:30,Code of Behaviour
+Coke Studio,Friday 28th August,21:00 - 22:00,COKE STUDIO SECRET SET - FRIDAY
+Coke Studio,Friday 28th August,22:30 - 00:00,Chris Watson
+Coke Studio,Friday 28th August,00:00 - 02:00,Cody Wong
+Coke Studio,Saturday 29th August,17:45 - 18:15,COKE STUDIO SECRET SET - SATURDAY
+Coke Studio,Saturday 29th August,18:45 - 19:30,Aimee
+Coke Studio,Saturday 29th August,21:15 - 22:15,Prymary Colours
+Coke Studio,Saturday 29th August,22:15 - 00:00,Dave Treacy b2b Shane Sully (Coca Cola Dream Academy Winner)
+Coke Studio,Sunday 30th August,17:15 - 17:45,COKE STUDIO SECRET SET - SUNDAY
+Coke Studio,Sunday 30th August,17:45 - 18:30,Travis & Elzzz
+Coke Studio,Sunday 30th August,18:30 - 20:30,Malo
+Coke Studio,Sunday 30th August,22:30 - 00:00,Riff Shop
+Coke Studio,Sunday 30th August,00:00 - 02:00,Ciara E
+Croi - Crescent Earth,Friday 28th August,16:00 - 17:00,Céili Mór - Lynam School of Dancing
+Croi - Crescent Earth,Friday 28th August,17:30 - 18:30,Donna Murphy | Zumba
+Croi - Crescent Earth,Saturday 29th August,12:00 - 13:00,Sunflower Sessions
+Croi - Crescent Earth,Saturday 29th August,13:30 - 14:30,BollyBeatsⓇ
+Croi - Crescent Earth,Saturday 29th August,15:00 - 16:00,Allan Müller
+Croi - Crescent Earth,Saturday 29th August,16:30 - 17:30,Lapree Lala
+Croi - Crescent Earth,Sunday 30th August,12:00 - 13:00,Kate Dagher
+Croi - Crescent Earth,Sunday 30th August,13:30 - 14:30,Fonda Jane
+Croi - Crescent Earth,Sunday 30th August,15:00 - 16:00,MooreFitness
+Croi - Crescent Earth,Sunday 30th August,16:30 - 17:30,Donking Rongavilla
+Croi - Intinn,Friday 28th August,16:00 - 17:00,Yoga le Ciarán (Óga Yoga)
+Croi - Intinn,Friday 28th August,17:30 - 18:30,ALIGNED by Amber Doyle
+Croi - Intinn,Saturday 29th August,12:30 - 13:30,Yoga with Kendra
+Croi - Intinn,Saturday 29th August,13:50 - 14:50,Adam Dickson
+Croi - Intinn,Saturday 29th August,15:20 - 16:20,Rachel from MyWellbeing.ie
+Croi - Intinn,Saturday 29th August,16:50 - 17:50,Tura Arutura
+Croi - Intinn,Sunday 30th August,12:20 - 13:20,The Healing Forest
+Croi - Intinn,Sunday 30th August,13:50 - 14:50,Alchemy of Sound
+Croi - Intinn,Sunday 30th August,15:20 - 16:20,Ross Cousens
+Croi - Intinn,Sunday 30th August,16:50 - 17:50,Aoife Smith - Systematic Kinesiologist
+Croi - Kinship & Touch,Friday 28th August,16:00 - 17:00,Somatic Devotion
+Croi - Kinship & Touch,Friday 28th August,17:30 - 18:30,Adam Dickson
+Croi - Kinship & Touch,Saturday 29th August,12:20 - 13:20,Imagination Liberation
+Croi - Kinship & Touch,Saturday 29th August,13:30 - 14:30,ALIGNED by Amber Doyle
+Croi - Kinship & Touch,Saturday 29th August,14:40 - 15:40,Hannah O'Neill (Réaltaí readings)
+Croi - Kinship & Touch,Saturday 29th August,15:50 - 16:50,Yoga With Maura
+Croi - Kinship & Touch,Saturday 29th August,17:00 - 18:00,Carla McGreevy
+Croi - Kinship & Touch,Sunday 30th August,12:20 - 13:20,Somatic Devotion
+Croi - Kinship & Touch,Sunday 30th August,13:30 - 14:30,Hannah O'Neill (Réaltaí readings)
+Croi - Kinship & Touch,Sunday 30th August,14:40 - 15:40,Polaris Fusion Bellydance Company
+Croi - Kinship & Touch,Sunday 30th August,15:50 - 16:50,Kitty Maguire
+Croi - Kinship & Touch,Sunday 30th August,17:00 - 18:00,Carla McGreevy
+Croi - Main Stage,Friday 28th August,14:00 - 14:30,Just Alice
+Croi - Main Stage,Friday 28th August,14:45 - 15:30,MnáSome Lives
+Croi - Main Stage,Friday 28th August,16:00 - 17:00,An Chéad Ghlúin Eile
+Croi - Main Stage,Friday 28th August,17:30 - 18:30,The Weaving
+Croi - Main Stage,Friday 28th August,19:00 - 20:00,The Leon Stax Equation
+Croi - Main Stage,Friday 28th August,20:30 - 21:30,Melina Malone
+Croi - Main Stage,Friday 28th August,22:00 - 23:00,Na Cairde
+Croi - Main Stage,Friday 28th August,23:30 - 00:30,Huartan
+Croi - Main Stage,Friday 28th August,01:30 - 03:30,PERSONA Feat. The Firebirds
+Croi - Main Stage,Saturday 29th August,13:00 - 14:00,The Inishbofin Céilí Band
+Croi - Main Stage,Saturday 29th August,14:45 - 15:45,Mairéad
+Croi - Main Stage,Saturday 29th August,16:30 - 17:30,Eleanor McEvoy
+Croi - Main Stage,Saturday 29th August,18:15 - 19:15,Altan
+Croi - Main Stage,Saturday 29th August,20:00 - 21:00,John Francis Flynn
+Croi - Main Stage,Saturday 29th August,21:30 - 22:30,FeliSpeaks
+Croi - Main Stage,Saturday 29th August,22:00 - 23:00,Hidden Orchestra
+Croi - Main Stage,Saturday 29th August,23:00 - 23:30,Denise Chaila
+Croi - Main Stage,Saturday 29th August,23:30 - 01:30,Mungo's Hi Fi feat Cian Finn & Special Guests
+Croi - Main Stage,Saturday 29th August,02:00 - 03:30,Rory Sweeney (Live)
+Croi - Main Stage,Sunday 30th August,13:00 - 14:00,Inni-K & the UCD Gamelan Orchestra
+Croi - Main Stage,Sunday 30th August,14:45 - 15:45,Dordán
+Croi - Main Stage,Sunday 30th August,16:30 - 17:30,Maighread & Tríona Ní Dhomhnaill
+Croi - Main Stage,Sunday 30th August,18:00 - 19:00,Dónal Lunny Máirtín O'Connor & Zoë Conway
+Croi - Main Stage,Sunday 30th August,19:30 - 20:30,Music Generation Harp Collective
+Croi - Main Stage,Sunday 30th August,21:00 - 22:00,Kean Kavanagh
+Croi - Main Stage,Sunday 30th August,22:45 - 23:45,Aindrias de Staic & The Latchikos
+Croi - Main Stage,Sunday 30th August,00:30 - 02:30,Shampain (Millenium Madness Tour)
+Croi - Realign,Friday 28th August,16:00 - 16:40,PETER PRIESTLEY
+Croi - Realign,Friday 28th August,16:50 - 18:00,Didgeridoo Jedi
+Croi - Realign,Saturday 29th August,12:15 - 13:00,Lurienne Jewel
+Croi - Realign,Saturday 29th August,13:15 - 14:00,Lorraine Hogan
+Croi - Realign,Saturday 29th August,14:15 - 15:00,Yoga le Ciarán (Óga Yoga)
+Croi - Realign,Saturday 29th August,15:15 - 16:00,Yoga with Kendra
+Croi - Realign,Saturday 29th August,16:15 - 17:00,Rince.Yoga
+Croi - Realign,Sunday 30th August,12:15 - 13:00,Reggae Yoga w Reeta Cherie
+Croi - Realign,Sunday 30th August,13:15 - 14:00,Aoife Smith
+Croi - Realign,Sunday 30th August,14:15 - 15:00,Christine Higgins
+Croi - Realign,Sunday 30th August,15:15 - 16:00,Marta Vera
+Croi - Realign,Sunday 30th August,16:15 - 17:00,Yoga Parties
+Croi - Serenity Gardens Stage,Friday 28th August,18:00 - 18:25,SERENITY GARDENS STAGE OPENS with AOS Sí NA TINE
+Croi - Serenity Gardens Stage,Friday 28th August,18:30 - 19:25,PAULINE GARCIA
+Croi - Serenity Gardens Stage,Friday 28th August,19:35 - 20:30,RÚ O'SHEA
+Croi - Serenity Gardens Stage,Friday 28th August,21:05 - 22:00,EMMA LOHAN
+Croi - Serenity Gardens Stage,Friday 28th August,22:30 - 23:59,FIRESIDE JAM HOSTED BY DOM
+Croi - Serenity Gardens Stage,Saturday 29th August,10:00 - 12:00,CREATIVE WRITING ROUND THE FIRE WITH LULU SINOTT POETRY BY THE BARROW
+Croi - Serenity Gardens Stage,Saturday 29th August,11:00 - 11:45,PUT THE KETTLE ON
+Croi - Serenity Gardens Stage,Saturday 29th August,12:05 - 13:00,MERLOT BIRD
+Croi - Serenity Gardens Stage,Saturday 29th August,18:00 - 18:50,CIARA LAWLESS
+Croi - Serenity Gardens Stage,Saturday 29th August,19:15 - 20:15,JAMES KEEGAN
+Croi - Serenity Gardens Stage,Saturday 29th August,20:45 - 21:45,THE LADY FI EXPERIENCE
+Croi - Serenity Gardens Stage,Saturday 29th August,22:30 - 23:59,FIRESIDE JAM HOSTED BY DOM
+Croi - Serenity Gardens Stage,Sunday 30th August,11:00 - 11:45,MARK HAYES
+Croi - Serenity Gardens Stage,Sunday 30th August,12:05 - 13:00,BRIAN LEACH
+Croi - Serenity Gardens Stage,Sunday 30th August,18:00 - 18:55,GEIS
+Croi - Serenity Gardens Stage,Sunday 30th August,19:15 - 20:15,SHIMMER BOY
+Croi - Serenity Gardens Stage,Sunday 30th August,20:45 - 21:45,ERIN & THE LENS
+Croi Serenity Gardens - Soft Landing,Friday 28th August,12:00 - 13:15,SÍOGA TINE
+Croi Serenity Gardens - Soft Landing,Friday 28th August,14:00 - 15:15,SHIMMY SHAKE & CELEBRATE with KATEO
+Croi Serenity Gardens - Soft Landing,Friday 28th August,16:45 - 18:00,DJ GAELTRONICA
+Croi Serenity Gardens - Soft Landing,Saturday 29th August,09:00 - 10:15,REVIVE YOUR VIBE WITH VITÓRIA SOUZA
+Croi Serenity Gardens - Soft Landing,Saturday 29th August,10:45 - 11:45,DARA O'BRIEN - MORNING RAGAS ON SITAR
+Croi Serenity Gardens - Soft Landing,Saturday 29th August,12:30 - 14:00,THE LIVING STAGE LIVE IMPROVISED THEATRE EXPERIENCE WITH YVONNE COUGHLAN
+Croi Serenity Gardens - Soft Landing,Saturday 29th August,14:30 - 16:30,REWILDING WITH THE MINDSET EXPLORER & DJ CHACHØU
+Croi Serenity Gardens - Soft Landing,Saturday 29th August,17:00 - 17:45,MIRANDA FAUL
+Croi Serenity Gardens - Soft Landing,Saturday 29th August,19:30 - 21:00,DJ CHACHØU ON THE DECKS
+Croi Serenity Gardens - Soft Landing,Sunday 30th August,09:30 - 10:45,MORNING KIRTAN WITH LEA
+Croi Serenity Gardens - Soft Landing,Sunday 30th August,11:15 - 12:45,NEUROGRAPHICS WITH YANA
+Croi Serenity Gardens - Soft Landing,Sunday 30th August,13:00 - 14:15,Sí Yoga: Bí Beo
+Croi Serenity Gardens - Soft Landing,Sunday 30th August,14:45 - 16:15,YOUR FESTIVAL JOURNEY: A CREATIVE JOURNEY THROUGH COLLAGE WITH RUTH & EL
+Croi Serenity Gardens - Soft Landing,Sunday 30th August,16:45 - 18:15,RAW & RECITING: The Vagabond Queen Lulu Sinnott & Cathal Holden
+Croi Serenity Gardens - Soft Landing,Sunday 30th August,19:30 - 21:00,DJ GAELTRONICA
+Fishtown,Friday 28th August,13:45 - 14:30,TONY ST LEDGER
+Fishtown,Friday 28th August,15:00 - 15:45,7LZ
+Fishtown,Friday 28th August,16:15 - 17:00,GROEV
+Fishtown,Friday 28th August,17:30 - 18:15,MALAKI
+Fishtown,Friday 28th August,18:45 - 19:30,MADAMS LAST DISCOVERY
+Fishtown,Friday 28th August,20:00 - 20:45,JEAN PACK & THE SLAY BABIES
+Fishtown,Friday 28th August,21:15 - 22:00,CHILD OF PRAGUE
+Fishtown,Friday 28th August,22:30 - 23:30,JINX LENNON
+Fishtown,Friday 28th August,00:15 - 01:00,MAYKAY
+Fishtown,Friday 28th August,01:30 - 02:30,JERRY FISH
+Fishtown,Friday 28th August,03:00 - 04:00,R.S.A.G. & Kilo presents Decks N Drums
+Fishtown,Saturday 29th August,12:20 - 13:05,Rua Rí
+Fishtown,Saturday 29th August,13:25 - 14:10,DEAR WILLOW
+Fishtown,Saturday 29th August,14:30 - 15:15,LUCY MC WILLIAMS
+Fishtown,Saturday 29th August,15:45 - 16:30,LEEVY
+Fishtown,Saturday 29th August,17:00 - 18:00,Grá
+Fishtown,Saturday 29th August,18:30 - 19:30,BABYRAT
+Fishtown,Saturday 29th August,20:00 - 21:00,ROWETTA (HAPPY MONDAYS)
+Fishtown,Saturday 29th August,21:30 - 22:30,THE DONNYS
+Fishtown,Saturday 29th August,23:00 - 00:00,SIDESHOW DISCO
+Fishtown,Saturday 29th August,00:30 - 02:00,TRAD RAVE
+Fishtown,Saturday 29th August,02:00 - 04:00,BILLY SCURRY
+Fishtown,Saturday 29th August,02:00 - 04:00,Kelly-Anne Byrne
+Fishtown,Sunday 30th August,13:25 - 14:10,OLIVIA IS A GHOST
+Fishtown,Sunday 30th August,14:30 - 15:15,CRAYFISH
+Fishtown,Sunday 30th August,15:45 - 16:30,CALUM AGNEW
+Fishtown,Sunday 30th August,17:00 - 18:00,REGINA & THE QUEENS
+Fishtown,Sunday 30th August,18:30 - 19:30,SHOBSY
+Fishtown,Sunday 30th August,20:00 - 21:00,DELUSH
+Fishtown,Sunday 30th August,21:30 - 22:30,DOSE
+Fishtown,Sunday 30th August,23:00 - 00:00,THE YEAR GRUNGE BROKE
+Fishtown,Sunday 30th August,00:30 - 02:00,SECRET ACT
+Fishtown - Heart and Anchor,Friday 28th August,14:00 - 15:30,Ste 45
+Fishtown - Heart and Anchor,Friday 28th August,15:30 - 17:00,Johnny Blazed
+Fishtown - Heart and Anchor,Friday 28th August,17:00 - 18:30,Captain Birdsong
+Fishtown - Heart and Anchor,Friday 28th August,18:30 - 19:30,Checkpiont Charlie
+Fishtown - Heart and Anchor,Friday 28th August,19:30 - 21:00,Eddie B
+Fishtown - Heart and Anchor,Friday 28th August,21:00 - 22:30,Cyriac
+Fishtown - Heart and Anchor,Friday 28th August,22:30 - 01:30,the se7en inch collective
+Fishtown - Heart and Anchor,Friday 28th August,01:30 - 03:00,Mattie B
+Fishtown - Heart and Anchor,Saturday 29th August,15:00 - 19:00,The Woohah Hip Hop & Chess
+Fishtown - Heart and Anchor,Saturday 29th August,19:00 - 20:00,Jonezy
+Fishtown - Heart and Anchor,Saturday 29th August,20:00 - 22:00,Swiss
+Fishtown - Heart and Anchor,Saturday 29th August,22:00 - 23:59,Local Groove Records
+Fishtown - Heart and Anchor,Saturday 29th August,00:00 - 02:00,JusMe
+Fishtown - Heart and Anchor,Saturday 29th August,02:00 - 04:00,K I L O
+Fishtown - Heart and Anchor,Sunday 30th August,13:00 - 15:00,Chartini
+Fishtown - Heart and Anchor,Sunday 30th August,15:00 - 16:00,Eile
+Fishtown - Heart and Anchor,Sunday 30th August,16:00 - 18:00,Jacqui
+Fishtown - Heart and Anchor,Sunday 30th August,18:00 - 20:00,Daria
+Fishtown - Heart and Anchor,Sunday 30th August,20:00 - 22:00,Dandelion
+Fishtown - Heart and Anchor,Sunday 30th August,22:00 - 23:59,DJ Sinéad Ní Mhórdha
+Fishtown - Heart and Anchor,Sunday 30th August,00:00 - 01:00,The Night Mayor & ED IS ON
+Fishtown - Sideshow Circus Stage,Friday 28th August,20:00 - 20:45,Jean Pack
+Fishtown - Sideshow Circus Stage,Saturday 29th August,02:00 - 04:00,Billy Scurry/Kelly Ann-Byrne
+Fishtown - Sideshow Circus Stage,Sunday 30th August,00:30 - 02:00,The End of the World Party Secret Act
+Fosset's Circus,Friday 28th August,17:00 - 18:00,Fosset's Circus
+Fosset's Circus,Saturday 29th August,14:00 - 15:00,Fosset's Circus
+Fosset's Circus,Saturday 29th August,17:00 - 18:00,Fosset's Circus
+Fosset's Circus,Sunday 30th August,14:00 - 15:00,Fosset's Circus
+Fosset's Circus,Sunday 30th August,17:00 - 18:00,Fosset's Circus
+Global Green - Elements of Change,Friday 28th August,16:30 - 17:30,Voices from Global Green
+Global Green - Elements of Change,Friday 28th August,17:45 - 18:45,MarkO
+Global Green - Elements of Change,Friday 28th August,19:00 - 19:40,The Savage Jim Breen
+Global Green - Elements of Change,Friday 28th August,20:00 - 20:40,Luke Clerkin
+Global Green - Elements of Change,Friday 28th August,22:00 - 22:50,Riddim and Ting
+Global Green - Elements of Change,Friday 28th August,23:00 - 23:50,Raggapuffin
+Global Green - Elements of Change,Friday 28th August,00:00 - 01:20,DJ Ruari-Santiago McBride and Ollie Moore
+Global Green - Elements of Change,Friday 28th August,01:20 - 02:15,DJ Kelsey
+Global Green - Elements of Change,Friday 28th August,02:15 - 03:10,DJ Aaronoscar
+Global Green - Elements of Change,Friday 28th August,03:10 - 04:00,DJ Eli
+Global Green - Elements of Change,Saturday 29th August,11:00 - 12:00,Morning Yoga
+Global Green - Elements of Change,Saturday 29th August,12:00 - 12:50,Laura Kehoe
+Global Green - Elements of Change,Saturday 29th August,13:00 - 13:40,Feeding Ourselves - Food System Transformation with Siolta Croí
+Global Green - Elements of Change,Saturday 29th August,13:45 - 14:15,Decolonising Agriculture with Rupa Marya and Ollie Moore
+Global Green - Elements of Change,Saturday 29th August,14:15 - 15:00,Young Voices of Africa
+Global Green - Elements of Change,Saturday 29th August,15:10 - 15:30,Caoimhe Butterly and Rupa Marya in Conversation: Palestine - what next?
+Global Green - Elements of Change,Saturday 29th August,15:30 - 16:00,Leen Maarouf
+Global Green - Elements of Change,Saturday 29th August,16:00 - 16:30,Palestine - what now what next in Ireland?
+Global Green - Elements of Change,Saturday 29th August,16:30 - 17:00,Abood Aladham
+Global Green - Elements of Change,Saturday 29th August,17:00 - 17:30,Yalla Craic - Play Roots and Resilience
+Global Green - Elements of Change,Saturday 29th August,17:30 - 18:00,Rú O'Shea
+Global Green - Elements of Change,Saturday 29th August,19:00 - 19:45,The Shan Vans
+Global Green - Elements of Change,Saturday 29th August,20:00 - 20:45,Robot Rock
+Global Green - Elements of Change,Saturday 29th August,21:00 - 21:45,Sauti Club Cork
+Global Green - Elements of Change,Saturday 29th August,22:00 - 00:00,Hip Hop Hooray & DJ Rosko
+Global Green - Elements of Change,Saturday 29th August,00:00 - 01:00,Hlymrekr
+Global Green - Elements of Change,Saturday 29th August,01:00 - 02:00,Sophie Shaw
+Global Green - Elements of Change,Saturday 29th August,02:00 - 03:00,KNUM
+Global Green - Elements of Change,Saturday 29th August,03:00 - 04:00,B.R.E.D
+Global Green - Elements of Change,Sunday 30th August,11:00 - 12:00,Morning Yoga
+Global Green - Elements of Change,Sunday 30th August,12:30 - 14:00,Pleasure Activism
+Global Green - Elements of Change,Sunday 30th August,14:00 - 15:00,Honouring the Dexter – Stories Heritage & Waste Not Want Not
+Global Green - Elements of Change,Sunday 30th August,14:30 - 15:20,Cultural Creatives: Artivism in Action
+Global Green - Elements of Change,Sunday 30th August,15:20 - 16:00,The Power of Community
+Global Green - Elements of Change,Sunday 30th August,16:15 - 17:30,Mel White and Alys Taylor's Spoken Word Jam
+Global Green - Elements of Change,Sunday 30th August,17:30 - 17:50,AnattaPatrick
+Global Green - Elements of Change,Sunday 30th August,17:50 - 18:25,Nat Stone
+Global Green - Elements of Change,Sunday 30th August,18:25 - 18:45,Sarah Szucs
+Global Green - Elements of Change,Sunday 30th August,18:45 - 19:05,Sol Chase
+Global Green - Elements of Change,Sunday 30th August,19:05 - 19:25,Evergreen Choose-Joy
+Global Green - Elements of Change,Sunday 30th August,19:25 - 20:00,Cloughjordan Candlelit Ensemble
+Global Green - Elements of Change,Sunday 30th August,20:15 - 21:00,The HQs
+Global Green - Elements of Change,Sunday 30th August,21:00 - 22:00,The Accidental Rapper
+Global Green - Elements of Change,Sunday 30th August,23:30 - 00:45,The Cazettes
+Global Green - Elements of Change,Sunday 30th August,01:00 - 02:00,DJ Ollie Moore
+Global Green - Elements of Change,Sunday 30th August,02:00 - 04:00,Anacalypsis
+Glow Depot,Thursday 27th August,21:00 - 22:30,Mills
+Glow Depot,Thursday 27th August,22:30 - 00:00,King Kong Company DJ Set
+Glow Depot,Friday 28th August,11:05 - 12:10,Desires
+Glow Depot,Friday 28th August,13:00 - 14:00,Together As One
+Glow Depot,Friday 28th August,14:15 - 15:00,danzi
+Glow Depot,Friday 28th August,15:30 - 16:30,Avenue 68
+Glow Depot,Friday 28th August,16:45 - 17:30,Sugaboo
+Glow Depot,Friday 28th August,17:45 - 18:45,Phallout
+Glow Depot,Friday 28th August,19:00 - 19:45,Jeorge II
+Glow Depot,Friday 28th August,20:00 - 21:00,The Dirty Circus
+Glow Depot,Friday 28th August,21:00 - 21:15,EMORAH Collective
+Glow Depot,Friday 28th August,21:15 - 22:00,Nuclearmaso
+Glow Depot,Friday 28th August,22:00 - 00:00,vasuki red
+Glow Depot,Friday 28th August,00:00 - 02:00,RNL
+Glow Depot,Friday 28th August,02:00 - 04:00,Ev Wilde
+Glow Depot,Saturday 29th August,12:30 - 14:30,BETZY NINA’s Dirty Breakfast
+Glow Depot,Saturday 29th August,12:30 - 14:30,The Dirty Circus
+Glow Depot,Saturday 29th August,15:05 - 15:50,Smokey
+Glow Depot,Saturday 29th August,16:00 - 17:00,Fortune Igiebor
+Glow Depot,Saturday 29th August,17:15 - 18:00,Lil Skag
+Glow Depot,Saturday 29th August,18:15 - 20:15,Catacombs
+Glow Depot,Saturday 29th August,20:15 - 21:15,Omen
+Glow Depot,Saturday 29th August,21:30 - 21:45,EMORAH Collective
+Glow Depot,Saturday 29th August,22:00 - 23:30,MANWELLI
+Glow Depot,Saturday 29th August,23:30 - 01:30,The Mo Cultivation
+Glow Depot,Saturday 29th August,01:30 - 02:30,JenTen
+Glow Depot,Saturday 29th August,02:30 - 04:00,Jess Maciel
+Glow Depot,Sunday 30th August,12:30 - 13:30,The Dirty Circus
+Glow Depot,Sunday 30th August,13:50 - 14:50,EMPTY INTERNET
+Glow Depot,Sunday 30th August,15:00 - 16:00,Saibhin
+Glow Depot,Sunday 30th August,16:30 - 17:30,Salamay
+Glow Depot,Sunday 30th August,17:45 - 18:45,Outstraight Records
+Glow Depot,Sunday 30th August,19:15 - 20:15,Mount Pyrus
+Glow Depot,Sunday 30th August,20:45 - 21:00,Abbey Blu
+Glow Depot,Sunday 30th August,20:45 - 22:00,Boss Events & Friends
+Glow Depot,Sunday 30th August,21:00 - 21:15,Angel Rose
+Glow Depot,Sunday 30th August,21:15 - 21:30,Shiloh Grey
+Glow Depot,Sunday 30th August,21:30 - 21:50,Mister K.Y.B
+Glow Depot,Sunday 30th August,22:30 - 23:30,Nuclearmaso
+Glow Depot,Sunday 30th August,23:30 - 00:30,Sloucho [DJ Set]
+Glow Depot,Sunday 30th August,00:30 - 02:30,ASYLUM RESIDENTS
+Glow Depot,Sunday 30th August,02:30 - 04:00,NewEra
+Glow Depot - Courtside Stage,Friday 28th August,14:00 - 15:00,Nia Byrd
+Glow Depot - Courtside Stage,Friday 28th August,15:00 - 16:00,Mookie
+Glow Depot - Courtside Stage,Friday 28th August,18:00 - 19:00,Thxtti
+Glow Depot - Courtside Stage,Friday 28th August,19:00 - 20:00,DJ Ozz G
+Glow Depot - Courtside Stage,Friday 28th August,20:00 - 21:00,CNC
+Glow Depot - Courtside Stage,Friday 28th August,22:00 - 04:00,Super Average DJs
+Glow Depot - Courtside Stage,Saturday 29th August,14:00 - 15:00,DJ Chartini
+Glow Depot - Courtside Stage,Saturday 29th August,15:00 - 16:00,Kiki D
+Glow Depot - Courtside Stage,Saturday 29th August,18:00 - 19:00,Fergal D'Arcy
+Glow Depot - Courtside Stage,Saturday 29th August,19:00 - 20:00,DJ Bongani
+Glow Depot - Courtside Stage,Saturday 29th August,20:00 - 22:00,Aneta Moran Sax
+Glow Depot - Courtside Stage,Saturday 29th August,22:00 - 04:00,Super Average DJs
+Glow Depot - Courtside Stage,Sunday 30th August,14:00 - 15:00,Mick G
+Glow Depot - Courtside Stage,Sunday 30th August,15:00 - 16:00,Bren Curtis
+Glow Depot - Courtside Stage,Sunday 30th August,18:00 - 19:00,Nancy Wilde
+Glow Depot - Courtside Stage,Sunday 30th August,19:00 - 20:00,SX2
+Glow Depot - Courtside Stage,Sunday 30th August,20:00 - 22:00,Aneta Moran Sax
+Glow Depot - Courtside Stage,Sunday 30th August,22:00 - 04:00,Super Average DJs
+Guinness Lovely Times Stage,Friday 28th August,14:00 - 15:00,BLKCNVS
+Guinness Lovely Times Stage,Friday 28th August,15:00 - 15:45,KK Lewis
+Guinness Lovely Times Stage,Friday 28th August,16:00 - 17:00,The Wran (Trad Session)
+Guinness Lovely Times Stage,Friday 28th August,17:00 - 18:30,Mo Cultivation
+Guinness Lovely Times Stage,Friday 28th August,18:30 - 19:15,Morgana
+Guinness Lovely Times Stage,Friday 28th August,20:00 - 21:00,Grá (Trad Session)
+Guinness Lovely Times Stage,Friday 28th August,21:30 - 22:15,Sorcha Richardson
+Guinness Lovely Times Stage,Friday 28th August,22:15 - 00:00,Gurriers DJ
+Guinness Lovely Times Stage,Friday 28th August,00:00 - 02:00,Sally Cinnamon
+Guinness Lovely Times Stage,Saturday 29th August,12:00 - 12:45,and he the fool (Trad Session)
+Guinness Lovely Times Stage,Saturday 29th August,12:45 - 14:15,Little O
+Guinness Lovely Times Stage,Saturday 29th August,14:15 - 15:15,Simple Things (Trad Session)
+Guinness Lovely Times Stage,Saturday 29th August,16:00 - 17:00,Black Nylon DJ
+Guinness Lovely Times Stage,Saturday 29th August,17:00 - 17:45,SHAMROCK SHOWBAND
+Guinness Lovely Times Stage,Saturday 29th August,18:00 - 19:30,Darren Regan
+Guinness Lovely Times Stage,Saturday 29th August,21:30 - 22:30,Cliffords DJ
+Guinness Lovely Times Stage,Saturday 29th August,22:30 - 23:30,Graham Smyth B2B Claire Beck
+Guinness Lovely Times Stage,Saturday 29th August,23:30 - 01:00,Soft Boy DJ
+Guinness Lovely Times Stage,Saturday 29th August,01:00 - 02:00,Surka
+Guinness Lovely Times Stage,Sunday 30th August,13:00 - 14:00,Governess
+Guinness Lovely Times Stage,Sunday 30th August,14:00 - 15:00,Esmeralda Road
+Guinness Lovely Times Stage,Sunday 30th August,15:00 - 16:00,Ispini na hEireann (Trad Session)
+Guinness Lovely Times Stage,Sunday 30th August,16:00 - 16:40,Kayleigh Noble
+Guinness Lovely Times Stage,Sunday 30th August,16:40 - 18:00,Forget Romance
+Guinness Lovely Times Stage,Sunday 30th August,18:00 - 19:00,The Byrne Brothers (Trad Session)
+Guinness Lovely Times Stage,Sunday 30th August,19:00 - 20:00,Ricky Chong
+Guinness Lovely Times Stage,Sunday 30th August,20:00 - 21:00,Pillow Queens
+Guinness Lovely Times Stage,Sunday 30th August,21:00 - 23:00,Minikimono
+Guinness Lovely Times Stage,Sunday 30th August,23:00 - 23:40,Dave Lofts
+Guinness Lovely Times Stage,Sunday 30th August,23:40 - 01:00,George Feely
+Guinness Lovely Times Stage,Sunday 30th August,01:00 - 02:00,Madra Salach DJ
+Hazelwood - Chollchoill,Thursday 27th August,19:00 - 19:10,Bláithín De Burca - BlaComedy
+Hazelwood - Chollchoill,Thursday 27th August,19:10 - 19:40,Léaró
+Hazelwood - Chollchoill,Thursday 27th August,19:40 - 20:00,Bláithín De Burca - BlaComedy
+Hazelwood - Chollchoill,Thursday 27th August,20:00 - 20:30,MARYANN - Electric Youth
+Hazelwood - Chollchoill,Thursday 27th August,20:30 - 20:50,Bláithín De Burca - BlaComedy
+Hazelwood - Chollchoill,Thursday 27th August,20:50 - 21:20,Entr’achte - Performance 1
+Hazelwood - Chollchoill,Thursday 27th August,21:20 - 21:30,Bláithín De Burca - BlaComedy
+Hazelwood - Chollchoill,Thursday 27th August,21:30 - 22:00,Entr’achte - Performance 1
+Hazelwood - Chollchoill,Thursday 27th August,22:10 - 22:40,Entr’achte - Performance 1
+Hazelwood - Chollchoill,Thursday 27th August,23:00 - 23:20,INNNER VISION Visual Light Projection by Susan Walsh
+Hazelwood - Chollchoill,Thursday 27th August,23:30 - 23:50,Morrigna Fire Show
+Hazelwood - Chollchoill,Friday 28th August,13:00 - 13:40,Sacred Sites of Ireland | Sean Scéalta
+Hazelwood - Chollchoill,Friday 28th August,14:00 - 14:45,M⁠isleór Festival of Nomadic Cultures
+Hazelwood - Chollchoill,Friday 28th August,15:15 - 16:00,Coscán
+Hazelwood - Chollchoill,Friday 28th August,16:30 - 17:15,Major Feen
+Hazelwood - Chollchoill,Friday 28th August,17:45 - 18:30,The Liam O Connor Show
+Hazelwood - Chollchoill,Friday 28th August,19:00 - 19:45,Hiphap Gaelach
+Hazelwood - Chollchoill,Friday 28th August,20:30 - 21:15,Rua Rí
+Hazelwood - Chollchoill,Friday 28th August,21:45 - 22:30,Clada
+Hazelwood - Chollchoill,Friday 28th August,22:55 - 23:55,Susan Walsh
+Hazelwood - Chollchoill,Friday 28th August,23:35 - 00:20,Burnchurch
+Hazelwood - Chollchoill,Saturday 29th August,13:00 - 13:40,Fierin J - Electric Youth
+Hazelwood - Chollchoill,Saturday 29th August,14:00 - 14:45,Paradise Conspiracy - Electric Youth
+Hazelwood - Chollchoill,Saturday 29th August,15:15 - 16:00,Oracle Villa
+Hazelwood - Chollchoill,Saturday 29th August,16:30 - 17:15,The Caochaleles
+Hazelwood - Chollchoill,Saturday 29th August,17:45 - 18:30,Lúlia Gillian Egleston & Mike Hennigar
+Hazelwood - Chollchoill,Saturday 29th August,19:00 - 19:45,Leatsa
+Hazelwood - Chollchoill,Saturday 29th August,20:30 - 21:15,Méabh Mulligan & Eva Carroll
+Hazelwood - Chollchoill,Saturday 29th August,21:45 - 22:30,Bog Bodies
+Hazelwood - Chollchoill,Saturday 29th August,23:35 - 00:20,HAZELWOOD SECRET ACT 1
+Hazelwood - Chollchoill,Saturday 29th August,01:55 - 02:55,Susan Walsh
+Hazelwood - Chollchoill,Sunday 30th August,13:00 - 13:40,Beomhar - Electric Youth
+Hazelwood - Chollchoill,Sunday 30th August,14:00 - 14:45,Mackayla Chloe - Electric Youth
+Hazelwood - Chollchoill,Sunday 30th August,15:15 - 16:00,An Galar Dub v shelovescalpol
+Hazelwood - Chollchoill,Sunday 30th August,16:30 - 17:15,Rageire
+Hazelwood - Chollchoill,Sunday 30th August,22:15 - 23:30,HAZELWOOD SECRET ACT 2
+Hazelwood - Chollchoill,Sunday 30th August,23:45 - 00:30,DJ Nemo / Beo Picnic
+Irish Harp Stage,Friday 28th August,14:00 - 14:40,Laoise Kelly
+Irish Harp Stage,Friday 28th August,15:00 - 15:40,Luke Webb Robert Harvey & Oisín McCann
+Irish Harp Stage,Friday 28th August,16:00 - 16:20,BRÍDÍN
+Irish Harp Stage,Friday 28th August,16:20 - 16:40,Jennifer Leahy
+Irish Harp Stage,Friday 28th August,17:00 - 17:40,TRIAD
+Irish Harp Stage,Friday 28th August,18:00 - 19:00,Anne-Marie O’Farrell & Cormac De Barra
+Irish Harp Stage,Saturday 29th August,13:00 - 13:20,Úna Ní Fhlannagáin
+Irish Harp Stage,Saturday 29th August,13:20 - 13:40,Eimear Coughlan
+Irish Harp Stage,Saturday 29th August,14:00 - 14:40,Ursula Burns – The Dangerous Harpist
+Irish Harp Stage,Saturday 29th August,15:00 - 15:40,Deirdre & Aoife Granville
+Irish Harp Stage,Saturday 29th August,16:00 - 16:40,Cruitirí Loch Garman/Wexford Harp Ensemble
+Irish Harp Stage,Saturday 29th August,17:00 - 18:00,Aisling Lyons Becky Ní Éallaithe & Muireann Ní Shé
+Irish Harp Stage,Sunday 30th August,13:00 - 13:20,Kathleen Loughnane & Catriona Cannon
+Irish Harp Stage,Sunday 30th August,13:20 - 13:40,Tríona Marshall
+Irish Harp Stage,Sunday 30th August,14:00 - 14:40,Music Generation Mayo Harp Ensemble
+Irish Harp Stage,Sunday 30th August,15:00 - 15:40,Music Generation Laois Harp Ensemble
+Irish Harp Stage,Sunday 30th August,16:00 - 16:40,Music Generation Louth Harp Ensemble
+Irish Harp Stage,Sunday 30th August,17:00 - 18:00,Uaithne
+Little Picnic - Creativity Tent,Friday 28th August,15:30 - 16:30,Festival Fashion Lab
+Little Picnic - Creativity Tent,Friday 28th August,17:00 - 18:00,Tie Dye with Lollipop Apparel
+Little Picnic - Creativity Tent,Saturday 29th August,11:15 - 12:15,Lino Print Your Own Wooden Bookmark
+Little Picnic - Creativity Tent,Saturday 29th August,13:00 - 14:00,Festival Fashion Lab
+Little Picnic - Creativity Tent,Saturday 29th August,14:45 - 15:45,Crann Music & Storytelling
+Little Picnic - Creativity Tent,Saturday 29th August,16:15 - 17:15,Tie Dye with Lollipop Apparel
+Little Picnic - Creativity Tent,Sunday 30th August,11:30 - 13:30,Messy Play with All Abilities
+Little Picnic - Creativity Tent,Sunday 30th August,14:00 - 14:45,Planet Science Kidz: Slime Lab
+Little Picnic - Creativity Tent,Sunday 30th August,15:00 - 15:45,Planet Science Kidz: Slime Lab
+Little Picnic - Creativity Tent,Sunday 30th August,16:15 - 17:15,Lino Print Festival Bunting
+Little Picnic - Expression & Storytelling Tent,Saturday 29th August,11:30 - 13:30,Messy Play with All Abilities
+Little Picnic - Expression & Storytelling Tent,Saturday 29th August,14:00 - 15:00,Fighting Words
+Little Picnic - Expression & Storytelling Tent,Saturday 29th August,15:30 - 16:30,Shiv Hickey
+Little Picnic - Expression & Storytelling Tent,Saturday 29th August,16:00 - 17:00,Little Irish History Heros with Niamh Donnellan
+Little Picnic - Expression & Storytelling Tent,Sunday 30th August,12:30 - 13:30,GSA - The Magic of Disney
+Little Picnic - Expression & Storytelling Tent,Sunday 30th August,14:00 - 14:45,Fighting Words
+Little Picnic - Expression & Storytelling Tent,Sunday 30th August,15:15 - 16:15,GSA - Broadway Bites
+Little Picnic - Expression & Storytelling Tent,Sunday 30th August,16:45 - 17:45,Crann Music & Storytelling
+Little Picnic - Ickle Big Top,Friday 28th August,14:30 - 15:15,Baby Boppers with Emarley
+Little Picnic - Ickle Big Top,Friday 28th August,15:45 - 16:30,Son's of Éire
+Little Picnic - Ickle Big Top,Friday 28th August,17:00 - 18:00,Don King
+Little Picnic - Ickle Big Top,Saturday 29th August,12:15 - 13:00,Baby Boppers with Emarley
+Little Picnic - Ickle Big Top,Saturday 29th August,13:30 - 14:15,Abegail
+Little Picnic - Ickle Big Top,Saturday 29th August,14:45 - 15:45,Son's of Éire
+Little Picnic - Ickle Big Top,Saturday 29th August,16:15 - 17:00,Kowgirl Kourtney - Aerial and Hula Hoop Extravaganza
+Little Picnic - Ickle Big Top,Saturday 29th August,17:30 - 18:30,DJ Will Softly
+Little Picnic - Ickle Big Top,Sunday 30th August,12:00 - 12:45,Ballymore Eustace Brass Band
+Little Picnic - Ickle Big Top,Sunday 30th August,13:15 - 14:00,Kowgirl Kourtney - Aerial and Hula Hoop Extravaganza
+Little Picnic - Ickle Big Top,Sunday 30th August,15:00 - 15:45,Niall de Burca
+Little Picnic - Ickle Big Top,Sunday 30th August,16:00 - 17:00,Hype Man Jackson feat. Calum Kieran
+Little Picnic - Ickle Big Top,Sunday 30th August,17:30 - 18:30,DJ Will Softly
+Little Picnic - Sports Field,Saturday 29th August,13:00 - 16:00,School Fitness Ireland
+Little Picnic - Sports Field,Sunday 30th August,13:00 - 16:00,School Fitness Ireland
+Little Picnic - Walkabout,Saturday 29th August,13:00 - 15:00,Burning Circus Flow Artists
+Little Picnic - Walkabout,Saturday 29th August,15:00 - 16:00,The Bubble Guys
+Little Picnic - Walkabout,Sunday 30th August,13:00 - 15:00,Burning Circus Flow Artists
+Little Picnic - Walkabout,Sunday 30th August,15:00 - 16:00,The Bubble Guys
+Little Picnic - Workshop Tent,Friday 28th August,15:15 - 16:00,Crann Tree Planting Workshop
+Little Picnic - Workshop Tent,Friday 28th August,16:15 - 17:15,Zine Making Workshop with Etereal Magzine
+Little Picnic - Workshop Tent,Saturday 29th August,11:30 - 12:30,Crann Tree Planting Workshop
+Little Picnic - Workshop Tent,Saturday 29th August,13:15 - 14:15,ATU Robotics Workshop
+Little Picnic - Workshop Tent,Saturday 29th August,14:45 - 15:45,Ruth Shine School of Dance
+Little Picnic - Workshop Tent,Saturday 29th August,16:15 - 17:15,Instrument Building Workshop
+Little Picnic - Workshop Tent,Sunday 30th August,11:30 - 12:30,Crann Tree Planting Workshop
+Little Picnic - Workshop Tent,Sunday 30th August,13:00 - 14:00,Mark The Science Guy
+Little Picnic - Workshop Tent,Sunday 30th August,14:30 - 15:30,ATU Robotics Workshop
+Little Picnic - Workshop Tent,Sunday 30th August,16:00 - 17:00,Instrument Building Workshop
+Little Picnic - Workshop Tent,Sunday 30th August,17:15 - 18:00,Little Irish History Heros with Niamh Donnellan
+Mindfield - Ah Hear! Podcast Stage,Friday 28th August,16:00 - 16:50,Laois Today and Colm Parkinson of the Smaller Fish Podcast
+Mindfield - Ah Hear! Podcast Stage,Friday 28th August,17:20 - 18:10,Crime World Podcast with Nicola Tallant: The Dapper Don
+Mindfield - Ah Hear! Podcast Stage,Friday 28th August,18:40 - 19:30,How to Gael
+Mindfield - Ah Hear! Podcast Stage,Saturday 29th August,12:00 - 12:50,RTÉ Documentary On One: The Composers — Úlfur Eldjárn Paddy Flynn & Alma Kelliher
+Mindfield - Ah Hear! Podcast Stage,Saturday 29th August,13:20 - 14:10,The Irish Times Inside Politics Podcast with Political Editor Pat Leahy and Political Correspondents Ellen Coyne and Jack Horgan Jones
+Mindfield - Ah Hear! Podcast Stage,Saturday 29th August,14:40 - 15:30,House Warming with James Kavanagh and William Murray and Kim Buckley
+Mindfield - Ah Hear! Podcast Stage,Saturday 29th August,16:00 - 16:50,Catch Up with Louise McSharry and Carl Kinsella with Emer McLysaght
+Mindfield - Ah Hear! Podcast Stage,Saturday 29th August,17:20 - 18:10,Paul Howard presents: Ross O'Carroll Kelly
+Mindfield - Ah Hear! Podcast Stage,Saturday 29th August,18:40 - 19:30,Shane McCarthy - I Said What I Said
+Mindfield - Ah Hear! Podcast Stage,Sunday 30th August,10:40 - 11:30,Fifth Court Podcast with Jason Carty on The Beatles
+Mindfield - Ah Hear! Podcast Stage,Sunday 30th August,12:00 - 12:50,Shite Talk History
+Mindfield - Ah Hear! Podcast Stage,Sunday 30th August,13:20 - 14:10,Behind the Scenes: The Art of Investigative Audio with RTÉ Documentary on One. Shauna McGreevy David Doran Nicoline Greer  Liam O'Brien
+Mindfield - Ah Hear! Podcast Stage,Sunday 30th August,14:40 - 15:30,The Pleasure Agenda: Grace Alice Ó Sé and Annie Queeries
+Mindfield - Ah Hear! Podcast Stage,Sunday 30th August,16:00 - 16:50,An Irishman Abroad with Jarlath Regan
+Mindfield - Ah Hear! Podcast Stage,Sunday 30th August,17:00 - 18:00,Mike & Vittorio's Guide to Parenting
+Mindfield - An Pubal Gaelige,Friday 28th August,15:00 - 16:00,Music Generation Laois
+Mindfield - An Pubal Gaelige,Friday 28th August,16:00 - 17:00,Ceathairéid Shráid Marlborough
+Mindfield - An Pubal Gaelige,Friday 28th August,17:00 - 18:00,Saibhín
+Mindfield - An Pubal Gaelige,Friday 28th August,18:00 - 19:00,Beannaithe idir Mhná
+Mindfield - An Pubal Gaelige,Friday 28th August,19:00 - 20:00,Na Tonnta
+Mindfield - An Pubal Gaelige,Friday 28th August,20:00 - 21:00,Whitewater
+Mindfield - An Pubal Gaelige,Friday 28th August,21:00 - 22:00,Hannah McFadden
+Mindfield - An Pubal Gaelige,Friday 28th August,22:00 - 23:00,Sult
+Mindfield - An Pubal Gaelige,Friday 28th August,23:00 - 00:00,Clann Mhic Ruairí
+Mindfield - An Pubal Gaelige,Saturday 29th August,12:00 - 14:00,Imbolc
+Mindfield - An Pubal Gaelige,Saturday 29th August,14:00 - 15:00,Scéal
+Mindfield - An Pubal Gaelige,Saturday 29th August,15:00 - 16:00,Dúchas
+Mindfield - An Pubal Gaelige,Saturday 29th August,16:00 - 17:00,Reic
+Mindfield - An Pubal Gaelige,Saturday 29th August,17:00 - 18:00,Gaelgairí
+Mindfield - An Pubal Gaelige,Saturday 29th August,18:00 - 19:00,Ceol Domhanda le Eve ie. Caitriona Ni Mhurchu
+Mindfield - An Pubal Gaelige,Saturday 29th August,19:00 - 20:00,Seosamh Mac
+Mindfield - An Pubal Gaelige,Saturday 29th August,20:00 - 21:00,Eoghan Ó Ceannabháin & Niamh Keady-Tabbal
+Mindfield - An Pubal Gaelige,Saturday 29th August,21:00 - 22:00,The Gladstone Band
+Mindfield - An Pubal Gaelige,Saturday 29th August,22:00 - 23:00,Jessie & The Veil
+Mindfield - An Pubal Gaelige,Saturday 29th August,23:00 - 00:00,Seisiún Rúnda: Cúán de Búrca x hHH
+Mindfield - An Pubal Gaelige,Saturday 29th August,00:00 - 01:00,Cian Ó Curnáin - Seit DJ
+Mindfield - An Pubal Gaelige,Sunday 30th August,12:00 - 14:00,Imbolc
+Mindfield - An Pubal Gaelige,Sunday 30th August,14:00 - 15:00,‘Coinneáil Orainn’ Cumann Drámaíochta Ollscoil na Gaillimhe
+Mindfield - An Pubal Gaelige,Sunday 30th August,15:00 - 16:00,BYOBeanglaim
+Mindfield - An Pubal Gaelige,Sunday 30th August,16:00 - 17:00,Funny Focail
+Mindfield - An Pubal Gaelige,Sunday 30th August,17:00 - 18:00,Seisiún na mBan
+Mindfield - An Pubal Gaelige,Sunday 30th August,18:00 - 19:00,Buail Feirste
+Mindfield - An Pubal Gaelige,Sunday 30th August,19:00 - 20:00,Dall
+Mindfield - An Pubal Gaelige,Sunday 30th August,20:00 - 21:00,Tart
+Mindfield - An Pubal Gaelige,Sunday 30th August,21:00 - 21:45,Líofa
+Mindfield - An Pubal Gaelige,Sunday 30th August,22:00 - 23:00,Seisiún Rúnda: The Railway Boys
+Mindfield - Manifesto,Friday 28th August,14:00 - 15:00,Poetry: Jan Brierton and Maia Dunphy
+Mindfield - Manifesto,Friday 28th August,15:00 - 16:00,Activism: Anna Cosgrave and Ailbhe Smyth in conversation
+Mindfield - Manifesto,Friday 28th August,16:00 - 17:00,"Fashion: body image, male gaze, waste, sustainability, fair trade. Caryn Franklin & Brendan Courtney in conversation"
+Mindfield - Manifesto,Friday 28th August,17:00 - 18:00,The Word: Terry Christian & Muireann O Connell in conversation
+Mindfield - Manifesto,Saturday 29th August,12:00 - 12:45,Friendship: 'Our Deadly Summer' Sarah Breen and Emer McLysaght in conversation
+Mindfield - Manifesto,Saturday 29th August,13:00 - 13:45,Very Special Guest
+Mindfield - Manifesto,Saturday 29th August,14:00 - 14:45,Rowetta in conversation
+Mindfield - Manifesto,Saturday 29th August,15:00 - 15:45,"The Irish Times Women's Podcast with Róisín Ingle, in conversation with Dearbhla Mescal"
+Mindfield - Manifesto,Saturday 29th August,16:00 - 16:45,Bodies: Katriona O'Sullivan and Tanya Sweeney in conversation
+Mindfield - Manifesto,Saturday 29th August,17:00 - 18:00,Gaza Flotilla: Liam Cunningham and Mikey Cullen in conversation
+Mindfield - Manifesto,Saturday 29th August,18:00 - 19:00,Fools in Love: Jane Austen's Cast vs. Contemporary Love Interests
+Mindfield - Manifesto,Sunday 30th August,12:00 - 12:45,Dylan Moran in conversation
+Mindfield - Manifesto,Sunday 30th August,13:00 - 13:45,In Defence of the Happy Ending: Anna Carey in conversation with Deirdre O'Kane
+Mindfield - Manifesto,Sunday 30th August,14:00 - 14:45,"The 1,000th Best Band of All Time: Patrick Freyne in conversation with Sinead Gleeson"
+Mindfield - Manifesto,Sunday 30th August,15:00 - 15:45,"Stealing Culture, Selling It Back: The USA at 250. Liam Lynch in conversation with Patrick Freyne"
+Mindfield - Manifesto,Sunday 30th August,16:00 - 16:45,Feeding the Hunger: A Life Told Through the Fridge Door: Dawn O'Porter in conversation with Sinéad Gleeson
+Mindfield - The Word Stage,Friday 28th August,11:00 - 12:00,"INKLINGS with JIMMY O CONNELL, MARY EAGAN CAMBELL, JEANETTE EVERSON, CLARE O REILLY"
+Mindfield - The Word Stage,Friday 28th August,12:00 - 13:00,"LUAN PRESS with LEE SHERIDAN, ANDY PORTER, ELENA STACK MARTIN, MICHELLE BOSONNETT"
+Mindfield - The Word Stage,Friday 28th August,13:00 - 14:00,"CASS NORTH, KEVIN BRENNAN, COLM McGEARAILT"
+Mindfield - The Word Stage,Friday 28th August,14:00 - 15:00,"SLIP OF THE TONGUE with WAYNE POWER, NICOLA SPENDLOVE, TIM O DRISCOLL"
+Mindfield - The Word Stage,Friday 28th August,15:00 - 16:00,"SEAN CORRIGAN, ANNIE & THE WITNESS"
+Mindfield - The Word Stage,Friday 28th August,16:30 - 17:00,THE MAGIC OF MYTHOLOGY WITH MARTY MULLIGAN BOBBO THE BARD
+Mindfield - The Word Stage,Friday 28th August,17:00 - 17:45,D_ABDU
+Mindfield - The Word Stage,Friday 28th August,18:00 - 18:45,NATHAN JOHNSON
+Mindfield - The Word Stage,Friday 28th August,19:00 - 19:45,HERON RED
+Mindfield - The Word Stage,Friday 28th August,20:00 - 20:45,SEI GREEN
+Mindfield - The Word Stage,Friday 28th August,21:00 - 21:45,BALEIA BALEIA BALEIA
+Mindfield - The Word Stage,Friday 28th August,22:00 - 23:00,ADORE
+Mindfield - The Word Stage,Saturday 29th August,11:00 - 12:00,"CARLA BEATTIE, RUDE JUDES, ADELE LEAHY, DANIEL BRESLIN"
+Mindfield - The Word Stage,Saturday 29th August,12:00 - 13:00,"FIONA O LOUGHLIN, CAT BROGAN, DOM BYRNE"
+Mindfield - The Word Stage,Saturday 29th August,13:00 - 14:00,"THE POETRY KILN COLLECTIVE with ANNIE PETER, ANNA D, MIKEY CULLEN, DAVID HYNES"
+Mindfield - The Word Stage,Saturday 29th August,14:00 - 15:00,"LATRICE, ROISIN KEARNEY, JULIE GOO"
+Mindfield - The Word Stage,Saturday 29th August,15:00 - 16:00,"LAUREN McNAMARA, BEN McCAOILTE, HAZEL HOGAN"
+Mindfield - The Word Stage,Saturday 29th August,16:00 - 17:00,"THE DEAD THATCHERS, ANNIE FRANCIS"
+Mindfield - The Word Stage,Saturday 29th August,17:00 - 17:30,THE ADVENTURERS WITH JOHNNY COYNE & FRIENDS
+Mindfield - The Word Stage,Saturday 29th August,18:00 - 18:40,GOOD STRANGERS
+Mindfield - The Word Stage,Saturday 29th August,19:00 - 19:40,GEORGE HOUSTON
+Mindfield - The Word Stage,Saturday 29th August,20:00 - 20:40,DAGDA
+Mindfield - The Word Stage,Saturday 29th August,21:00 - 21:45,BEAT CLUB
+Mindfield - The Word Stage,Saturday 29th August,22:00 - 23:00,PAULIE MARTIN
+Mindfield - The Word Stage,Sunday 30th August,11:00 - 12:00,"ANNE TANNAM, ALICIA BYRNE KEANE, CATRIONA LANE"
+Mindfield - The Word Stage,Sunday 30th August,12:00 - 13:00,"TINY LITTLE GODS, KEITH HANNA"
+Mindfield - The Word Stage,Sunday 30th August,13:00 - 14:00,"EVA MARY LUCY, HOLLY HUGHES, CHIAMAKA ENYI-AMADI"
+Mindfield - The Word Stage,Sunday 30th August,14:00 - 15:00,"A-MUSING with JOE SKYLARK, LIAM McCABE, CORMACK Mac GEARAILT, DAVID HYNES"
+Mindfield - The Word Stage,Sunday 30th August,15:00 - 16:00,"RISING TIDE with LEON DUNNE, SHEILA RYDER, KALLE RYAN, JOHN CUMMINS"
+Mindfield - The Word Stage,Sunday 30th August,16:00 - 17:00,"DUBLINS FINEST with JAMES WILLIAM DILLON, NICOLA CLARE, CONOR KILEEN"
+Mindfield - The Word Stage,Sunday 30th August,17:00 - 17:45,DEC BYRNE
+Mindfield - The Word Stage,Sunday 30th August,18:00 - 18:45,STEPH HURLEY
+Mindfield - The Word Stage,Sunday 30th August,19:00 - 19:45,SOME ONES SONS
+Mindfield - The Word Stage,Sunday 30th August,20:00 - 20:45,GEORGE MURPHY
+Mindfield - The Word Stage,Sunday 30th August,21:00 - 21:45,DELYRA
+Mindfield - The Word Stage,Sunday 30th August,22:00 - 23:00,RUAILE BUAILE
+Mindfield -The Theatre,Friday 28th August,15:30 - 16:30,MIASMA
+Mindfield -The Theatre,Friday 28th August,16:30 - 17:00,Miasma Post Show Chat
+Mindfield -The Theatre,Friday 28th August,18:00 - 19:00,CoisCéim: Dancehall Blues
+Mindfield -The Theatre,Saturday 29th August,12:00 - 13:00,Irish National Opera: The Greatest Hits You Didn't Know Were Opera
+Mindfield -The Theatre,Saturday 29th August,13:30 - 14:30,Niall Breslin and the Polaris Quartet perform The Place That Has Never Been Wounded
+Mindfield -The Theatre,Saturday 29th August,15:00 - 16:00,The Blindboy Podcast
+Mindfield -The Theatre,Saturday 29th August,16:30 - 17:30,Irish National Opera: The Greatest Hits You Didn't Know Were Opera
+Mindfield -The Theatre,Saturday 29th August,20:00 - 21:00,Climbwallscabaret
+Mindfield -The Theatre,Sunday 30th August,11:00 - 13:00,Brendan O'Connor Show on RTÉ Radio One - Live broadcast
+Mindfield -The Theatre,Sunday 30th August,13:30 - 14:45,"Miriam O'Callaghan Picnic Brunch with Alison Spittle, Frank McNally, Dawn O'Porter, Colm O'Regan, Deirdre O'Kane"
+Mindfield -The Theatre,Sunday 30th August,15:30 - 16:30,Plus (N)one
+Mindfield -The Theatre,Sunday 30th August,18:00 - 19:00,The Metabollix
+Minefield - Leviathan,Friday 28th August,11:00 - 12:30,Salon du Chat
+Minefield - Leviathan,Friday 28th August,12:45 - 14:00,Human Library
+Minefield - Leviathan,Friday 28th August,14:15 - 15:15,Gossip Bures: A Woman's Place
+Minefield - Leviathan,Friday 28th August,15:30 - 16:30,History Ireland Hedge School A 'unique relationship'?—Ireland & the US 1918-present - Tommy Graham with Dan Mulhall Michael Kennedy Bernadette Whelan)
+Minefield - Leviathan,Friday 28th August,17:40 - 18:00,Screening: My Friend Kev
+Minefield - Leviathan,Friday 28th August,18:00 - 19:00,"Divorcing the Superpower: The US, Europe and the Next 250 Years. Leviathan panel hosted by Andrew Maxwell with Donie O'Sullivan, Eric Lonergan, Dan Mulhall(?), Jennifer O'Connell"
+Minefield - Leviathan,Saturday 29th August,11:00 - 12:30,Salon du Chat
+Minefield - Leviathan,Saturday 29th August,12:45 - 14:00,Human Library
+Minefield - Leviathan,Saturday 29th August,14:15 - 15:15,Amnesty Hour: Republic of Conscience: Speaking Out Against the Global Disorder
+Minefield - Leviathan,Saturday 29th August,15:30 - 16:30,"Europe: Accession: Ambassador of Ukraine, and Moldova, Barry Andrews"
+Minefield - Leviathan,Saturday 29th August,16:45 - 17:45,"Chats in the Flats: Brian Branningan, Anita Reilly, Willa White"
+Minefield - Leviathan,Saturday 29th August,18:00 - 19:00,No Filler Presents: Who Killed the Dancefloor - Anthony Remedy
+Minefield - Leviathan,Sunday 30th August,11:00 - 12:30,Salon du Chat
+Minefield - Leviathan,Sunday 30th August,12:45 - 14:00,Human Library
+Minefield - Leviathan,Sunday 30th August,14:15 - 15:15,Exploring Abandoned Places: A Visual Tour. Lou UrbEx and Robert O'Byrne
+Minefield - Leviathan,Sunday 30th August,15:30 - 16:30,No Filler presents: The Only Camera in the Room. Photographs of Clubbing in the 1990s and 2000s. Brendan Duffy with Anthony Remedy
+Minefield - Leviathan,Sunday 30th August,16:45 - 17:45,"Fair Play: Can a Generous Ireland Persuade the Rest of Europe to Invest in a Common Global Future. David McNair, Neale Richmond, Emily Wigens, Shona Murray - in partnership with the ONE campaign"
+Minefield - Leviathan,Sunday 30th August,18:00 - 19:00,"Move Fast and Break the State: The Politics of Populism and the Broligarchy: Leviathan panel hosted by Andrew Maxwell with Donie O'Sullivan, Mark Little, Eric Lonergan"
+Mother after Dark,Friday 28th August,23:00 - 00:00,SHREM
+Mother after Dark,Friday 28th August,00:00 - 01:00,GLAMO
+Mother after Dark,Friday 28th August,01:00 - 01:20,DRAG SHOW - FRIDAY
+Mother after Dark,Friday 28th August,01:20 - 02:00,ROCKY T. DELGADO
+Mother after Dark,Friday 28th August,02:00 - 02:20,DRAG SHOW - FRIDAY
+Mother after Dark,Friday 28th August,02:20 - 04:00,ROCKY T. DELGADO
+Mother after Dark,Saturday 29th August,23:00 - 01:00,KELLY ANNE BYRNE
+Mother after Dark,Saturday 29th August,01:00 - 01:20,DRAG SHOW - SATURDAY
+Mother after Dark,Saturday 29th August,01:20 - 02:00,MOTHER DJS (Ghostboy & Ruth Kavanagh)
+Mother after Dark,Saturday 29th August,02:00 - 02:20,DRAG SHOW - SATURDAY
+Mother after Dark,Saturday 29th August,02:20 - 04:00,MOTHER DJS (Ghostboy & Ruth Kavanagh)
+Mother after Dark,Sunday 30th August,23:00 - 01:00,MOTHER DJS (Ghostboy & Ruth Kavanagh)
+Mother after Dark,Sunday 30th August,23:00 - 01:00,ROCKY T. DELGADO
+Mother after Dark,Sunday 30th August,01:00 - 01:20,DRAG SHOW - SUNDAY
+Mother after Dark,Sunday 30th August,01:20 - 02:00,MOTHER DJS (Ghostboy & Ruth Kavanagh)
+Mother after Dark,Sunday 30th August,02:00 - 02:20,DRAG SHOW - SUNDAY
+Northside Rises,Friday 28th August,00:00 - 01:00,?
+Northside Rises,Friday 28th August,01:00 - 02:00,?
+Northside Rises,Friday 28th August,02:00 - 03:00,?
+Northside Rises,Saturday 29th August,00:00 - 01:30,?
+Northside Rises,Saturday 29th August,01:30 - 03:00,?
+Provedencia,Thursday 27th August,20:00 - 23:45,Valentina's Thursday Providencia Parade
+Provedencia,Friday 28th August,14:00 - 15:00,DJ Harry & DJ O'Kaye
+Provedencia,Friday 28th August,14:00 - 15:00,Forro Dancers & TARA
+Provedencia,Friday 28th August,16:00 - 17:00,New Brass Kings
+Provedencia,Friday 28th August,18:00 - 19:00,Largo Da Cumbia
+Provedencia,Friday 28th August,20:00 - 21:00,Luke Thomas and Paul Dunlem Big Band
+Provedencia,Friday 28th August,21:00 - 22:00,DJ Edison Waters
+Provedencia,Friday 28th August,22:00 - 23:00,Code of Behaviour
+Provedencia,Friday 28th August,23:00 - 00:00,DJ Harry & DJ O'Kaye
+Provedencia,Friday 28th August,23:00 - 00:00,Forro Dancers & TARA
+Provedencia,Friday 28th August,00:00 - 01:00,Sly's Hip Hop Dance
+Provedencia,Saturday 29th August,12:00 - 14:00,Sea of Hope Choir
+Provedencia,Saturday 29th August,15:00 - 16:00,Forro Dancers & TARA
+Provedencia,Saturday 29th August,16:00 - 17:00,Los Wachos
+Provedencia,Saturday 29th August,18:00 - 19:00,Elise FRANK
+Provedencia,Saturday 29th August,20:00 - 21:00,Raz and Afla
+Provedencia,Saturday 29th August,22:00 - 23:00,The Circus Ponies
+Provedencia,Saturday 29th August,00:00 - 01:00,Sly's Hip Hop Dance
+Provedencia,Sunday 30th August,14:00 - 15:00,Los Wachos
+Provedencia,Sunday 30th August,16:00 - 17:00,BackaBeyond
+Provedencia,Sunday 30th August,18:00 - 19:00,Tumbao Dublin
+Provedencia,Sunday 30th August,20:00 - 21:00,Havana Roots
+Provedencia,Sunday 30th August,22:00 - 23:00,Foreign Local
+Provedencia,Sunday 30th August,00:00 - 01:00,My Bad Sister
+Provedencia,Sunday 30th August,01:00 - 02:00,DJ Harry & DJ O'Kaye
+Rockshore Live,Friday 28th August,18:00 - 18:45,Sarah Crean
+Rockshore Live,Friday 28th August,19:00 - 19:40,Big Sleep
+Rockshore Live,Friday 28th August,20:00 - 20:45,Brooki
+Rockshore Live,Friday 28th August,21:15 - 22:15,Basht.
+Rockshore Live,Friday 28th August,22:45 - 00:15,NewDad
+Rockshore Live,Friday 28th August,00:30 - 02:00,SHEE
+Rockshore Live,Saturday 29th August,13:00 - 13:40,SMO
+Rockshore Live,Saturday 29th August,14:00 - 14:30,Aifric
+Rockshore Live,Saturday 29th August,15:15 - 15:45,Kapayja
+Rockshore Live,Saturday 29th August,16:30 - 17:15,Anna Leah
+Rockshore Live,Saturday 29th August,18:00 - 18:45,Jamie McIntyre
+Rockshore Live,Saturday 29th August,19:15 - 20:00,SELL EVERYTHING
+Rockshore Live,Saturday 29th August,20:30 - 21:30,Skagaboo + Friends
+Rockshore Live,Saturday 29th August,22:00 - 22:45,Cruel Sister
+Rockshore Live,Saturday 29th August,23:15 - 00:15,F3miii
+Rockshore Live,Saturday 29th August,00:30 - 02:00,Le Boom
+Rockshore Live,Sunday 30th August,13:00 - 13:45,Burglar
+Rockshore Live,Sunday 30th August,14:00 - 14:30,Maicín
+Rockshore Live,Sunday 30th August,15:15 - 15:45,BABYRAT
+Rockshore Live,Sunday 30th August,16:30 - 17:15,Theatre
+Rockshore Live,Sunday 30th August,18:00 - 18:45,Tooth
+Rockshore Live,Sunday 30th August,19:15 - 20:00,Black Nylon
+Rockshore Live,Sunday 30th August,20:45 - 21:30,Cardinals
+Rockshore Live,Sunday 30th August,22:15 - 23:15,Bricknasty
+Rockshore Live,Sunday 30th August,23:45 - 00:30,deathtoricky
+Rockshore Live,Sunday 30th August,00:30 - 02:00,Sally C
+Sa Chollchoill,Friday 28th August,19:00 - 20:00,?
+Sa Chollchoill,Friday 28th August,20:30 - 21:30,?
+Sa Chollchoill,Friday 28th August,22:00 - 23:00,?
+Sa Chollchoill,Friday 28th August,23:30 - 00:30,?
+Sa Chollchoill,Saturday 29th August,19:00 - 20:00,?
+Sa Chollchoill,Saturday 29th August,20:30 - 21:30,?
+Sa Chollchoill,Saturday 29th August,22:00 - 23:00,?
+Sa Chollchoill,Saturday 29th August,23:30 - 00:30,?
+Sa Chollchoill,Sunday 30th August,19:00 - 20:00,?
+Sa Chollchoill,Sunday 30th August,20:30 - 21:30,?
+Sa Chollchoill,Sunday 30th August,22:00 - 23:00,?
+Sa Chollchoill,Sunday 30th August,23:30 - 00:30,?
+Salty Dog,Thursday 27th August,19:00 - 20:10,PEARLY WHITES
+Salty Dog,Thursday 27th August,20:40 - 21:30,THE WEDNESDAY GANG
+Salty Dog,Thursday 27th August,22:00 - 00:00,WEDDING BAND OF THE DAMNED
+Salty Dog,Friday 28th August,13:00 - 14:00,BACKA BEYOND
+Salty Dog,Friday 28th August,13:00 - 14:00,TBC - Salty Dog 6
+Salty Dog,Friday 28th August,14:30 - 15:30,RELUCTANT BOB AND THE LONELY LOVERS
+Salty Dog,Friday 28th August,16:00 - 17:00,BABYRAT
+Salty Dog,Friday 28th August,17:30 - 18:30,EPILOGUE
+Salty Dog,Friday 28th August,19:00 - 20:00,THESE CHARMING MEN
+Salty Dog,Friday 28th August,19:15 - 20:15,TBC Salty Dog 5
+Salty Dog,Friday 28th August,20:45 - 21:30,RIA RUA
+Salty Dog,Friday 28th August,23:30 - 00:30,45s
+Salty Dog,Friday 28th August,23:30 - 00:30,MIK PYRO
+Salty Dog,Friday 28th August,01:00 - 02:00,THE WRAN
+Salty Dog,Friday 28th August,02:30 - 03:30,TBC Salty Dog 4
+Salty Dog,Saturday 29th August,13:00 - 14:00,THE MOLGOGGERS
+Salty Dog,Saturday 29th August,14:30 - 15:30,LIAM O CONNOR
+Salty Dog,Saturday 29th August,16:00 - 17:00,BLESSED
+Salty Dog,Saturday 29th August,17:30 - 18:30,CIRCUS PONIES
+Salty Dog,Saturday 29th August,19:00 - 20:00,SQUAREHEAD
+Salty Dog,Saturday 29th August,20:30 - 21:30,GEORGE HOUSTON
+Salty Dog,Saturday 29th August,22:00 - 23:00,THE FRANK AND WALTERS
+Salty Dog,Saturday 29th August,01:00 - 02:00,THUMPER
+Salty Dog,Saturday 29th August,02:15 - 03:15,TBC Salty Dog 3
+Salty Dog,Sunday 30th August,13:00 - 14:00,THE MOLGOGGERS
+Salty Dog,Sunday 30th August,14:30 - 15:30,TBC Salty Dog 2
+Salty Dog,Sunday 30th August,17:20 - 18:15,I DREAMED I DREAM
+Salty Dog,Sunday 30th August,18:40 - 19:30,SILVERBACKS
+Salty Dog,Sunday 30th August,20:00 - 20:50,MONSIEUR POMPIER
+Salty Dog,Sunday 30th August,22:45 - 23:40,RAZ AND AFLA
+Salty Dog,Sunday 30th August,23:30 - 00:30,TBC Salty Dog 1
+Salty Dog,Sunday 30th August,00:10 - 01:20,GROOVELINE
+Salty Dog,Sunday 30th August,01:50 - 03:00,CHARLES HENDY'S SHOWBAND PARTY
+Schweppes Born Social,Friday 28th August,14:00 - 17:00,Baz Hickey
+Schweppes Born Social,Friday 28th August,17:00 - 19:00,Sarah Murphy
+Schweppes Born Social,Friday 28th August,19:00 - 21:00,Tuáthla
+Schweppes Born Social,Friday 28th August,21:30 - 22:30,New Brass Kings
+Schweppes Born Social,Friday 28th August,23:00 - 02:00,Barrio OB + Basil Isaacs
+Schweppes Born Social,Saturday 29th August,14:00 - 16:00,Baz Hickey
+Schweppes Born Social,Saturday 29th August,16:30 - 17:30,Winnie Ama
+Schweppes Born Social,Saturday 29th August,18:00 - 19:00,Yankari Afrobeat Collective
+Schweppes Born Social,Saturday 29th August,19:30 - 21:30,Pablo Santo
+Schweppes Born Social,Saturday 29th August,21:30 - 23:30,Emma B
+Schweppes Born Social,Saturday 29th August,23:30 - 02:00,Rookie
+Schweppes Born Social,Sunday 30th August,14:00 - 16:00,Claire Beck's Sunday Revival
+Schweppes Born Social,Sunday 30th August,16:30 - 17:30,Tembey
+Schweppes Born Social,Sunday 30th August,18:00 - 19:00,Rebel Brass
+Schweppes Born Social,Sunday 30th August,19:30 - 21:00,Thxtti
+Schweppes Born Social,Sunday 30th August,21:30 - 23:30,Forget Romance
+Schweppes Born Social,Sunday 30th August,23:30 - 02:00,Stevie G
+Seomra Boil - Artlot,Friday 28th August,23:00 - 00:00,Stevie McD
+Seomra Boil - Artlot,Friday 28th August,00:00 - 01:00,Jack Madden
+Seomra Boil - Artlot,Friday 28th August,01:00 - 02:00,Paulo
+Seomra Boil - Artlot,Friday 28th August,02:00 - 03:30,DJ Aaron Lynam
+Seomra Boil - Artlot,Saturday 29th August,23:00 - 00:00,BLÁTHNAID
+Seomra Boil - Artlot,Saturday 29th August,00:00 - 01:00,Luke Grogan
+Seomra Boil - Artlot,Saturday 29th August,01:00 - 02:00,Leon Carter
+Seomra Boil - Artlot,Saturday 29th August,02:00 - 03:00,Tuáthla
+Seomra Boil - Artlot,Sunday 30th August,22:00 - 23:00,Michelle McCormack
+Seomra Boil - Artlot,Sunday 30th August,23:00 - 00:00,Eskay
+Seomra Boil - Artlot,Sunday 30th August,00:00 - 01:00,The Dirty Disco
+Seomra Boil - Artlot,Sunday 30th August,01:00 - 02:15,The Discobox Collective
+Seomra Boil - Artlot,Sunday 30th August,02:15 - 03:30,DJ Jessica Maciel
+Six Bars,Thursday 27th August,21:00 - 22:00,?
+Six Bars,Thursday 27th August,22:00 - 23:00,?
+Six Bars,Thursday 27th August,23:00 - 00:00,?
+Six Bars,Thursday 27th August,00:00 - 01:00,?
+Six Bars,Thursday 27th August,01:00 - 02:00,?
+Six Bars,Thursday 27th August,02:00 - 03:00,?
+Six Bars,Friday 28th August,12:00 - 13:00,?
+Six Bars,Friday 28th August,13:00 - 14:00,?
+Six Bars,Friday 28th August,14:00 - 15:00,?
+Six Bars,Friday 28th August,15:00 - 16:00,?
+Six Bars,Friday 28th August,16:00 - 17:00,?
+Six Bars,Friday 28th August,18:00 - 19:00,?
+Six Bars,Friday 28th August,19:00 - 20:00,?
+Six Bars,Friday 28th August,20:00 - 21:00,?
+Six Bars,Friday 28th August,21:00 - 22:00,?
+Six Bars,Friday 28th August,23:00 - 00:00,?
+Six Bars,Friday 28th August,00:00 - 01:00,?
+Six Bars,Friday 28th August,01:00 - 02:00,?
+Six Bars,Friday 28th August,02:00 - 03:00,?
+Six Bars,Saturday 29th August,12:00 - 13:00,?
+Six Bars,Saturday 29th August,13:00 - 14:00,?
+Six Bars,Saturday 29th August,15:00 - 16:00,?
+Six Bars,Saturday 29th August,16:00 - 17:00,?
+Six Bars,Saturday 29th August,17:00 - 18:00,?
+Six Bars,Saturday 29th August,18:00 - 19:00,?
+Six Bars,Saturday 29th August,19:00 - 20:00,?
+Six Bars,Saturday 29th August,20:00 - 21:00,?
+Six Bars,Saturday 29th August,22:00 - 23:00,?
+Six Bars,Saturday 29th August,23:00 - 00:00,?
+Six Bars,Saturday 29th August,00:00 - 01:00,?
+Six Bars,Saturday 29th August,01:00 - 02:00,?
+Six Bars,Saturday 29th August,02:00 - 03:00,?
+Smirnoff Stage,Friday 28th August,16:00 - 18:00,Alice Ugbah
+Smirnoff Stage,Friday 28th August,18:00 - 19:30,Jade Carney
+Smirnoff Stage,Friday 28th August,19:30 - 21:00,Dave Treacy
+Smirnoff Stage,Friday 28th August,21:00 - 22:30,Kilimanjaro
+Smirnoff Stage,Friday 28th August,22:30 - 00:00,Armand Van Helden
+Smirnoff Stage,Saturday 29th August,14:00 - 15:30,Juslinis
+Smirnoff Stage,Saturday 29th August,16:00 - 17:30,Lou Bru
+Smirnoff Stage,Saturday 29th August,17:30 - 19:00,Onai
+Smirnoff Stage,Saturday 29th August,19:00 - 20:30,Cinthie
+Smirnoff Stage,Saturday 29th August,20:30 - 22:00,Sam Divine
+Smirnoff Stage,Saturday 29th August,22:00 - 23:30,Shauna Dee
+Smirnoff Stage,Saturday 29th August,23:30 - 01:00,LIA b2b Viki Dos Santos
+Smirnoff Stage,Sunday 30th August,14:00 - 15:30,GRL
+Smirnoff Stage,Sunday 30th August,15:30 - 17:00,Marcus O’Laoire
+Smirnoff Stage,Sunday 30th August,17:00 - 18:30,49th & Main b2b Caolan Ryan
+Smirnoff Stage,Sunday 30th August,18:30 - 20:00,Caz
+Smirnoff Stage,Sunday 30th August,20:00 - 21:30,Paige Tomlinson
+Smirnoff Stage,Sunday 30th August,21:30 - 22:30,DJammin
+Smirnoff Stage,Sunday 30th August,22:30 - 00:00,Skepta (DJ Set)
+Spike Island,Thursday 27th August,21:00 - 21:45,Shrunk Jumper
+Spike Island,Thursday 27th August,22:15 - 23:00,Méabh & Eva
+Spike Island,Thursday 27th August,23:30 - 00:30,Ispíní agus Cáis
+Spike Island,Thursday 27th August,01:00 - 02:30,The Cobblestone Pub's Opening Night Session
+Spike Island,Friday 28th August,16:00 - 16:45,Mahogany Gaspipes
+Spike Island,Friday 28th August,17:15 - 18:00,The Len Collective
+Spike Island,Friday 28th August,18:30 - 19:30,The Lines
+Spike Island,Friday 28th August,20:00 - 21:15,Ciaran Moran
+Spike Island,Friday 28th August,21:45 - 23:00,The Labourers
+Spike Island,Friday 28th August,23:30 - 00:45,Special Guest
+Spike Island,Friday 28th August,01:15 - 02:45,Dudley's Bar & Lounge Session on Tour
+Spike Island,Saturday 29th August,16:00 - 16:45,Al Baker
+Spike Island,Saturday 29th August,17:15 - 18:00,Kettleboilers
+Spike Island,Saturday 29th August,18:30 - 19:15,KK Lewis
+Spike Island,Saturday 29th August,19:45 - 20:45,Trad Folkin Raps
+Spike Island,Saturday 29th August,21:15 - 22:15,The Spudguns
+Spike Island,Saturday 29th August,22:45 - 23:45,Burnchurch
+Spike Island,Saturday 29th August,00:15 - 01:30,Ispíní na hÉireann
+Spike Island,Saturday 29th August,02:00 - 03:30,The Fada Live Session
+Spike Island,Sunday 30th August,14:00 - 16:15,Darkey Kelly's Session
+Spike Island,Sunday 30th August,16:45 - 17:30,Saltaire
+Spike Island,Sunday 30th August,18:00 - 18:45,Nóiníní
+Spike Island,Sunday 30th August,19:15 - 20:00,Laura Jo
+Spike Island,Sunday 30th August,20:30 - 21:15,Caoimhín
+Spike Island,Sunday 30th August,21:45 - 23:00,Friends of the Relics
+Spike Island,Sunday 30th August,23:30 - 00:45,Special Guest
+Spike Island,Sunday 30th August,01:15 - 02:45,Megatrad
+Stradbally Inn,Friday 28th August,13:30 - 15:00,?
+Stradbally Inn,Friday 28th August,15:30 - 17:00,?
+Stradbally Inn,Friday 28th August,17:30 - 19:00,?
+Stradbally Inn,Friday 28th August,19:30 - 21:00,?
+Stradbally Inn,Friday 28th August,21:30 - 23:00,?
+Stradbally Inn,Friday 28th August,23:30 - 01:00,?
+Stradbally Inn,Saturday 29th August,11:00 - 12:30,?
+Stradbally Inn,Saturday 29th August,13:30 - 15:00,?
+Stradbally Inn,Saturday 29th August,15:30 - 17:00,?
+Stradbally Inn,Saturday 29th August,17:30 - 19:00,?
+Stradbally Inn,Saturday 29th August,19:30 - 21:00,?
+Stradbally Inn,Saturday 29th August,21:30 - 23:00,?
+Stradbally Inn,Saturday 29th August,23:30 - 01:00,?
+Stradbally Inn,Sunday 30th August,13:30 - 15:00,?
+Stradbally Inn,Sunday 30th August,15:30 - 17:00,?
+Stradbally Inn,Sunday 30th August,17:30 - 19:00,?
+Stradbally Inn,Sunday 30th August,19:30 - 21:00,?
+Stradbally Inn,Sunday 30th August,21:30 - 23:00,?
+Stradbally Inn,Sunday 30th August,23:30 - 01:00,?
+Survivor,Thursday 27th August,20:00 - 21:00,Standback
+Survivor,Thursday 27th August,22:50 - 00:05,Rugged Little Pill
+Survivor,Friday 28th August,16:00 - 17:00,Bobby Mc with Luke Thomas & the Paul Dunlea Big Band
+Survivor,Saturday 29th August,20:30 - 21:30,Risky Business (Live Aid Relived)
+Survivor,Saturday 29th August,22:15 - 23:15,Strength in Numbers (Rod Stewart Tribute)
+Survivor,Sunday 30th August,00:00 - 01:00,Safe from Harm + Live Orchestra
+The Lovely Local,Friday 28th August,13:55 - 14:55,BLKCNVS
+The Lovely Local,Friday 28th August,15:30 - 16:30,The Wran (Trad Session)
+The Lovely Local,Friday 28th August,16:50 - 17:50,Sorcha Richardson
+The Lovely Local,Friday 28th August,18:15 - 19:15,Sally Cinnamon
+The Lovely Local,Friday 28th August,19:25 - 20:25,Morgana
+The Lovely Local,Friday 28th August,20:55 - 21:55,Gra (Trad Session)
+The Lovely Local,Friday 28th August,22:20 - 23:20,Gurriers (DJ Set)
+The Lovely Local,Friday 28th August,23:40 - 00:40,KK Lewis
+The Lovely Local,Friday 28th August,00:55 - 01:55,Mo Cultivation
+The Lovely Local,Friday 28th August,02:15 - 03:15,New Act
+Theatre Of Food,Friday 28th August,17:00 - 17:45,"The Theatre of Food Pub Quiz, with Erica Drum & Dee Laffan"
+Theatre Of Food,Friday 28th August,18:00 - 18:45,Cluck Off w/ Spice Genie and Kwanghi Chan
+Theatre Of Food,Saturday 29th August,12:00 - 12:45,The Theatre of Food Bake Off! With Alice Kelly and Graham Herterich
+Theatre Of Food,Saturday 29th August,13:00 - 13:45,Dumplings from around the World with Eva Pau and Sham Hanifa
+Theatre Of Food,Saturday 29th August,14:00 - 14:45,Irish Heritage Grains with Gra Pizza
+Theatre Of Food,Saturday 29th August,15:00 - 15:45,The Toasted Sandwich Off - Killkenny v Kerry with Arán Bakery and Cais
+Theatre Of Food,Saturday 29th August,16:00 - 16:45,"Blood, Guts and Black Pudding with Graham Herterich, Kate Ryan, and Hugh Maguire"
+Theatre Of Food,Saturday 29th August,17:00 - 17:45,Dishes and Discs W/ Special Guests
+Theatre Of Food,Sunday 30th August,14:00 - 14:45,"How to be an foodfluencer w/ Alice Kelly, Marcus O'Laoire, & John McKenna"
+Theatre Of Food,Sunday 30th August,15:00 - 15:45,"The future and past of Irish Growing w/ Ryan Lally, Anthony O'Toole, Colman Power, Dee Laffan, & Brendan Guinan"
+Theatre Of Food,Sunday 30th August,16:00 - 16:45,"Ireland's Hotest Sauces w/ Chimac, Sham Hanifa, & Mi Amor"
+Theatre Of Food,Sunday 30th August,17:00 - 17:45,"Ireland's Food Legacy W/ Arun Kapil, 51CornMarket, Smokin Soul, & Dan Hegarty"
+Today FM Sound Garden,Friday 28th August,16:30 - 17:30,?
+Today FM Sound Garden,Friday 28th August,17:30 - 18:30,?
+Today FM Sound Garden,Friday 28th August,18:30 - 19:30,?
+Today FM Sound Garden,Friday 28th August,19:30 - 20:30,?
+Today FM Sound Garden,Friday 28th August,20:30 - 21:30,?
+Today FM Sound Garden,Friday 28th August,21:30 - 23:00,?
+Today FM Sound Garden,Friday 28th August,23:00 - 23:55,?
+Today FM Sound Garden,Saturday 29th August,12:30 - 13:30,?
+Today FM Sound Garden,Saturday 29th August,13:30 - 14:30,?
+Today FM Sound Garden,Saturday 29th August,14:30 - 15:30,?
+Today FM Sound Garden,Saturday 29th August,15:30 - 16:30,?
+Today FM Sound Garden,Saturday 29th August,16:30 - 17:30,?
+Today FM Sound Garden,Saturday 29th August,17:30 - 18:30,?
+Today FM Sound Garden,Saturday 29th August,18:30 - 19:30,?
+Today FM Sound Garden,Saturday 29th August,19:30 - 21:00,?
+Today FM Sound Garden,Saturday 29th August,21:00 - 22:00,?
+Today FM Sound Garden,Saturday 29th August,22:00 - 23:00,?
+Today FM Sound Garden,Sunday 30th August,13:00 - 15:00,?
+Today FM Sound Garden,Sunday 30th August,15:00 - 16:30,?
+Today FM Sound Garden,Sunday 30th August,16:30 - 17:30,?
+Today FM Sound Garden,Sunday 30th August,17:30 - 18:30,?
+Today FM Sound Garden,Sunday 30th August,18:30 - 19:30,?
+Today FM Sound Garden,Sunday 30th August,19:30 - 21:00,?
+Today FM Sound Garden,Sunday 30th August,21:00 - 22:30,?
+Today FM Sound Garden,Sunday 30th August,22:30 - 23:30,?
+TOF - Drinks Theatre,Friday 28th August,16:00 - 16:45,(Cocktail) Party like it's 1999 with Judith & Susan Boyle
+TOF - Drinks Theatre,Friday 28th August,17:00 - 17:45,History of the Gin Martini with Sidecar & Tanqueray
+TOF - Drinks Theatre,Friday 28th August,18:00 - 18:45,Breath Bounce and Booch with All About Kombucha
+TOF - Drinks Theatre,Saturday 29th August,12:00 - 12:45,"The New Public House? with Eist Espresso, Calendar Coffee & Sian Conway"
+TOF - Drinks Theatre,Saturday 29th August,13:00 - 13:45,"Time for Wine's Glow Up with Sip Wine, Wine Station, & friends"
+TOF - Drinks Theatre,Saturday 29th August,14:00 - 14:45,Kinara Cocktails with Simon O'Connor
+TOF - Drinks Theatre,Saturday 29th August,15:00 - 15:45,The Irish Whiskey Cookbook with Oisin Davis
+TOF - Drinks Theatre,Saturday 29th August,16:00 - 16:45,"AperO'Clock with Valentia Vermouth, Vera Foods & Brigid O'Hora"
+TOF - Drinks Theatre,Saturday 29th August,17:00 - 17:45,"Drinks at Mine with Marcus O'Laoire, Tara Deery, Jordan Mooney & Carlingford Oysters"
+TOF - Drinks Theatre,Saturday 29th August,18:00 - 18:45,Agave Spirits in Cocktails with Paladar and Casamigos
+TOF - Drinks Theatre,Sunday 30th August,13:00 - 13:45,"Rehydration Station with Fat Tomato, Picado Mexico and Lady Bites Podcast"
+TOF - Drinks Theatre,Sunday 30th August,14:00 - 14:45,"The New (Old) Public House with L Mulligans Grocer, Bia Duit & Aoife Carrigy"
+TOF - Drinks Theatre,Sunday 30th August,15:00 - 15:45,"Smokin' Wine Pairings with Smokin' Soul, Burren Smokehouse & Leslie Williams"
+TOF - Drinks Theatre,Sunday 30th August,16:00 - 16:45,"Sherry and Irish Whiskey, a love story, with Roe & Co, The Centre Cut, & Antonia Dominguez"
+TOF - Drinks Theatre,Sunday 30th August,17:00 - 17:45,Irish Folklore in Spirit with Pigs Lane & Roe and Co.
+TOF - Garden Stage,Friday 28th August,16:00 - 16:45,Sham Hanifa
+TOF - Garden Stage,Friday 28th August,17:30 - 18:30,Smokin Soul & Friends
+TOF - Garden Stage,Saturday 29th August,12:00 - 12:45,Spice Genie
+TOF - Garden Stage,Saturday 29th August,13:30 - 14:30,Kwanghi Chan
+TOF - Garden Stage,Saturday 29th August,15:00 - 16:00,Tango Streetfood
+TOF - Garden Stage,Saturday 29th August,16:30 - 17:30,Smokin Soul and Friends
+TOF - Garden Stage,Sunday 30th August,12:00 - 13:00,Arun Kapil
+TOF - Garden Stage,Sunday 30th August,13:30 - 14:30,Victor Franca
+TOF - Garden Stage,Sunday 30th August,15:00 - 15:45,Lily Ramirez
+TOF - Garden Stage,Sunday 30th August,16:30 - 17:30,John Whelan
+Trailer Park - Main Stage,Friday 28th August,12:30 - 13:30,WEDNESDAY GANG
+Trailer Park - Main Stage,Friday 28th August,14:00 - 15:00,THE EVERGREEN BROTHERS
+Trailer Park - Main Stage,Friday 28th August,15:25 - 16:15,RACK & RUINS
+Trailer Park - Main Stage,Friday 28th August,16:45 - 17:30,MAICIN
+Trailer Park - Main Stage,Friday 28th August,18:10 - 19:10,THE FOREIGN LOCALS
+Trailer Park - Main Stage,Friday 28th August,19:40 - 20:30,BAREFOOT MAFIA
+Trailer Park - Main Stage,Friday 28th August,21:00 - 22:00,OUT ON BALE
+Trailer Park - Main Stage,Friday 28th August,22:30 - 23:30,RAZ AND AFLA
+Trailer Park - Main Stage,Friday 28th August,00:00 - 00:55,SHAKALAK
+Trailer Park - Main Stage,Friday 28th August,01:15 - 02:15,GROOVELINE
+Trailer Park - Main Stage,Saturday 29th August,12:00 - 12:45,DUBLIN UKULELE COLLECTIVE
+Trailer Park - Main Stage,Saturday 29th August,13:05 - 14:00,RELUCTANT BOB AND THE LONELY LOVERS
+Trailer Park - Main Stage,Saturday 29th August,14:20 - 15:20,JEAN PACK AND THE SLAY BABIES
+Trailer Park - Main Stage,Saturday 29th August,15:40 - 16:40,THE LUNA BOYS
+Trailer Park - Main Stage,Saturday 29th August,17:00 - 18:00,DOGPOND
+Trailer Park - Main Stage,Saturday 29th August,18:30 - 19:30,DAVID GERAGHTY
+Trailer Park - Main Stage,Saturday 29th August,20:00 - 20:55,THE JADES
+Trailer Park - Main Stage,Saturday 29th August,21:25 - 22:20,BAKA BEYOND
+Trailer Park - Main Stage,Saturday 29th August,22:50 - 23:40,FUNKY TOWN
+Trailer Park - Main Stage,Saturday 29th August,00:10 - 01:00,DELUSH
+Trailer Park - Main Stage,Saturday 29th August,01:15 - 02:15,MY BAD SISTER
+Trailer Park - Main Stage,Sunday 30th August,12:00 - 12:50,THE TIMAHOE MALE CHOIR
+Trailer Park - Main Stage,Sunday 30th August,13:20 - 14:20,THE PEARLY WHITES
+Trailer Park - Main Stage,Sunday 30th August,14:50 - 15:50,BOOTLEG BEACH BOYS
+Trailer Park - Main Stage,Sunday 30th August,16:20 - 17:20,MCCARTNEY ALL THE BEST
+Trailer Park - Main Stage,Sunday 30th August,17:50 - 18:40,EPPIE
+Trailer Park - Main Stage,Sunday 30th August,19:10 - 20:10,POP GODS
+Trailer Park - Main Stage,Sunday 30th August,20:40 - 21:40,ESMERELDA ROAD
+Trailer Park - Main Stage,Sunday 30th August,22:10 - 23:10,HANK & THE LADS
+Trailer Park - Main Stage,Sunday 30th August,23:40 - 00:40,SAVAGE HEARTS
+Trailer Park - Main Stage,Sunday 30th August,01:00 - 02:00,RUAILE BUAILE
+Trailer Park - My Lovely Horse,Thursday 27th August,23:00 - 23:30,?
+Trailer Park - My Lovely Horse,Saturday 29th August,13:00 - 15:00,?
+Transmission,Thursday 27th August,18:00 - 19:30,Mark Fitz & Baw
+Transmission,Thursday 27th August,19:30 - 21:00,Full Funktion
+Transmission,Thursday 27th August,21:00 - 22:30,Ciano
+Transmission,Thursday 27th August,22:30 - 00:00,Granted
+Transmission,Friday 28th August,22:00 - 23:30,Victor Beesley
+Transmission,Friday 28th August,23:30 - 01:00,Furlong
+Transmission,Friday 28th August,01:00 - 02:30,Luca
+Transmission,Friday 28th August,02:30 - 04:00,Mad Gab
+Transmission,Saturday 29th August,22:00 - 23:30,Snell
+Transmission,Saturday 29th August,23:30 - 01:00,Dancenasty
+Transmission,Saturday 29th August,01:00 - 02:30,Mark Fitz
+Transmission,Saturday 29th August,02:30 - 04:00,Vibez
+Transmission,Sunday 30th August,21:05 - 22:35,Luca Consentino
+Transmission,Sunday 30th August,22:00 - 23:30,MXRK
+Transmission,Sunday 30th August,23:30 - 00:50,Baw
+Transmission,Sunday 30th August,00:50 - 02:20,DrowZeeDan
+Transmission,Sunday 30th August,02:20 - 03:40,Kev Mac
+Transmission,Sunday 30th August,03:40 - 04:00,Ali Kemal Ali
+Trenchtown - Treasure Beach,Thursday 27th August,18:00 - 21:00,Ian Hart
+Trenchtown - Treasure Beach,Thursday 27th August,18:00 - 21:00,One World Sound
+Trenchtown - Treasure Beach,Thursday 27th August,21:00 - 22:00,BVN
+Trenchtown - Treasure Beach,Thursday 27th August,22:00 - 23:00,Teggy
+Trenchtown - Treasure Beach,Thursday 27th August,23:00 - 00:00,Will Softly
+Trenchtown - Treasure Beach,Friday 28th August,10:00 - 12:00,Will Softly
+Trenchtown - Treasure Beach,Friday 28th August,12:00 - 15:00,Three Little Birds
+Trenchtown - Treasure Beach,Friday 28th August,15:00 - 17:00,Karmawi
+Trenchtown - Treasure Beach,Friday 28th August,17:00 - 19:00,Ray McShake
+Trenchtown - Treasure Beach,Friday 28th August,19:00 - 21:00,Mitch Presents
+Trenchtown - Treasure Beach,Friday 28th August,21:00 - 22:00,Ceola Haile
+Trenchtown - Treasure Beach,Friday 28th August,22:00 - 23:00,Michael Downing
+Trenchtown - Treasure Beach,Friday 28th August,23:00 - 00:00,Stellar Jo
+Trenchtown - Treasure Beach,Friday 28th August,00:00 - 01:00,Chloë Pixie
+Trenchtown - Treasure Beach,Friday 28th August,00:00 - 01:00,Pearl the Water Nymph
+Trenchtown - Treasure Beach,Friday 28th August,00:00 - 01:00,Will Softly
+Trenchtown - Treasure Beach,Friday 28th August,01:00 - 04:00,Rocksteady Social Club
+Trenchtown - Treasure Beach,Saturday 29th August,10:00 - 12:00,Ian Hart
+Trenchtown - Treasure Beach,Saturday 29th August,10:00 - 12:00,One World Sound
+Trenchtown - Treasure Beach,Saturday 29th August,12:00 - 14:00,Karmawi
+Trenchtown - Treasure Beach,Saturday 29th August,16:00 - 18:00,Puffin Man
+Trenchtown - Treasure Beach,Saturday 29th August,16:00 - 18:00,Ray McShake
+Trenchtown - Treasure Beach,Saturday 29th August,18:00 - 19:00,Kelly Bongo
+Trenchtown - Treasure Beach,Saturday 29th August,19:00 - 20:00,Kelsey
+Trenchtown - Treasure Beach,Saturday 29th August,20:00 - 21:00,Beansidhe
+Trenchtown - Treasure Beach,Saturday 29th August,21:00 - 22:00,Shimmy Irie
+Trenchtown - Treasure Beach,Saturday 29th August,22:00 - 23:00,Teggy
+Trenchtown - Treasure Beach,Saturday 29th August,23:00 - 01:00,Pablo Santo
+Trenchtown - Treasure Beach,Saturday 29th August,01:00 - 04:00,Rhythm People Recordings
+Trenchtown - Treasure Beach,Sunday 30th August,14:00 - 16:00,Sibh C
+Trenchtown - Treasure Beach,Sunday 30th August,16:00 - 17:00,Mojo
+Trenchtown - Treasure Beach,Sunday 30th August,17:00 - 19:00,Andy K
+Trenchtown - Treasure Beach,Sunday 30th August,19:00 - 21:00,DJ Denfensive
+Trenchtown - Treasure Beach,Sunday 30th August,21:00 - 23:00,Zazaman
+Trenchtown - Treasure Beach,Sunday 30th August,23:00 - 00:00,Chloë Pixie
+Trenchtown - Treasure Beach,Sunday 30th August,23:00 - 00:00,Pearl the Water Nymph
+Trenchtown - Treasure Beach,Sunday 30th August,23:00 - 00:00,Will Softly
+Trenchtown - Treasure Beach,Sunday 30th August,00:00 - 02:00,TREASURE BEACH MASHDOWN
+Trenchtown - Treasure Beach,Sunday 30th August,02:00 - 03:00,BOB MARLEY REGGAE TRIBUTE (DJ SET)
+White Claw,Friday 28th August,14:00 - 17:00,Craig Stone
+White Claw,Friday 28th August,17:00 - 20:00,Emmie
+White Claw,Friday 28th August,20:00 - 23:00,Karl Seery
+White Claw,Friday 28th August,23:00 - 01:00,_lawrence909
+White Claw,Saturday 29th August,14:00 - 16:00,CSD
+White Claw,Saturday 29th August,16:00 - 17:30,One More Tune
+White Claw,Saturday 29th August,17:30 - 20:30,Mark Murphy
+White Claw,Saturday 29th August,20:30 - 23:00,Jamie Ennis
+White Claw,Saturday 29th August,23:00 - 01:00,Yours Truly
+White Claw,Sunday 30th August,14:00 - 17:00,Remor
+White Claw,Sunday 30th August,17:00 - 19:00,Maria Lawlor
+White Claw,Sunday 30th August,19:00 - 22:00,FoxGluv
+White Claw,Sunday 30th August,22:00 - 01:00,DJ Deece

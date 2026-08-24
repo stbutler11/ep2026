@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   Clock,
   MapPin,
@@ -13,6 +13,11 @@ import {
   Share2,
   Trash2,
   StickyNote,
+  Search,
+  X,
+  Layers,
+  Calendar,
+  Sparkles,
 } from 'lucide-react';
 import { Act, ClashDetail, FestivalDay, PriorityLevel, UserActPreference } from '../types';
 import { FESTIVAL_ACTS, FESTIVAL_STAGES, getWalkingTime } from '../data/festivalData';
@@ -24,324 +29,574 @@ import {
 
 interface MyItineraryViewProps {
   day: FestivalDay;
+  onSelectDay?: (day: FestivalDay) => void;
   userPreferences: Record<string, UserActPreference | PriorityLevel>;
   onUpdatePriority: (actId: string, priority: PriorityLevel) => void;
   onUpdateNotes: (actId: string, notes: string) => void;
   onOpenActDetail: (act: Act) => void;
   clashes: ClashDetail[];
+  allClashes?: ClashDetail[];
 }
+
+const FESTIVAL_DAYS_ORDER: FestivalDay[] = ['thursday', 'friday', 'saturday', 'sunday'];
+
+const DAY_METADATA: Record<FestivalDay, { label: string; date: string; fullDate: string }> = {
+  thursday: { label: 'Thursday', date: 'Aug 27', fullDate: 'Thursday, August 27, 2026' },
+  friday: { label: 'Friday', date: 'Aug 28', fullDate: 'Friday, August 28, 2026' },
+  saturday: { label: 'Saturday', date: 'Aug 29', fullDate: 'Saturday, August 29, 2026' },
+  sunday: { label: 'Sunday', date: 'Aug 30', fullDate: 'Sunday, August 30, 2026' },
+};
 
 export const MyItineraryView: React.FC<MyItineraryViewProps> = ({
   day,
+  onSelectDay,
   userPreferences,
   onUpdatePriority,
   onUpdateNotes,
   onOpenActDetail,
   clashes,
+  allClashes = [],
 }) => {
+  const [selectedDayTab, setSelectedDayTab] = useState<FestivalDay | 'all'>('all');
+  const [searchQuery, setSearchQuery] = useState('');
   const [editingNotesId, setEditingNotesId] = useState<string | null>(null);
   const [noteDraft, setNoteDraft] = useState('');
 
-  // Filter user's chosen acts for the current day
-  const myActs = FESTIVAL_ACTS.filter((act) => {
-    if (act.day !== day) return false;
-    const pref = userPreferences[act.id];
-    const priority = typeof pref === 'string' ? pref : pref?.priority;
-    return priority && priority !== 'none';
-  }).sort((a, b) => a.startMinutes - b.startMinutes);
+  // Extract all shortlisted acts across all days
+  const allShortlistedActs = useMemo(() => {
+    return FESTIVAL_ACTS.filter((act) => {
+      const pref = userPreferences[act.id];
+      const priority = typeof pref === 'string' ? pref : pref?.priority;
+      return priority && priority !== 'none';
+    });
+  }, [userPreferences]);
+
+  // Counts of shortlisted acts per day
+  const shortlistedCounts = useMemo(() => {
+    const counts: Record<FestivalDay | 'all', number> = {
+      all: allShortlistedActs.length,
+      thursday: 0,
+      friday: 0,
+      saturday: 0,
+      sunday: 0,
+    };
+    allShortlistedActs.forEach((act) => {
+      counts[act.day] = (counts[act.day] || 0) + 1;
+    });
+    return counts;
+  }, [allShortlistedActs]);
+
+  // Filter shortlisted acts by active day tab & search query
+  const filteredShortlistedActs = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+
+    return allShortlistedActs.filter((act) => {
+      // Day filter
+      if (selectedDayTab !== 'all' && act.day !== selectedDayTab) {
+        return false;
+      }
+
+      // Search filter (name, genre, stage, notes)
+      if (q) {
+        const pref = userPreferences[act.id];
+        const notes = typeof pref === 'object' ? pref?.notes?.toLowerCase() || '' : '';
+        const stage = FESTIVAL_STAGES.find((s) => s.id === act.stageId);
+        const stageName = stage?.name.toLowerCase() || '';
+        const stageShort = stage?.shortName.toLowerCase() || '';
+
+        const matchesName = act.name.toLowerCase().includes(q);
+        const matchesGenre = act.genre.toLowerCase().includes(q);
+        const matchesStage = stageName.includes(q) || stageShort.includes(q);
+        const matchesNotes = notes.includes(q);
+        const matchesDesc = act.description.toLowerCase().includes(q);
+
+        if (!matchesName && !matchesGenre && !matchesStage && !matchesNotes && !matchesDesc) {
+          return false;
+        }
+      }
+
+      return true;
+    });
+  }, [allShortlistedActs, selectedDayTab, searchQuery, userPreferences]);
+
+  // Group filtered acts by day (sorted by time)
+  const actsGroupedByDay = useMemo(() => {
+    const groups: { day: FestivalDay; acts: Act[] }[] = [];
+
+    FESTIVAL_DAYS_ORDER.forEach((d) => {
+      if (selectedDayTab !== 'all' && selectedDayTab !== d) return;
+
+      const dayActs = filteredShortlistedActs
+        .filter((act) => act.day === d)
+        .sort((a, b) => a.startMinutes - b.startMinutes);
+
+      if (dayActs.length > 0 || (selectedDayTab === d && !searchQuery)) {
+        groups.push({ day: d, acts: dayActs });
+      }
+    });
+
+    return groups;
+  }, [filteredShortlistedActs, selectedDayTab, searchQuery]);
 
   const handleSaveNotes = (actId: string) => {
     onUpdateNotes(actId, noteDraft);
     setEditingNotesId(null);
   };
 
-  const totalDurationMinutes = myActs.reduce((acc, act) => acc + act.durationMinutes, 0);
-  const hours = Math.floor(totalDurationMinutes / 60);
-  const mins = totalDurationMinutes % 60;
+  // Calculate total live music duration for the visible acts
+  const totalDurationMinutes = filteredShortlistedActs.reduce(
+    (acc, act) => acc + act.durationMinutes,
+    0
+  );
+  const totalHours = Math.floor(totalDurationMinutes / 60);
+  const totalMins = totalDurationMinutes % 60;
+
+  // Active clash list to check (either allClashes or dayClashes)
+  const activeClashList = selectedDayTab === 'all' ? allClashes : clashes;
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 space-y-6">
-      {/* Top Banner: Stats */}
-      <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-5 shadow-lg flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <div className="flex items-center gap-2">
-            <h2 className="text-xl font-bold text-white tracking-tight">
-              My {day.charAt(0).toUpperCase() + day.slice(1)} Itinerary
-            </h2>
-            <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30">
-              {myActs.length} acts scheduled
-            </span>
-          </div>
-          <p className="text-xs text-neutral-400 mt-1">
-            Total Live Music: <span className="text-neutral-200 font-semibold">{hours}h {mins > 0 ? `${mins}m` : ''}</span> • Stradbally Hall
-          </p>
-        </div>
-      </div>
-
-      {/* Empty State if no acts selected */}
-      {myActs.length === 0 ? (
-        <div className="bg-neutral-900/60 border border-neutral-800 rounded-2xl p-10 text-center space-y-4">
-          <div className="w-16 h-16 rounded-full bg-neutral-800/80 flex items-center justify-center mx-auto text-neutral-400">
-            <Flame className="w-8 h-8 text-amber-500/50" />
-          </div>
-          <div className="space-y-1">
-            <h3 className="text-lg font-bold text-white">Your {day} schedule is empty</h3>
-            <p className="text-sm text-neutral-400 max-w-md mx-auto">
-              Browse the Stage Timetable or Lineup Explorer to shortlist your favorite acts. You can set priorities (Must See, Want to See, Maybe) to build your ultimate festival plan.
+      {/* Top Controls & Search Banner */}
+      <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-5 shadow-lg space-y-4">
+        {/* Header Title & Summary */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <div className="flex items-center gap-2 flex-wrap">
+              <h2 className="text-xl font-bold text-white tracking-tight">
+                {selectedDayTab === 'all'
+                  ? 'Complete Festival Itinerary'
+                  : `My ${DAY_METADATA[selectedDayTab]?.label} Itinerary`}
+              </h2>
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30">
+                {filteredShortlistedActs.length} acts scheduled
+              </span>
+            </div>
+            <p className="text-xs text-neutral-400 mt-1">
+              Total Live Music:{' '}
+              <span className="text-neutral-200 font-semibold">
+                {totalHours}h {totalMins > 0 ? `${totalMins}m` : ''}
+              </span>{' '}
+              • Stradbally Hall
             </p>
           </div>
         </div>
-      ) : (
-        /* Chronological Timeline */
-        <div className="space-y-4 relative">
-          {myActs.map((act, index) => {
-            const stage = FESTIVAL_STAGES.find((s) => s.id === act.stageId);
-            const pref = userPreferences[act.id];
-            const priority: PriorityLevel =
-              typeof pref === 'string' ? pref : pref?.priority || 'none';
-            const notes = typeof pref === 'object' ? pref?.notes : '';
-            const actClashes = getActClashes(act.id, clashes);
-            const hasClash = actClashes.length > 0;
-            const priorityStyle = getPriorityBadgeColor(priority);
 
-            // Calculate gap & walking distance from previous act
-            let gapMinutes = 0;
-            let walkInfo = { minutes: 0, meters: 0 };
-            let hasTightTurnaround = false;
+        {/* Day Selection Tabs */}
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none pt-1">
+          <button
+            onClick={() => setSelectedDayTab('all')}
+            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 ${
+              selectedDayTab === 'all'
+                ? 'bg-amber-500 text-neutral-950 shadow-xs'
+                : 'bg-neutral-950 text-neutral-400 hover:text-neutral-200 border border-neutral-800'
+            }`}
+          >
+            <Layers className="w-3.5 h-3.5" />
+            <span>All Days</span>
+            <span
+              className={`text-[10px] px-1.5 py-0.2 rounded-full font-semibold ${
+                selectedDayTab === 'all'
+                  ? 'bg-neutral-950/20 text-neutral-900'
+                  : 'bg-neutral-800 text-neutral-400'
+              }`}
+            >
+              {shortlistedCounts.all}
+            </span>
+          </button>
 
-            if (index > 0) {
-              const prevAct = myActs[index - 1];
-              gapMinutes = act.startMinutes - prevAct.endMinutes;
-              walkInfo = getWalkingTime(prevAct.stageId, act.stageId);
-              if (gapMinutes < walkInfo.minutes && prevAct.stageId !== act.stageId) {
-                hasTightTurnaround = true;
-              }
-            }
-
+          {FESTIVAL_DAYS_ORDER.map((d) => {
+            const meta = DAY_METADATA[d];
+            const isSelected = selectedDayTab === d;
             return (
-              <React.Fragment key={act.id}>
-                {/* Gap / Walking Distance Connector from Previous Act */}
-                {index > 0 && (
-                  <div className="px-4 py-2 my-1 flex items-center justify-between text-xs rounded-xl bg-neutral-900/40 border border-neutral-800/60 text-neutral-400">
-                    <div className="flex items-center gap-2">
-                      <Footprints className="w-3.5 h-3.5 text-neutral-500" />
-                      <span>
-                        Walk from <strong className="text-neutral-300">{FESTIVAL_STAGES.find(s => s.id === myActs[index - 1].stageId)?.shortName}</strong>: ~{walkInfo.minutes} mins ({walkInfo.meters}m)
-                      </span>
-                    </div>
-
-                    {gapMinutes > 30 ? (
-                      <div className="flex items-center gap-1.5 text-amber-400/90 font-medium">
-                        <Coffee className="w-3.5 h-3.5" />
-                        <span>{gapMinutes}m break (Food / Drinks / Relax)</span>
-                      </div>
-                    ) : hasTightTurnaround ? (
-                      <div className="flex items-center gap-1.5 text-rose-400 font-bold animate-pulse">
-                        <AlertTriangle className="w-3.5 h-3.5" />
-                        <span>Tight transfer! Leave previous set 5m early</span>
-                      </div>
-                    ) : (
-                      <div className="text-neutral-500">
-                        {gapMinutes > 0 ? `${gapMinutes}m buffer` : 'Direct transition'}
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                {/* Act Card */}
-                <div
-                  id={`itinerary-act-${act.id}`}
-                  className={`bg-neutral-900 rounded-2xl border transition-all p-5 shadow-sm relative overflow-hidden group ${
-                    hasClash
-                      ? 'border-rose-500/60 shadow-rose-950/20'
-                      : priority === 'must_see'
-                      ? 'border-amber-500/60 shadow-amber-950/20'
-                      : 'border-neutral-800 hover:border-neutral-700'
+              <button
+                key={d}
+                onClick={() => {
+                  setSelectedDayTab(d);
+                  if (onSelectDay) onSelectDay(d);
+                }}
+                className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all shrink-0 flex items-center gap-1.5 ${
+                  isSelected
+                    ? 'bg-amber-500 text-neutral-950 font-bold shadow-xs'
+                    : 'bg-neutral-950 text-neutral-400 hover:text-neutral-200 border border-neutral-800'
+                }`}
+              >
+                <span>{meta.label}</span>
+                <span className="text-[10px] opacity-75 hidden sm:inline">({meta.date})</span>
+                <span
+                  className={`text-[10px] px-1.5 py-0.2 rounded-full font-semibold ${
+                    isSelected
+                      ? 'bg-neutral-950/20 text-neutral-900'
+                      : 'bg-neutral-800 text-neutral-400'
                   }`}
                 >
-                  {/* Left Colored Accent Bar */}
-                  <div
-                    className="absolute left-0 top-0 bottom-0 w-1.5"
-                    style={{ backgroundColor: stage?.color || '#f59e0b' }}
-                  />
+                  {shortlistedCounts[d]}
+                </span>
+              </button>
+            );
+          })}
+        </div>
 
-                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
-                    {/* Main Details */}
-                    <div className="space-y-1.5 pl-2">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <span
-                          className="px-2.5 py-0.5 rounded-full text-xs font-bold border"
-                          style={{
-                            backgroundColor: `${stage?.color}20`,
-                            color: stage?.color,
-                            borderColor: `${stage?.color}50`,
-                          }}
-                        >
-                          {stage?.name}
-                        </span>
+        {/* Search Bar for Itinerary */}
+        <div className="relative pt-1">
+          <Search className="w-4 h-4 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2 mt-0.5" />
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search your itinerary by artist, stage, notes, or genre..."
+            className="w-full bg-neutral-950 border border-neutral-800 rounded-xl pl-10 pr-10 py-2 text-xs sm:text-sm text-neutral-100 placeholder-neutral-500 focus:outline-hidden focus:border-amber-500 transition-colors"
+          />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery('')}
+              className="absolute right-3 top-1/2 -translate-y-1/2 mt-0.5 text-neutral-400 hover:text-white"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          )}
+        </div>
+      </div>
 
-                        <span className={`px-2 py-0.5 rounded-full text-xs font-semibold border ${priorityStyle.bg} ${priorityStyle.text} ${priorityStyle.border}`}>
-                          {priority === 'must_see' && <Flame className="w-3 h-3 inline mr-1 fill-amber-400/30" />}
-                          {priority === 'want_to_see' && <Star className="w-3 h-3 inline mr-1 fill-emerald-400/30" />}
-                          {priority === 'maybe' && <Eye className="w-3 h-3 inline mr-1" />}
-                          {getPriorityLabel(priority)}
-                        </span>
+      {/* Empty State if no acts selected or no search matches */}
+      {filteredShortlistedActs.length === 0 ? (
+        <div className="bg-neutral-900/60 border border-neutral-800 rounded-2xl p-10 text-center space-y-4">
+          <div className="w-14 h-14 rounded-full bg-neutral-800/80 flex items-center justify-center mx-auto text-neutral-400">
+            {searchQuery ? (
+              <Search className="w-7 h-7 text-neutral-500" />
+            ) : (
+              <Flame className="w-7 h-7 text-amber-500/50" />
+            )}
+          </div>
+          <div className="space-y-1 max-w-md mx-auto">
+            <h3 className="text-lg font-bold text-white">
+              {searchQuery
+                ? `No acts in your itinerary match "${searchQuery}"`
+                : selectedDayTab === 'all'
+                ? 'Your festival itinerary is empty'
+                : `Your ${DAY_METADATA[selectedDayTab]?.label} schedule is empty`}
+            </h3>
+            <p className="text-xs sm:text-sm text-neutral-400">
+              {searchQuery
+                ? 'Try searching for a different artist name, stage, or note, or clear the search query.'
+                : 'Browse the Stage Timetable or Lineup Explorer to shortlist your favorite acts. You can set priorities (Must See, Want to See, Maybe) to build your ultimate festival plan.'}
+            </p>
+          </div>
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery('')}
+              className="px-3.5 py-1.5 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-xs font-semibold text-neutral-200"
+            >
+              Clear Search
+            </button>
+          )}
+        </div>
+      ) : (
+        /* Render Acts Grouped by Day */
+        <div className="space-y-8">
+          {actsGroupedByDay.map(({ day: groupDay, acts: dayActs }) => {
+            const groupMeta = DAY_METADATA[groupDay];
+            const groupMinutes = dayActs.reduce((acc, act) => acc + act.durationMinutes, 0);
+            const gHours = Math.floor(groupMinutes / 60);
+            const gMins = groupMinutes % 60;
 
-                        {act.isHeadliner && (
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-amber-500 text-neutral-950">
-                            Headliner
-                          </span>
-                        )}
-                      </div>
-
-                      <div className="pt-1">
-                        <h3
-                          onClick={() => onOpenActDetail(act)}
-                          className="text-lg sm:text-xl font-extrabold text-white group-hover:text-amber-300 transition-colors cursor-pointer inline-flex items-center gap-1.5"
-                        >
-                          {act.name}
-                          <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-amber-400" />
-                        </h3>
-                        <p className="text-xs text-neutral-400 mt-0.5 flex items-center gap-2">
-                          <span className="font-semibold text-neutral-200">{act.displayTime}</span>
-                          <span>•</span>
-                          <span>{act.durationMinutes} mins</span>
-                          <span>•</span>
-                          <span>{act.genre}</span>
-                        </p>
-                      </div>
-
-                      <p className="text-xs text-neutral-300 line-clamp-2 max-w-xl pt-1 leading-relaxed">
-                        {act.description}
-                      </p>
-                    </div>
-
-                    {/* Priority Controller & Actions */}
-                    <div className="flex items-center sm:flex-col items-end gap-2 shrink-0 self-end sm:self-start">
-                      <div className="flex items-center gap-1 bg-neutral-950 p-1 rounded-xl border border-neutral-800">
-                        <button
-                          onClick={() => onUpdatePriority(act.id, 'must_see')}
-                          className={`px-2 py-1 rounded-lg text-xs font-semibold transition-colors flex items-center gap-1 ${
-                            priority === 'must_see' ? 'bg-amber-500 text-neutral-950' : 'text-neutral-400 hover:text-amber-400'
-                          }`}
-                          title="Must See"
-                        >
-                          <Flame className="w-3.5 h-3.5" />
-                        </button>
-                        <button
-                          onClick={() => onUpdatePriority(act.id, 'want_to_see')}
-                          className={`px-2 py-1 rounded-lg text-xs font-semibold transition-colors flex items-center gap-1 ${
-                            priority === 'want_to_see' ? 'bg-emerald-500 text-neutral-950' : 'text-neutral-400 hover:text-emerald-400'
-                          }`}
-                          title="Want to See"
-                        >
-                          <Star className="w-3.5 h-3.5" />
-                        </button>
-                        <button
-                          onClick={() => onUpdatePriority(act.id, 'maybe')}
-                          className={`px-2 py-1 rounded-lg text-xs font-semibold transition-colors flex items-center gap-1 ${
-                            priority === 'maybe' ? 'bg-sky-500 text-neutral-950' : 'text-neutral-400 hover:text-sky-400'
-                          }`}
-                          title="Maybe"
-                        >
-                          <Eye className="w-3.5 h-3.5" />
-                        </button>
-                        <button
-                          onClick={() => onUpdatePriority(act.id, 'none')}
-                          className="px-2 py-1 rounded-lg text-xs text-neutral-500 hover:text-rose-400 hover:bg-neutral-800 transition-colors"
-                          title="Remove from Itinerary"
-                        >
-                          <Trash2 className="w-3.5 h-3.5" />
-                        </button>
-                      </div>
-
-                      <button
-                        onClick={() => {
-                          if (editingNotesId === act.id) {
-                            setEditingNotesId(null);
-                          } else {
-                            setEditingNotesId(act.id);
-                            setNoteDraft(notes || '');
-                          }
-                        }}
-                        className="text-xs text-neutral-400 hover:text-neutral-200 flex items-center gap-1 px-2 py-1 rounded-lg hover:bg-neutral-800 transition-colors"
-                      >
-                        <StickyNote className="w-3.5 h-3.5 text-amber-400" />
-                        <span>{notes ? 'Edit note' : '+ Add note'}</span>
-                      </button>
-                    </div>
+            return (
+              <div key={groupDay} className="space-y-4">
+                {/* Day Section Header */}
+                <div className="flex items-center justify-between pb-2 border-b border-neutral-800">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-amber-400" />
+                    <h3 className="text-base sm:text-lg font-extrabold text-white">
+                      {groupMeta.fullDate}
+                    </h3>
                   </div>
+                  <div className="text-xs text-neutral-400">
+                    <strong className="text-neutral-200">{dayActs.length}</strong> acts • {gHours}h{' '}
+                    {gMins > 0 ? `${gMins}m` : ''}
+                  </div>
+                </div>
 
-                  {/* Clash Alert Box if conflicting */}
-                  {hasClash && (
-                    <div className="mt-3.5 p-3 rounded-xl bg-rose-950/40 border border-rose-500/40 space-y-2">
-                      <div className="flex items-center gap-2 text-rose-300 text-xs font-bold">
-                        <AlertTriangle className="w-4 h-4 text-rose-400 shrink-0 animate-pulse" />
-                        <span>Time Clash Detected with other shortlisted acts:</span>
-                      </div>
-                      <div className="space-y-1 pl-6">
-                        {actClashes.map((c) => {
-                          const otherAct = c.act1.id === act.id ? c.act2 : c.act1;
-                          const otherStage = FESTIVAL_STAGES.find((s) => s.id === otherAct.stageId);
-                          return (
-                            <div
-                              key={c.id}
-                              className="text-xs text-neutral-300 flex items-center justify-between gap-2"
-                            >
+                {/* Day Act List */}
+                <div className="space-y-4 relative">
+                  {dayActs.map((act, index) => {
+                    const stage = FESTIVAL_STAGES.find((s) => s.id === act.stageId);
+                    const pref = userPreferences[act.id];
+                    const priority: PriorityLevel =
+                      typeof pref === 'string' ? pref : pref?.priority || 'none';
+                    const notes = typeof pref === 'object' ? pref?.notes : '';
+                    const actClashes = getActClashes(act.id, activeClashList);
+                    const hasClash = actClashes.length > 0;
+                    const priorityStyle = getPriorityBadgeColor(priority);
+
+                    // Calculate gap & walking distance from previous act on same day
+                    let gapMinutes = 0;
+                    let walkInfo = { minutes: 0, meters: 0 };
+                    let hasTightTurnaround = false;
+
+                    if (index > 0) {
+                      const prevAct = dayActs[index - 1];
+                      gapMinutes = act.startMinutes - prevAct.endMinutes;
+                      walkInfo = getWalkingTime(prevAct.stageId, act.stageId);
+                      if (gapMinutes < walkInfo.minutes && prevAct.stageId !== act.stageId) {
+                        hasTightTurnaround = true;
+                      }
+                    }
+
+                    return (
+                      <React.Fragment key={act.id}>
+                        {/* Gap / Walking Distance Connector from Previous Act */}
+                        {index > 0 && (
+                          <div className="px-4 py-2 my-1 flex items-center justify-between text-xs rounded-xl bg-neutral-900/40 border border-neutral-800/60 text-neutral-400">
+                            <div className="flex items-center gap-2">
+                              <Footprints className="w-3.5 h-3.5 text-neutral-500" />
                               <span>
-                                • <strong>{otherAct.name}</strong> on {otherStage?.shortName} ({otherAct.displayTime}) — <span className="text-rose-400 font-semibold">{c.overlapDurationMinutes}m overlap</span>
+                                Walk from{' '}
+                                <strong className="text-neutral-300">
+                                  {
+                                    FESTIVAL_STAGES.find((s) => s.id === dayActs[index - 1].stageId)
+                                      ?.shortName
+                                  }
+                                </strong>
+                                : ~{walkInfo.minutes} mins ({walkInfo.meters}m)
                               </span>
+                            </div>
+
+                            {gapMinutes > 30 ? (
+                              <div className="flex items-center gap-1.5 text-amber-400/90 font-medium">
+                                <Coffee className="w-3.5 h-3.5" />
+                                <span>{gapMinutes}m break (Food / Drinks / Relax)</span>
+                              </div>
+                            ) : hasTightTurnaround ? (
+                              <div className="flex items-center gap-1.5 text-rose-400 font-bold animate-pulse">
+                                <AlertTriangle className="w-3.5 h-3.5" />
+                                <span>Tight transfer! Leave previous set 5m early</span>
+                              </div>
+                            ) : (
+                              <div className="text-neutral-500">
+                                {gapMinutes > 0 ? `${gapMinutes}m buffer` : 'Direct transition'}
+                              </div>
+                            )}
+                          </div>
+                        )}
+
+                        {/* Act Card */}
+                        <div
+                          id={`itinerary-act-${act.id}`}
+                          className={`bg-neutral-900 rounded-2xl border transition-all p-5 shadow-sm relative overflow-hidden group ${
+                            hasClash
+                              ? 'border-rose-500/60 shadow-rose-950/20'
+                              : priority === 'must_see'
+                              ? 'border-amber-500/60 shadow-amber-950/20'
+                              : 'border-neutral-800 hover:border-neutral-700'
+                          }`}
+                        >
+                          {/* Left Colored Accent Bar */}
+                          <div
+                            className="absolute left-0 top-0 bottom-0 w-1.5"
+                            style={{ backgroundColor: stage?.color || '#f59e0b' }}
+                          />
+
+                          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+                            {/* Main Details */}
+                            <div className="space-y-1.5 pl-2">
+                              <div className="flex items-center gap-2 flex-wrap">
+                                <span
+                                  className="px-2.5 py-0.5 rounded-full text-xs font-bold border"
+                                  style={{
+                                    backgroundColor: `${stage?.color}20`,
+                                    color: stage?.color,
+                                    borderColor: `${stage?.color}50`,
+                                  }}
+                                >
+                                  {stage?.name}
+                                </span>
+
+                                <span
+                                  className={`px-2 py-0.5 rounded-full text-xs font-semibold border ${priorityStyle.bg} ${priorityStyle.text} ${priorityStyle.border}`}
+                                >
+                                  {priority === 'must_see' && (
+                                    <Flame className="w-3 h-3 inline mr-1 fill-amber-400/30" />
+                                  )}
+                                  {priority === 'want_to_see' && (
+                                    <Star className="w-3 h-3 inline mr-1 fill-emerald-400/30" />
+                                  )}
+                                  {priority === 'maybe' && <Eye className="w-3 h-3 inline mr-1" />}
+                                  {getPriorityLabel(priority)}
+                                </span>
+
+                                {act.isHeadliner && (
+                                  <span className="px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-amber-500 text-neutral-950">
+                                    Headliner
+                                  </span>
+                                )}
+                              </div>
+
+                              <div className="pt-1">
+                                <h3
+                                  onClick={() => onOpenActDetail(act)}
+                                  className="text-lg sm:text-xl font-extrabold text-white group-hover:text-amber-300 transition-colors cursor-pointer inline-flex items-center gap-1.5"
+                                >
+                                  {act.name}
+                                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-amber-400" />
+                                </h3>
+                                <p className="text-xs text-neutral-400 mt-0.5 flex items-center gap-2">
+                                  <span className="font-semibold text-neutral-200">
+                                    {act.displayTime}
+                                  </span>
+                                  <span>•</span>
+                                  <span>{act.durationMinutes} mins</span>
+                                  <span>•</span>
+                                  <span>{act.genre}</span>
+                                </p>
+                              </div>
+
+                              <p className="text-xs text-neutral-300 line-clamp-2 max-w-xl pt-1 leading-relaxed">
+                                {act.description}
+                              </p>
+                            </div>
+
+                            {/* Priority Controller & Actions */}
+                            <div className="flex items-center sm:flex-col items-end gap-2 shrink-0 self-end sm:self-start">
+                              <div className="flex items-center gap-1 bg-neutral-950 p-1 rounded-xl border border-neutral-800">
+                                <button
+                                  onClick={() => onUpdatePriority(act.id, 'must_see')}
+                                  className={`px-2 py-1 rounded-lg text-xs font-semibold transition-colors flex items-center gap-1 ${
+                                    priority === 'must_see'
+                                      ? 'bg-amber-500 text-neutral-950'
+                                      : 'text-neutral-400 hover:text-amber-400'
+                                  }`}
+                                  title="Must See"
+                                >
+                                  <Flame className="w-3.5 h-3.5" />
+                                </button>
+                                <button
+                                  onClick={() => onUpdatePriority(act.id, 'want_to_see')}
+                                  className={`px-2 py-1 rounded-lg text-xs font-semibold transition-colors flex items-center gap-1 ${
+                                    priority === 'want_to_see'
+                                      ? 'bg-emerald-500 text-neutral-950'
+                                      : 'text-neutral-400 hover:text-emerald-400'
+                                  }`}
+                                  title="Want to See"
+                                >
+                                  <Star className="w-3.5 h-3.5" />
+                                </button>
+                                <button
+                                  onClick={() => onUpdatePriority(act.id, 'maybe')}
+                                  className={`px-2 py-1 rounded-lg text-xs font-semibold transition-colors flex items-center gap-1 ${
+                                    priority === 'maybe'
+                                      ? 'bg-sky-500 text-neutral-950'
+                                      : 'text-neutral-400 hover:text-sky-400'
+                                  }`}
+                                  title="Maybe"
+                                >
+                                  <Eye className="w-3.5 h-3.5" />
+                                </button>
+                                <button
+                                  onClick={() => onUpdatePriority(act.id, 'none')}
+                                  className="px-2 py-1 rounded-lg text-xs text-neutral-500 hover:text-rose-400 hover:bg-neutral-800 transition-colors"
+                                  title="Remove from Itinerary"
+                                >
+                                  <Trash2 className="w-3.5 h-3.5" />
+                                </button>
+                              </div>
+
                               <button
-                                onClick={() => onUpdatePriority(otherAct.id, 'none')}
-                                className="text-[11px] px-2 py-0.5 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 font-medium transition-colors"
+                                onClick={() => {
+                                  if (editingNotesId === act.id) {
+                                    setEditingNotesId(null);
+                                  } else {
+                                    setEditingNotesId(act.id);
+                                    setNoteDraft(notes || '');
+                                  }
+                                }}
+                                className="text-xs text-neutral-400 hover:text-neutral-200 flex items-center gap-1 px-2 py-1 rounded-lg hover:bg-neutral-800 transition-colors"
                               >
-                                Keep {act.name} only
+                                <StickyNote className="w-3.5 h-3.5 text-amber-400" />
+                                <span>{notes ? 'Edit note' : '+ Add note'}</span>
                               </button>
                             </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
+                          </div>
 
-                  {/* Personal Notes Section */}
-                  {(notes || editingNotesId === act.id) && (
-                    <div className="mt-3 pt-3 border-t border-neutral-800/80">
-                      {editingNotesId === act.id ? (
-                        <div className="space-y-2">
-                          <textarea
-                            value={noteDraft}
-                            onChange={(e) => setNoteDraft(e.target.value)}
-                            placeholder="e.g. Meet friends by left speaker stack; Leave 10 mins early for Gorillaz..."
-                            className="w-full text-xs bg-neutral-950 border border-neutral-700 rounded-xl p-2.5 text-neutral-200 focus:outline-hidden focus:border-amber-500 resize-none h-16"
-                          />
-                          <div className="flex justify-end gap-2">
-                            <button
-                              onClick={() => setEditingNotesId(null)}
-                              className="px-2.5 py-1 text-xs text-neutral-400 hover:text-white"
-                            >
-                              Cancel
-                            </button>
-                            <button
-                              onClick={() => handleSaveNotes(act.id)}
-                              className="px-3 py-1 text-xs bg-amber-500 text-neutral-950 font-bold rounded-lg hover:bg-amber-400"
-                            >
-                              Save Note
-                            </button>
-                          </div>
+                          {/* Clash Alert Box if conflicting */}
+                          {hasClash && (
+                            <div className="mt-3.5 p-3 rounded-xl bg-rose-950/40 border border-rose-500/40 space-y-2">
+                              <div className="flex items-center gap-2 text-rose-300 text-xs font-bold">
+                                <AlertTriangle className="w-4 h-4 text-rose-400 shrink-0 animate-pulse" />
+                                <span>Time Clash Detected with other shortlisted acts:</span>
+                              </div>
+                              <div className="space-y-1 pl-6">
+                                {actClashes.map((c) => {
+                                  const otherAct = c.act1.id === act.id ? c.act2 : c.act1;
+                                  const otherStage = FESTIVAL_STAGES.find(
+                                    (s) => s.id === otherAct.stageId
+                                  );
+                                  return (
+                                    <div
+                                      key={c.id}
+                                      className="text-xs text-neutral-300 flex items-center justify-between gap-2"
+                                    >
+                                      <span>
+                                        • <strong>{otherAct.name}</strong> on {otherStage?.shortName}{' '}
+                                        ({otherAct.displayTime}) —{' '}
+                                        <span className="text-rose-400 font-semibold">
+                                          {c.overlapDurationMinutes}m overlap
+                                        </span>
+                                      </span>
+                                      <button
+                                        onClick={() => onUpdatePriority(otherAct.id, 'none')}
+                                        className="text-[11px] px-2 py-0.5 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 font-medium transition-colors"
+                                      >
+                                        Keep {act.name} only
+                                      </button>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Personal Notes Section */}
+                          {(notes || editingNotesId === act.id) && (
+                            <div className="mt-3 pt-3 border-t border-neutral-800/80">
+                              {editingNotesId === act.id ? (
+                                <div className="space-y-2">
+                                  <textarea
+                                    value={noteDraft}
+                                    onChange={(e) => setNoteDraft(e.target.value)}
+                                    placeholder="e.g. Meet friends by sound tower; Leave 10 mins early for Gorillaz..."
+                                    className="w-full text-xs bg-neutral-950 border border-neutral-700 rounded-xl p-2.5 text-neutral-200 focus:outline-hidden focus:border-amber-500 resize-none h-16"
+                                  />
+                                  <div className="flex justify-end gap-2">
+                                    <button
+                                      onClick={() => setEditingNotesId(null)}
+                                      className="px-2.5 py-1 text-xs text-neutral-400 hover:text-white"
+                                    >
+                                      Cancel
+                                    </button>
+                                    <button
+                                      onClick={() => handleSaveNotes(act.id)}
+                                      className="px-3 py-1 text-xs bg-amber-500 text-neutral-950 font-bold rounded-lg hover:bg-amber-400"
+                                    >
+                                      Save Note
+                                    </button>
+                                  </div>
+                                </div>
+                              ) : (
+                                <div className="flex items-start gap-2 text-xs text-amber-200/90 bg-amber-950/20 border border-amber-500/20 p-2.5 rounded-xl">
+                                  <StickyNote className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                                  <div className="flex-1">
+                                    <span className="font-semibold text-amber-400">My Note:</span>{' '}
+                                    {notes}
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          )}
                         </div>
-                      ) : (
-                        <div className="flex items-start gap-2 text-xs text-amber-200/90 bg-amber-950/20 border border-amber-500/20 p-2.5 rounded-xl">
-                          <StickyNote className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
-                          <div className="flex-1">
-                            <span className="font-semibold text-amber-400">My Note:</span> {notes}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  )}
+                      </React.Fragment>
+                    );
+                  })}
                 </div>
-              </React.Fragment>
+              </div>
             );
           })}
         </div>

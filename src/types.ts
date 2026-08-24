@@ -1,4 +1,4 @@
-export type FestivalDay = 'friday' | 'saturday' | 'sunday';
+export type FestivalDay = 'thursday' | 'friday' | 'saturday' | 'sunday';
 
 export type PriorityLevel = 'must_see' | 'want_to_see' | 'maybe' | 'none';
 

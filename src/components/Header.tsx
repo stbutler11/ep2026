@@ -40,6 +40,7 @@ export const Header: React.FC<HeaderProps> = ({
   const [copiedNotification, setCopiedNotification] = useState(false);
 
   const days: { id: FestivalDay; label: string; date: string }[] = [
+    { id: 'thursday', label: 'Thursday', date: 'Aug 27' },
     { id: 'friday', label: 'Friday', date: 'Aug 28' },
     { id: 'saturday', label: 'Saturday', date: 'Aug 29' },
     { id: 'sunday', label: 'Sunday', date: 'Aug 30' },

@@ -164,11 +164,13 @@ export default function App() {
         {activeView === 'itinerary' && (
           <MyItineraryView
             day={activeDay}
+            onSelectDay={setActiveDay}
             userPreferences={userPreferences}
             onUpdatePriority={handleUpdatePriority}
             onUpdateNotes={handleUpdateNotes}
             onOpenActDetail={setActiveActModal}
             clashes={dayClashes}
+            allClashes={allClashes}
           />
         )}
 

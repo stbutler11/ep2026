@@ -171,12 +171,14 @@ export function generateICS(
   if (selectedActs.length === 0) return '';
 
   const dayToDateMap: Record<FestivalDay, string> = {
+    thursday: '20260827',
     friday: '20260828',
     saturday: '20260829',
     sunday: '20260830',
   };
 
   const dayToNextDayMap: Record<FestivalDay, string> = {
+    thursday: '20260828',
     friday: '20260829',
     saturday: '20260830',
     sunday: '20260831',
@@ -240,8 +242,9 @@ export function generateICS(
 export function formatItineraryText(
   userPreferences: Record<string, UserActPreference | PriorityLevel>
 ): string {
-  const days: FestivalDay[] = ['friday', 'saturday', 'sunday'];
+  const days: FestivalDay[] = ['thursday', 'friday', 'saturday', 'sunday'];
   const dayNames: Record<FestivalDay, string> = {
+    thursday: 'THURSDAY, AUGUST 27, 2026',
     friday: 'FRIDAY, AUGUST 28, 2026',
     saturday: 'SATURDAY, AUGUST 29, 2026',
     sunday: 'SUNDAY, AUGUST 30, 2026',
