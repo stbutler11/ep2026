@@ -1,1 +1,57 @@
 @import "tailwindcss";
+
+/* Screen mode: Hide the background print container */
+#festival-print-document {
+  display: none;
+}
+
+/* Print mode: Only display the dedicated printable festival document */
+@media print {
+  @page {
+    margin: 10mm;
+    size: auto;
+  }
+
+  html, body {
+    background-color: transparent !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 12pt;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide all app screen UI and interactive modals */
+  #ep-app-container,
+  .fixed,
+  header,
+  nav,
+  button,
+  input,
+  footer {
+    display: none !important;
+  }
+
+  /* Force display of the printable document */
+  #festival-print-document {
+    display: block !important;
+    visibility: visible !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  /* Ensure act cards and day sections do not split across pages */
+  .page-break-inside-avoid,
+  .break-inside-avoid,
+  div[class*="rounded-xl"] {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+}

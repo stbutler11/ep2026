@@ -13,6 +13,8 @@ import { ClashSolverView } from './components/ClashSolverView';
 import { LineupExplorer } from './components/LineupExplorer';
 import { StageMapView } from './components/StageMapView';
 import { ActDetailModal } from './components/ActDetailModal';
+import { PrintPdfModal } from './components/PrintPdfModal';
+import { PrintableItineraryDocument, PrintSettings } from './components/PrintableItineraryDocument';
 import { detectClashes } from './utils/scheduleUtils';
 import { FESTIVAL_ACTS } from './data/festivalData';
 
@@ -22,6 +24,7 @@ export default function App() {
   const [activeDay, setActiveDay] = useState<FestivalDay>('friday');
   const [activeView, setActiveView] = useState<ViewMode>('timetable');
   const [activeActModal, setActiveActModal] = useState<Act | null>(null);
+  const [isPrintModalOpen, setIsPrintModalOpen] = useState(false);
 
   // Load preferences from localStorage with fallback to empty schedule
   const [userPreferences, setUserPreferences] = useState<
@@ -129,91 +132,123 @@ export default function App() {
   }, [userPreferences, activeDay]);
 
   return (
-    <div id="ep-app-container" className="min-h-screen bg-neutral-950 text-neutral-100 flex flex-col antialiased selection:bg-amber-500 selection:text-neutral-950">
-      {/* Top Header */}
-      <Header
-        activeDay={activeDay}
-        onSelectDay={setActiveDay}
-        userPreferences={userPreferences}
-        onClearPreferences={handleClearPreferences}
-        clashesCount={dayClashes.length}
-        totalSelectedCount={totalSelectedCount}
-        mustSeeCount={mustSeeCount}
-      />
-
-      {/* Main View Navigation Tabs */}
-      <ViewNav
-        activeView={activeView}
-        onSelectView={setActiveView}
-        clashesCount={dayClashes.length}
-        selectedActsCount={currentDaySelectedCount}
-      />
-
-      {/* Main Dynamic View Content */}
-      <main className="flex-1 flex flex-col pb-16 sm:pb-0">
-        {activeView === 'timetable' && (
-          <TimetableGrid
-            day={activeDay}
-            userPreferences={userPreferences}
-            onUpdatePriority={handleUpdatePriority}
-            onOpenActDetail={setActiveActModal}
-            clashes={dayClashes}
-          />
-        )}
-
-        {activeView === 'itinerary' && (
-          <MyItineraryView
-            day={activeDay}
-            onSelectDay={setActiveDay}
-            userPreferences={userPreferences}
-            onUpdatePriority={handleUpdatePriority}
-            onUpdateNotes={handleUpdateNotes}
-            onOpenActDetail={setActiveActModal}
-            clashes={dayClashes}
-            allClashes={allClashes}
-          />
-        )}
-
-        {activeView === 'clashes' && (
-          <ClashSolverView
-            day={activeDay}
-            clashes={dayClashes}
-            userPreferences={userPreferences}
-            onUpdatePriority={handleUpdatePriority}
-            onUpdateNotes={handleUpdateNotes}
-            onOpenActDetail={setActiveActModal}
-          />
-        )}
-
-        {activeView === 'explorer' && (
-          <LineupExplorer
-            dayFilter={activeDay}
-            onSelectDay={setActiveDay}
-            userPreferences={userPreferences}
-            onUpdatePriority={handleUpdatePriority}
-            onOpenActDetail={setActiveActModal}
-          />
-        )}
-
-        {activeView === 'map' && (
-          <StageMapView
-            day={activeDay}
-            onOpenActDetail={setActiveActModal}
-          />
-        )}
-      </main>
-
-      {/* Act Detail Modal Drawer */}
-      {activeActModal && (
-        <ActDetailModal
-          act={activeActModal}
-          onClose={() => setActiveActModal(null)}
+    <>
+      <div id="ep-app-container" className="min-h-screen bg-neutral-950 text-neutral-100 flex flex-col antialiased selection:bg-amber-500 selection:text-neutral-950">
+        {/* Top Header */}
+        <Header
+          activeDay={activeDay}
+          onSelectDay={setActiveDay}
           userPreferences={userPreferences}
-          onUpdatePriority={handleUpdatePriority}
-          onUpdateNotes={handleUpdateNotes}
-          clashes={allClashes}
+          onClearPreferences={handleClearPreferences}
+          onOpenPrintModal={() => setIsPrintModalOpen(true)}
+          clashesCount={dayClashes.length}
+          totalSelectedCount={totalSelectedCount}
+          mustSeeCount={mustSeeCount}
         />
-      )}
-    </div>
+
+        {/* Main View Navigation Tabs */}
+        <ViewNav
+          activeView={activeView}
+          onSelectView={setActiveView}
+          clashesCount={dayClashes.length}
+          selectedActsCount={currentDaySelectedCount}
+        />
+
+        {/* Main Dynamic View Content */}
+        <main className="flex-1 flex flex-col pb-16 sm:pb-0">
+          {activeView === 'timetable' && (
+            <TimetableGrid
+              day={activeDay}
+              userPreferences={userPreferences}
+              onUpdatePriority={handleUpdatePriority}
+              onOpenActDetail={setActiveActModal}
+              clashes={dayClashes}
+            />
+          )}
+
+          {activeView === 'itinerary' && (
+            <MyItineraryView
+              day={activeDay}
+              onSelectDay={setActiveDay}
+              userPreferences={userPreferences}
+              onUpdatePriority={handleUpdatePriority}
+              onUpdateNotes={handleUpdateNotes}
+              onOpenActDetail={setActiveActModal}
+              onOpenPrintModal={() => setIsPrintModalOpen(true)}
+              clashes={dayClashes}
+              allClashes={allClashes}
+            />
+          )}
+
+          {activeView === 'clashes' && (
+            <ClashSolverView
+              day={activeDay}
+              clashes={dayClashes}
+              userPreferences={userPreferences}
+              onUpdatePriority={handleUpdatePriority}
+              onUpdateNotes={handleUpdateNotes}
+              onOpenActDetail={setActiveActModal}
+            />
+          )}
+
+          {activeView === 'explorer' && (
+            <LineupExplorer
+              dayFilter={activeDay}
+              onSelectDay={setActiveDay}
+              userPreferences={userPreferences}
+              onUpdatePriority={handleUpdatePriority}
+              onOpenActDetail={setActiveActModal}
+            />
+          )}
+
+          {activeView === 'map' && (
+            <StageMapView
+              day={activeDay}
+              onOpenActDetail={setActiveActModal}
+            />
+          )}
+        </main>
+
+        {/* Act Detail Modal Drawer */}
+        {activeActModal && (
+          <ActDetailModal
+            act={activeActModal}
+            onClose={() => setActiveActModal(null)}
+            userPreferences={userPreferences}
+            onUpdatePriority={handleUpdatePriority}
+            onUpdateNotes={handleUpdateNotes}
+            clashes={allClashes}
+          />
+        )}
+
+        {/* Print to PDF Customization Modal */}
+        {isPrintModalOpen && (
+          <PrintPdfModal
+            isOpen={isPrintModalOpen}
+            onClose={() => setIsPrintModalOpen(false)}
+            userPreferences={userPreferences}
+            clashes={allClashes}
+            initialDay={activeDay}
+          />
+        )}
+      </div>
+
+      {/* Hidden container targeted exclusively during window.print() */}
+      <PrintableItineraryDocument
+        settings={{
+          format: 'pocket_pass',
+          colorMode: 'vibrant',
+          dayScope: 'all',
+          attendeeName: 'Electric Picnic \'26 Itinerary',
+          showNotes: true,
+          showWalkingTimes: true,
+          showFestivalEssentials: true,
+          showClashes: true,
+        }}
+        userPreferences={userPreferences}
+        clashes={allClashes}
+        id="festival-print-document"
+      />
+    </>
   );
 }

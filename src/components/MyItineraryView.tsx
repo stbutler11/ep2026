@@ -18,6 +18,7 @@ import {
   Layers,
   Calendar,
   Sparkles,
+  Printer,
 } from 'lucide-react';
 import { Act, ClashDetail, FestivalDay, PriorityLevel, UserActPreference } from '../types';
 import { FESTIVAL_ACTS, FESTIVAL_STAGES, getWalkingTime } from '../data/festivalData';
@@ -34,6 +35,7 @@ interface MyItineraryViewProps {
   onUpdatePriority: (actId: string, priority: PriorityLevel) => void;
   onUpdateNotes: (actId: string, notes: string) => void;
   onOpenActDetail: (act: Act) => void;
+  onOpenPrintModal?: () => void;
   clashes: ClashDetail[];
   allClashes?: ClashDetail[];
 }
@@ -54,6 +56,7 @@ export const MyItineraryView: React.FC<MyItineraryViewProps> = ({
   onUpdatePriority,
   onUpdateNotes,
   onOpenActDetail,
+  onOpenPrintModal,
   clashes,
   allClashes = [],
 }) => {
@@ -179,6 +182,18 @@ export const MyItineraryView: React.FC<MyItineraryViewProps> = ({
               • Stradbally Hall
             </p>
           </div>
+
+          {/* Direct Print to PDF Trigger */}
+          {onOpenPrintModal && (
+            <button
+              onClick={onOpenPrintModal}
+              className="flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold text-xs transition-all shadow-md shadow-amber-500/15 active:scale-95 shrink-0"
+              title="Print or export your itinerary as a stylish festival pocket guide PDF"
+            >
+              <Printer className="w-4 h-4" />
+              <span>Print / Save PDF Guide</span>
+            </button>
+          )}
         </div>
 
         {/* Day Selection Tabs */}

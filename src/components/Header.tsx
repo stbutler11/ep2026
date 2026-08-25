@@ -12,6 +12,7 @@ import {
   Check,
   Music,
   MapPin,
+  Printer,
 } from 'lucide-react';
 import { FestivalDay, PriorityLevel } from '../types';
 import { formatItineraryText, generateICS } from '../utils/scheduleUtils';
@@ -22,6 +23,7 @@ interface HeaderProps {
   onSelectDay: (day: FestivalDay) => void;
   userPreferences: Record<string, any>;
   onClearPreferences: () => void;
+  onOpenPrintModal: () => void;
   clashesCount: number;
   totalSelectedCount: number;
   mustSeeCount: number;
@@ -32,6 +34,7 @@ export const Header: React.FC<HeaderProps> = ({
   onSelectDay,
   userPreferences,
   onClearPreferences,
+  onOpenPrintModal,
   clashesCount,
   totalSelectedCount,
   mustSeeCount,
@@ -169,6 +172,25 @@ export const Header: React.FC<HeaderProps> = ({
                     onClick={() => setShowExportMenu(false)}
                   />
                   <div className="absolute right-0 mt-1.5 w-72 max-w-[90vw] bg-neutral-900 border border-neutral-800 rounded-xl shadow-2xl p-2 z-50">
+                    <button
+                      onClick={() => {
+                        setShowExportMenu(false);
+                        onOpenPrintModal();
+                      }}
+                      className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-neutral-800 active:bg-neutral-800 transition-colors flex items-center gap-2.5 text-xs text-neutral-200 group border-b border-neutral-800/80 pb-2.5 mb-1"
+                    >
+                      <Printer className="w-4 h-4 text-amber-400 group-hover:scale-110 transition-transform shrink-0" />
+                      <div>
+                        <div className="font-semibold text-neutral-100 flex items-center gap-1.5">
+                          <span>Print to PDF / Pocket Guide</span>
+                          <span className="text-[9px] px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 font-bold border border-amber-500/30">
+                            Festival Pass
+                          </span>
+                        </div>
+                        <div className="text-[10px] text-neutral-400">Foldable festival pass &amp; schedule sheet</div>
+                      </div>
+                    </button>
+
                     <button
                       onClick={handleExportICS}
                       className="w-full text-left px-3 py-2.5 rounded-lg hover:bg-neutral-800 active:bg-neutral-800 transition-colors flex items-center gap-2.5 text-xs text-neutral-200 group"
