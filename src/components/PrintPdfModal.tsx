@@ -13,9 +13,13 @@ import {
   Layers,
   Sparkles,
   Share2,
+  Grid3X3,
+  Columns,
+  LayoutGrid,
 } from 'lucide-react';
 import { toJpeg } from 'html-to-image';
 import { ClashDetail, FestivalDay, PriorityLevel, UserActPreference } from '../types';
+import { FESTIVAL_ACTS } from '../data/festivalData';
 import { PrintableItineraryDocument, PrintSettings } from './PrintableItineraryDocument';
 
 interface PrintPdfModalProps {
@@ -37,14 +41,25 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
   settings,
   onUpdateSettings,
 }) => {
-  const [previewScale, setPreviewScale] = useState<number>(0.9);
+  const [previewScale, setPreviewScale] = useState<number>(0.85);
   const [isExportingJpeg, setIsExportingJpeg] = useState<boolean>(false);
   const [exportSuccess, setExportSuccess] = useState<boolean>(false);
+
+  // Check how many acts are selected for Thursday
+  const thursdayActsCount = React.useMemo(() => {
+    return FESTIVAL_ACTS.filter((act) => {
+      if (act.day !== 'thursday') return false;
+      const pref = userPreferences[act.id];
+      const priority = typeof pref === 'string' ? pref : pref?.priority;
+      return priority && priority !== 'none';
+    }).length;
+  }, [userPreferences]);
+
+  const hasThursdayActs = thursdayActsCount > 0;
 
   if (!isOpen) return null;
 
   const handleTriggerPrint = () => {
-    // Small delay to ensure any pending state renders in DOM before invoking native browser print dialog
     setTimeout(() => {
       window.print();
     }, 100);
@@ -61,17 +76,18 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
       }
 
       // High quality, crisp pixel ratio for zoomable WhatsApp readability
-      // When ultra_compact or pocket_pass is active, it renders across 2 or 3 dense columns
+      // With explicit column widths, the 3-column / 2-column layout renders razor-sharp
       const dataUrl = await toJpeg(previewElement, {
-        quality: 0.92,
+        quality: 0.94,
         backgroundColor: settings.colorMode === 'eco' ? '#ffffff' : '#0a0a0a',
-        pixelRatio: 2.2, // Crisp, ultra-sharp text without creating massive 30MB files
+        pixelRatio: 2.2,
         cacheBust: true,
       });
 
       const downloadLink = document.createElement('a');
       const safeAttendee = (settings.attendeeName || 'EP2026_Schedule').replace(/[^a-zA-Z0-9_-]/g, '_');
-      const filename = `${safeAttendee}_${settings.dayScope}_${settings.density}.jpg`;
+      const scopeLabel = settings.format === 'days_columns' ? (hasThursdayActs ? '4days' : '3days_FriSun') : settings.dayScope;
+      const filename = `${safeAttendee}_${scopeLabel}_${settings.columns || 3}col_${settings.density}.jpg`;
 
       downloadLink.download = filename;
       downloadLink.href = dataUrl;
@@ -125,22 +141,22 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
             <button
               onClick={handleExportJpeg}
               disabled={isExportingJpeg}
-              className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-neutral-100 font-bold text-xs sm:text-sm border border-neutral-700 transition-all shadow-sm active:scale-95 disabled:opacity-50"
+              className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-neutral-950 font-black text-xs sm:text-sm transition-all shadow-md shadow-amber-500/20 active:scale-95 disabled:opacity-50"
               title="Save as a high-resolution JPEG image (great for phone lock screen or WhatsApp)"
             >
               {isExportingJpeg ? (
                 <>
-                  <Loader2 className="w-4 h-4 animate-spin text-amber-400" />
+                  <Loader2 className="w-4 h-4 animate-spin text-neutral-950" />
                   <span>Generating JPEG...</span>
                 </>
               ) : exportSuccess ? (
                 <>
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span className="text-emerald-300">JPEG Downloaded!</span>
+                  <CheckCircle2 className="w-4 h-4 text-neutral-950" />
+                  <span>JPEG Downloaded!</span>
                 </>
               ) : (
                 <>
-                  <ImageIcon className="w-4 h-4 text-amber-400" />
+                  <ImageIcon className="w-4 h-4 text-neutral-950" />
                   <span>Save as WhatsApp JPEG</span>
                 </>
               )}
@@ -149,11 +165,11 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
             {/* Print / PDF Button */}
             <button
               onClick={handleTriggerPrint}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold text-xs sm:text-sm transition-all shadow-md shadow-amber-500/20 active:scale-95"
+              className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-neutral-100 font-bold text-xs sm:text-sm border border-neutral-700 transition-all shadow-sm active:scale-95"
               title="Open browser print dialog to print or save as A4 PDF"
             >
-              <Printer className="w-4 h-4" />
-              <span>Print / Save as PDF</span>
+              <Printer className="w-4 h-4 text-amber-400" />
+              <span>Print / PDF</span>
             </button>
 
             <button
@@ -189,61 +205,192 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
               />
             </div>
 
-            {/* Density & Size Mode */}
+            {/* Layout & Column Configuration */}
+            <div className="space-y-1.5">
+              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-300 flex items-center justify-between">
+                <span className="flex items-center gap-1.5">
+                  <LayoutGrid className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Grid Columns &amp; Layout</span>
+                </span>
+                <span className="text-[10px] text-amber-400 font-bold">WhatsApp Width</span>
+              </label>
+              <div className="grid grid-cols-2 gap-1.5">
+                {/* 3 Columns Option */}
+                <button
+                  type="button"
+                  onClick={() =>
+                    onUpdateSettings((s) => ({
+                      ...s,
+                      format: 'pocket_pass',
+                      columns: 3,
+                      density: 'ultra_compact',
+                    }))
+                  }
+                  className={`p-2.5 rounded-xl border text-left text-xs transition-all ${
+                    settings.format === 'pocket_pass' && settings.columns === 3
+                      ? 'bg-amber-500 text-neutral-950 font-bold border-amber-400 shadow-xs ring-2 ring-amber-500/20'
+                      : 'bg-neutral-950 border-neutral-800 text-neutral-300 hover:border-neutral-700'
+                  }`}
+                >
+                  <div className="font-black text-[11px] flex items-center gap-1">
+                    <Grid3X3 className="w-3.5 h-3.5" />
+                    <span>⚡ 3 Columns</span>
+                  </div>
+                  <div
+                    className={`text-[9px] mt-0.5 ${
+                      settings.format === 'pocket_pass' && settings.columns === 3
+                        ? 'text-neutral-950 font-semibold'
+                        : 'text-neutral-500'
+                    }`}
+                  >
+                    Super compact WhatsApp grid
+                  </div>
+                </button>
+
+                {/* 2 Columns Option */}
+                <button
+                  type="button"
+                  onClick={() =>
+                    onUpdateSettings((s) => ({
+                      ...s,
+                      format: 'pocket_pass',
+                      columns: 2,
+                      density: 'compact',
+                    }))
+                  }
+                  className={`p-2.5 rounded-xl border text-left text-xs transition-all ${
+                    settings.format === 'pocket_pass' && settings.columns === 2
+                      ? 'bg-amber-500 text-neutral-950 font-bold border-amber-400 shadow-xs ring-2 ring-amber-500/20'
+                      : 'bg-neutral-950 border-neutral-800 text-neutral-300 hover:border-neutral-700'
+                  }`}
+                >
+                  <div className="font-bold text-[11px] flex items-center gap-1">
+                    <Columns className="w-3.5 h-3.5" />
+                    <span>2 Columns</span>
+                  </div>
+                  <div
+                    className={`text-[9px] mt-0.5 ${
+                      settings.format === 'pocket_pass' && settings.columns === 2
+                        ? 'text-neutral-900 font-semibold'
+                        : 'text-neutral-500'
+                    }`}
+                  >
+                    Pocket pass booklet format
+                  </div>
+                </button>
+
+                {/* Days Board (3-Days Fri-Sun if Thu has 0 acts, or 4-Days) */}
+                <button
+                  type="button"
+                  onClick={() =>
+                    onUpdateSettings((s) => ({
+                      ...s,
+                      format: 'days_columns',
+                      columns: hasThursdayActs ? 4 : 3,
+                      dayScope: 'all',
+                      density: 'compact',
+                    }))
+                  }
+                  className={`p-2.5 rounded-xl border text-left text-xs transition-all ${
+                    settings.format === 'days_columns'
+                      ? 'bg-amber-500 text-neutral-950 font-bold border-amber-400 shadow-xs ring-2 ring-amber-500/20'
+                      : 'bg-neutral-950 border-neutral-800 text-neutral-300 hover:border-neutral-700'
+                  }`}
+                >
+                  <div className="font-bold text-[11px] flex items-center gap-1">
+                    <Layers className="w-3.5 h-3.5" />
+                    <span>{hasThursdayActs ? '4 Days Board' : '3 Days Board'}</span>
+                  </div>
+                  <div
+                    className={`text-[9px] mt-0.5 ${
+                      settings.format === 'days_columns'
+                        ? 'text-neutral-900 font-semibold'
+                        : 'text-neutral-500'
+                    }`}
+                  >
+                    {hasThursdayActs
+                      ? 'Thu | Fri | Sat | Sun side-by-side'
+                      : 'Fri | Sat | Sun (Thu omitted)'}
+                  </div>
+                </button>
+
+                {/* 1 Column Timeline Rows */}
+                <button
+                  type="button"
+                  onClick={() =>
+                    onUpdateSettings((s) => ({
+                      ...s,
+                      format: 'timeline_poster',
+                      columns: 1,
+                      density: 'standard',
+                    }))
+                  }
+                  className={`p-2.5 rounded-xl border text-left text-xs transition-all ${
+                    settings.format === 'timeline_poster'
+                      ? 'bg-amber-500 text-neutral-950 font-bold border-amber-400 shadow-xs ring-2 ring-amber-500/20'
+                      : 'bg-neutral-950 border-neutral-800 text-neutral-300 hover:border-neutral-700'
+                  }`}
+                >
+                  <div className="font-bold text-[11px] flex items-center gap-1">
+                    <FileText className="w-3.5 h-3.5" />
+                    <span>Timeline Rows</span>
+                  </div>
+                  <div
+                    className={`text-[9px] mt-0.5 ${
+                      settings.format === 'timeline_poster'
+                        ? 'text-neutral-900 font-semibold'
+                        : 'text-neutral-500'
+                    }`}
+                  >
+                    1-column chronological list
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            {/* Density & Spacing */}
             <div className="space-y-1.5">
               <label className="block text-xs font-bold uppercase tracking-wider text-neutral-300 flex items-center justify-between">
                 <span className="flex items-center gap-1.5">
                   <Sliders className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Layout Density</span>
+                  <span>Card Density</span>
                 </span>
-                <span className="text-[10px] text-amber-400 font-semibold">WhatsApp &amp; Multi-day</span>
               </label>
               <div className="grid grid-cols-3 gap-1.5">
                 <button
                   type="button"
-                  onClick={() => onUpdateSettings((s) => ({ ...s, density: 'ultra_compact', format: 'pocket_pass' }))}
-                  className={`p-2 rounded-xl border text-center text-xs transition-all ${
+                  onClick={() => onUpdateSettings((s) => ({ ...s, density: 'ultra_compact' }))}
+                  className={`p-1.5 rounded-xl border text-center text-xs transition-all ${
                     settings.density === 'ultra_compact'
-                      ? 'bg-amber-500 text-neutral-950 font-bold border-amber-400 shadow-xs ring-2 ring-amber-500/20'
+                      ? 'bg-amber-500 text-neutral-950 font-bold border-amber-400'
                       : 'bg-neutral-950 border-neutral-800 text-neutral-400 hover:text-neutral-200'
                   }`}
                 >
-                  <div className="font-black text-[11px] flex items-center justify-center gap-1">
-                    <span>⚡ Ultra</span>
-                  </div>
-                  <div className={`text-[8.5px] leading-tight mt-0.5 ${settings.density === 'ultra_compact' ? 'text-neutral-950 font-semibold' : 'text-neutral-500'}`}>
-                    3-Col WhatsApp
-                  </div>
+                  <div className="font-black text-[10.5px]">⚡ Ultra</div>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => onUpdateSettings((s) => ({ ...s, density: 'compact' }))}
-                  className={`p-2 rounded-xl border text-center text-xs transition-all ${
+                  className={`p-1.5 rounded-xl border text-center text-xs transition-all ${
                     settings.density === 'compact'
-                      ? 'bg-amber-500 text-neutral-950 font-bold border-amber-400 shadow-xs'
+                      ? 'bg-amber-500 text-neutral-950 font-bold border-amber-400'
                       : 'bg-neutral-950 border-neutral-800 text-neutral-400 hover:text-neutral-200'
                   }`}
                 >
-                  <div className="font-bold text-[11px]">Compact</div>
-                  <div className={`text-[8.5px] leading-tight mt-0.5 ${settings.density === 'compact' ? 'text-neutral-900' : 'text-neutral-500'}`}>
-                    2-Col Pocket
-                  </div>
+                  <div className="font-bold text-[10.5px]">Compact</div>
                 </button>
 
                 <button
                   type="button"
                   onClick={() => onUpdateSettings((s) => ({ ...s, density: 'standard' }))}
-                  className={`p-2 rounded-xl border text-center text-xs transition-all ${
+                  className={`p-1.5 rounded-xl border text-center text-xs transition-all ${
                     settings.density === 'standard'
-                      ? 'bg-amber-500 text-neutral-950 font-bold border-amber-400 shadow-xs'
+                      ? 'bg-amber-500 text-neutral-950 font-bold border-amber-400'
                       : 'bg-neutral-950 border-neutral-800 text-neutral-400 hover:text-neutral-200'
                   }`}
                 >
-                  <div className="font-bold text-[11px]">Standard</div>
-                  <div className={`text-[8.5px] leading-tight mt-0.5 ${settings.density === 'standard' ? 'text-neutral-900' : 'text-neutral-500'}`}>
-                    Standard A4
-                  </div>
+                  <div className="font-bold text-[10.5px]">Standard</div>
                 </button>
               </div>
             </div>
@@ -292,51 +439,12 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
               </div>
             </div>
 
-            {/* Layout Format (Pocket 2/3-Col vs Timeline Rows) */}
-            <div className="space-y-1.5">
-              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-300 flex items-center gap-1.5">
-                <FileText className="w-3.5 h-3.5 text-amber-400" />
-                <span>Layout Style</span>
-              </label>
-              <div className="grid grid-cols-2 gap-2">
-                <button
-                  type="button"
-                  onClick={() => onUpdateSettings((s) => ({ ...s, format: 'pocket_pass' }))}
-                  className={`p-2.5 rounded-xl border text-left text-xs transition-all ${
-                    settings.format === 'pocket_pass'
-                      ? 'bg-amber-500 text-neutral-950 font-bold border-amber-400 shadow-xs'
-                      : 'bg-neutral-950 border-neutral-800 text-neutral-300 hover:border-neutral-700'
-                  }`}
-                >
-                  <div className="font-bold text-[11px]">Multi-Column Grid</div>
-                  <div className={`text-[9px] ${settings.format === 'pocket_pass' ? 'text-neutral-900' : 'text-neutral-500'}`}>
-                    Wide horizontal layout
-                  </div>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => onUpdateSettings((s) => ({ ...s, format: 'timeline_poster' }))}
-                  className={`p-2.5 rounded-xl border text-left text-xs transition-all ${
-                    settings.format === 'timeline_poster'
-                      ? 'bg-amber-500 text-neutral-950 font-bold border-amber-400 shadow-xs'
-                      : 'bg-neutral-950 border-neutral-800 text-neutral-300 hover:border-neutral-700'
-                  }`}
-                >
-                  <div className="font-bold text-[11px]">Timeline Rows</div>
-                  <div className={`text-[9px] ${settings.format === 'timeline_poster' ? 'text-neutral-900' : 'text-neutral-500'}`}>
-                    Chronological schedule
-                  </div>
-                </button>
-              </div>
-            </div>
-
             {/* Days Scope */}
             <div className="space-y-1.5">
               <label className="block text-xs font-bold uppercase tracking-wider text-neutral-300 flex items-center justify-between">
                 <span className="flex items-center gap-1.5">
                   <Calendar className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Days to Include</span>
+                  <span>Days Scope</span>
                 </span>
                 {settings.dayScope !== 'all' && (
                   <span className="text-[10px] text-emerald-400 font-semibold">Single-Day High-Res</span>
@@ -397,46 +505,6 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
                   }`}
                 >
                   Sun
-                </button>
-              </div>
-            </div>
-
-            {/* Page Break Splitting for Print/PDF */}
-            <div className="space-y-1.5">
-              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-300 flex items-center justify-between">
-                <span className="flex items-center gap-1.5">
-                  <Layers className="w-3.5 h-3.5 text-amber-400" />
-                  <span>A4 Page Splitting (PDF/Print)</span>
-                </span>
-              </label>
-              <div className="grid grid-cols-2 gap-1.5">
-                <button
-                  type="button"
-                  onClick={() => onUpdateSettings((s) => ({ ...s, pageBreaks: 'per_day' }))}
-                  className={`p-2 rounded-xl border text-center text-xs transition-all ${
-                    settings.pageBreaks === 'per_day'
-                      ? 'bg-amber-500 text-neutral-950 font-bold border-amber-400'
-                      : 'bg-neutral-950 border-neutral-800 text-neutral-400 hover:text-neutral-200'
-                  }`}
-                >
-                  <div className="font-bold text-[11px]">1 Day Per Page</div>
-                  <div className={`text-[9px] ${settings.pageBreaks === 'per_day' ? 'text-neutral-900' : 'text-neutral-500'}`}>
-                    Fresh page for each day
-                  </div>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => onUpdateSettings((s) => ({ ...s, pageBreaks: 'continuous' }))}
-                  className={`p-2 rounded-xl border text-center text-xs transition-all ${
-                    settings.pageBreaks === 'continuous'
-                      ? 'bg-amber-500 text-neutral-950 font-bold border-amber-400'
-                      : 'bg-neutral-950 border-neutral-800 text-neutral-400 hover:text-neutral-200'
-                  }`}
-                >
-                  <div className="font-bold text-[11px]">Continuous Flow</div>
-                  <div className={`text-[9px] ${settings.pageBreaks === 'continuous' ? 'text-neutral-900' : 'text-neutral-500'}`}>
-                    Compact paper usage
-                  </div>
                 </button>
               </div>
             </div>
@@ -507,31 +575,31 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
                 <Share2 className="w-3 h-3" /> WhatsApp Tip
               </div>
               <p>
-                Use <strong>⚡ Ultra Compact</strong> + <strong>Multi-Column Grid</strong> for wide, sharp images that fit all 4 days without blur when compressed by WhatsApp.
+                <strong>⚡ 3 Columns</strong> or <strong>{hasThursdayActs ? '4 Days Board' : '3 Days Board'}</strong> gives you a wide, ultra-compact image that stays crystal clear when sent on WhatsApp.
               </p>
             </div>
           </div>
 
           {/* Right Column: Live Interactive Paper Preview */}
-          <div className="flex-1 min-h-0 bg-neutral-950 p-3 sm:p-5 overflow-y-auto flex flex-col items-center justify-start">
+          <div className="flex-1 min-h-0 bg-neutral-950 p-3 sm:p-5 overflow-auto flex flex-col items-center justify-start">
             {/* Preview Toolbar */}
-            <div className="w-full max-w-4xl flex items-center justify-between mb-3 text-xs text-neutral-400 shrink-0">
+            <div className="w-full max-w-5xl flex items-center justify-between mb-3 text-xs text-neutral-400 shrink-0">
               <div className="flex items-center gap-2">
                 <span className="font-bold text-neutral-200">Live Export Preview</span>
                 <span className="text-neutral-600">•</span>
                 <span className="text-[11px] text-amber-400 font-medium">
-                  {settings.colorMode === 'eco' ? 'Ink Saver Paper' : 'Festival Vibrant Poster'}
-                  {settings.density === 'ultra_compact'
-                    ? ' (⚡ Ultra Compact WhatsApp Grid)'
-                    : settings.density === 'compact'
-                    ? ' (Compact 2-Col)'
-                    : ''}
+                  {settings.format === 'days_columns'
+                    ? hasThursdayActs
+                      ? '4-Day Weekend Board (Thu–Sun)'
+                      : '3-Day Weekend Board (Fri–Sun)'
+                    : `${settings.columns || 3} Column Grid`}
+                  {` (${settings.colorMode === 'eco' ? 'Ink Saver' : 'Vibrant Poster'})`}
                 </span>
               </div>
               <div className="flex items-center gap-1 bg-neutral-900 border border-neutral-800 rounded-lg p-0.5">
                 <button
                   type="button"
-                  onClick={() => setPreviewScale((s) => Math.max(0.4, Number((s - 0.1).toFixed(1))))}
+                  onClick={() => setPreviewScale((s) => Math.max(0.3, Number((s - 0.1).toFixed(1))))}
                   className="px-2 py-0.5 hover:bg-neutral-800 rounded text-neutral-300 font-bold"
                   title="Zoom Out"
                 >
@@ -549,21 +617,23 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
               </div>
             </div>
 
-            {/* Paper Sheet Preview Container */}
-            <div
-              className="w-full max-w-4xl origin-top transition-transform duration-150"
-              style={{
-                transform: `scale(${previewScale})`,
-                transformOrigin: 'top center',
-              }}
-            >
-              <PrintableItineraryDocument
-                settings={settings}
-                userPreferences={userPreferences}
-                clashes={clashes}
-                id="festival-print-preview-sheet"
-                isPdfPreview={true}
-              />
+            {/* Paper Sheet Preview Container (Horizontally scrollable and scalable) */}
+            <div className="w-full flex justify-center overflow-x-auto pb-6">
+              <div
+                className="origin-top transition-transform duration-150 shrink-0"
+                style={{
+                  transform: `scale(${previewScale})`,
+                  transformOrigin: 'top center',
+                }}
+              >
+                <PrintableItineraryDocument
+                  settings={settings}
+                  userPreferences={userPreferences}
+                  clashes={clashes}
+                  id="festival-print-preview-sheet"
+                  isPdfPreview={true}
+                />
+              </div>
             </div>
           </div>
         </div>

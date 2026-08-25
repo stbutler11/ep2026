@@ -27,8 +27,9 @@ export default function App() {
   const [isPrintModalOpen, setIsPrintModalOpen] = useState(false);
   const [printSettings, setPrintSettings] = useState<PrintSettings>({
     format: 'pocket_pass',
+    columns: 3,
     colorMode: 'vibrant',
-    density: 'standard',
+    density: 'ultra_compact',
     dayScope: 'all',
     attendeeName: 'My EP \'26 Itinerary',
     showNotes: true,
