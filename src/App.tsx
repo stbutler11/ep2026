@@ -145,7 +145,7 @@ export default function App() {
 
   return (
     <>
-      <div id="ep-app-container" className="min-h-screen bg-neutral-950 text-neutral-100 flex flex-col antialiased selection:bg-amber-500 selection:text-neutral-950">
+      <div id="ep-app-container" className="h-screen flex flex-col bg-neutral-950 text-neutral-100 antialiased selection:bg-amber-500 selection:text-neutral-950 overflow-hidden">
         {/* Top Header */}
         <Header
           activeDay={activeDay}
@@ -167,7 +167,7 @@ export default function App() {
         />
 
         {/* Main Dynamic View Content */}
-        <main className="flex-1 flex flex-col pb-16 sm:pb-0">
+        <main className="flex-1 min-h-0 flex flex-col overflow-hidden relative">
           {activeView === 'timetable' && (
             <TimetableGrid
               day={activeDay}
@@ -179,45 +179,53 @@ export default function App() {
           )}
 
           {activeView === 'itinerary' && (
-            <MyItineraryView
-              day={activeDay}
-              onSelectDay={setActiveDay}
-              userPreferences={userPreferences}
-              onUpdatePriority={handleUpdatePriority}
-              onUpdateNotes={handleUpdateNotes}
-              onOpenActDetail={setActiveActModal}
-              onOpenPrintModal={() => setIsPrintModalOpen(true)}
-              clashes={dayClashes}
-              allClashes={allClashes}
-            />
+            <div className="flex-1 min-h-0 overflow-y-auto pb-16 sm:pb-8">
+              <MyItineraryView
+                day={activeDay}
+                onSelectDay={setActiveDay}
+                userPreferences={userPreferences}
+                onUpdatePriority={handleUpdatePriority}
+                onUpdateNotes={handleUpdateNotes}
+                onOpenActDetail={setActiveActModal}
+                onOpenPrintModal={() => setIsPrintModalOpen(true)}
+                clashes={dayClashes}
+                allClashes={allClashes}
+              />
+            </div>
           )}
 
           {activeView === 'clashes' && (
-            <ClashSolverView
-              day={activeDay}
-              clashes={dayClashes}
-              userPreferences={userPreferences}
-              onUpdatePriority={handleUpdatePriority}
-              onUpdateNotes={handleUpdateNotes}
-              onOpenActDetail={setActiveActModal}
-            />
+            <div className="flex-1 min-h-0 overflow-y-auto pb-16 sm:pb-8">
+              <ClashSolverView
+                day={activeDay}
+                clashes={dayClashes}
+                userPreferences={userPreferences}
+                onUpdatePriority={handleUpdatePriority}
+                onUpdateNotes={handleUpdateNotes}
+                onOpenActDetail={setActiveActModal}
+              />
+            </div>
           )}
 
           {activeView === 'explorer' && (
-            <LineupExplorer
-              dayFilter={activeDay}
-              onSelectDay={setActiveDay}
-              userPreferences={userPreferences}
-              onUpdatePriority={handleUpdatePriority}
-              onOpenActDetail={setActiveActModal}
-            />
+            <div className="flex-1 min-h-0 overflow-y-auto pb-16 sm:pb-8">
+              <LineupExplorer
+                dayFilter={activeDay}
+                onSelectDay={setActiveDay}
+                userPreferences={userPreferences}
+                onUpdatePriority={handleUpdatePriority}
+                onOpenActDetail={setActiveActModal}
+              />
+            </div>
           )}
 
           {activeView === 'map' && (
-            <StageMapView
-              day={activeDay}
-              onOpenActDetail={setActiveActModal}
-            />
+            <div className="flex-1 min-h-0 overflow-y-auto pb-16 sm:pb-8">
+              <StageMapView
+                day={activeDay}
+                onOpenActDetail={setActiveActModal}
+              />
+            </div>
           )}
         </main>
 

@@ -63,7 +63,7 @@ export const ViewNav: React.FC<ViewNavProps> = ({
   return (
     <>
       {/* Desktop Top Navigation (Visible sm and up) */}
-      <nav className="hidden sm:block bg-neutral-900/90 backdrop-blur-md border-b border-neutral-800 px-4 sm:px-6">
+      <nav className="hidden sm:block bg-neutral-900/90 backdrop-blur-md border-b border-neutral-800 px-4 sm:px-6 shrink-0 z-30 relative">
         <div className="max-w-7xl mx-auto flex items-center gap-1 sm:gap-2 overflow-x-auto py-2.5 no-scrollbar">
           {views.map((v) => {
             const Icon = v.icon;

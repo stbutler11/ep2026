@@ -197,9 +197,9 @@ export const TimetableGrid: React.FC<TimetableGridProps> = ({
   }, [dayActs, streamStageFilter, onlyShortlisted, userPreferences]);
 
   return (
-    <div className="flex flex-col h-full bg-neutral-950 text-neutral-100">
+    <div className="flex flex-col h-full min-h-0 bg-neutral-950 text-neutral-100 overflow-hidden">
       {/* Controls Bar */}
-      <div className="bg-neutral-900/90 border-b border-neutral-800 p-2.5 sm:p-3 sm:px-6 sticky top-[105px] sm:top-[125px] z-20 backdrop-blur-md">
+      <div className="bg-neutral-900/95 border-b border-neutral-800 p-2.5 sm:p-3 sm:px-6 shrink-0 z-30 shadow-xs backdrop-blur-md">
         <div className="max-w-7xl mx-auto flex flex-col gap-2.5">
           {/* Top Bar: View Mode Switcher (Grid vs Stream), Shortlist Toggle, Zoom */}
           <div className="flex items-center justify-between gap-2 flex-wrap">
@@ -587,18 +587,18 @@ export const TimetableGrid: React.FC<TimetableGridProps> = ({
         ) : (
           <div
             ref={scrollContainerRef}
-            className="flex-1 overflow-auto relative touch-pan-x touch-pan-y"
+            className="flex-1 min-h-0 overflow-auto relative touch-pan-x touch-pan-y"
           >
             <div
-              className="min-w-fit relative pb-16"
+              className="min-w-fit relative pb-20"
               style={{
                 height: `${(endMin - startMin) * pxPerMinute + 120}px`,
               }}
             >
               {/* Sticky Stage Column Headers */}
-              <div className="sticky top-0 z-30 bg-neutral-900/95 backdrop-blur-md border-b border-neutral-800 flex shadow-md">
-                {/* Time Column Header */}
-                <div className="w-16 sm:w-24 shrink-0 p-2 sm:p-2.5 border-r border-neutral-800 text-[10px] sm:text-[11px] font-semibold text-neutral-400 uppercase tracking-wider flex items-center justify-center">
+              <div className="sticky top-0 z-20 bg-neutral-900/98 backdrop-blur-md border-b border-neutral-800 flex shadow-md">
+                {/* Time Column Header (Sticky Top and Left) */}
+                <div className="w-16 sm:w-24 shrink-0 p-2 sm:p-2.5 border-r border-neutral-800 text-[10px] sm:text-[11px] font-bold text-neutral-300 uppercase tracking-wider flex items-center justify-center sticky left-0 z-30 bg-neutral-900 shadow-sm">
                   Time
                 </div>
 
@@ -606,7 +606,7 @@ export const TimetableGrid: React.FC<TimetableGridProps> = ({
                 {activeStages.map((stage) => (
                   <div
                     key={stage.id}
-                    className="w-48 sm:w-64 shrink-0 p-2 sm:p-2.5 border-r border-neutral-800 flex flex-col justify-center"
+                    className="w-48 sm:w-64 shrink-0 p-2 sm:p-2.5 border-r border-neutral-800 flex flex-col justify-center bg-neutral-900/95"
                   >
                     <div className="flex items-center gap-1.5 sm:gap-2">
                       <span
@@ -626,8 +626,8 @@ export const TimetableGrid: React.FC<TimetableGridProps> = ({
 
               {/* Time Grid Rows & Act Canvas */}
               <div className="relative flex">
-                {/* Left Time Ruler */}
-                <div className="w-16 sm:w-24 shrink-0 border-r border-neutral-800/80 bg-neutral-900/40 relative select-none">
+                {/* Left Time Ruler (Sticky Left) */}
+                <div className="w-16 sm:w-24 shrink-0 border-r border-neutral-800/80 bg-neutral-900/95 backdrop-blur-xs relative select-none sticky left-0 z-10">
                   {hourMarkers.map((marker) => {
                     const topPos = (marker.minutes - startMin) * pxPerMinute;
                     const isFullHour = marker.minutes % 60 === 0;
@@ -715,7 +715,7 @@ export const TimetableGrid: React.FC<TimetableGridProps> = ({
                             key={act.id}
                             id={`act-card-${act.id}`}
                             onClick={() => onOpenActDetail(act)}
-                            className={`absolute left-1 right-1 sm:left-1.5 sm:right-1.5 rounded-lg border p-1.5 sm:p-2 flex flex-col justify-between transition-all cursor-pointer group hover:scale-[1.01] hover:z-20 ${borderClass} ${glowEffect}`}
+                            className={`absolute left-1 right-1 sm:left-1.5 sm:right-1.5 rounded-lg border p-1.5 sm:p-2 flex flex-col justify-between transition-all cursor-pointer group hover:scale-[1.01] hover:z-10 z-1 ${borderClass} ${glowEffect}`}
                             style={{
                               top: `${top}px`,
                               height: `${height}px`,
@@ -836,7 +836,7 @@ export const TimetableGrid: React.FC<TimetableGridProps> = ({
       )}
 
       {/* Legend Footer */}
-      <div className="bg-neutral-900 border-t border-neutral-800 px-3 sm:px-4 py-2 flex items-center justify-between text-[11px] sm:text-xs text-neutral-400">
+      <div className="bg-neutral-900 border-t border-neutral-800 px-3 sm:px-4 py-2 shrink-0 z-30 flex items-center justify-between text-[11px] sm:text-xs text-neutral-400">
         <div className="flex items-center gap-2.5 flex-wrap">
           <span className="font-semibold text-neutral-300 hidden xs:inline">Priority:</span>
           <span className="flex items-center gap-1 text-amber-400">

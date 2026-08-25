@@ -83,7 +83,7 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header id="main-festival-header" className="bg-neutral-900/95 backdrop-blur-md border-b border-neutral-800 sticky top-0 z-30">
+    <header id="main-festival-header" className="bg-neutral-900/95 backdrop-blur-md border-b border-neutral-800 shrink-0 z-40 relative shadow-sm">
       {/* Top Banner with Festival Branding & Quick Actions */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 pt-2.5 sm:pt-3.5 pb-2 sm:pb-3">
         <div className="flex items-center justify-between gap-2 sm:gap-3">
