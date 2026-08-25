@@ -59,14 +59,20 @@ export const ActDetailModal: React.FC<ActDetailModalProps> = ({
   const youtubeSearchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(act.name + ' live')}`;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-150">
+    <div
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-150"
+      onClick={onClose}
+    >
       <div
-        className="bg-neutral-900 border border-neutral-800 rounded-3xl w-full max-w-xl max-h-[90vh] overflow-y-auto shadow-2xl relative flex flex-col"
+        className="bg-neutral-900 border border-neutral-800 rounded-t-3xl sm:rounded-3xl w-full max-w-xl max-h-[92vh] sm:max-h-[90vh] overflow-y-auto shadow-2xl relative flex flex-col animate-in slide-in-from-bottom duration-200"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Mobile Pull Handle Indicator */}
+        <div className="w-12 h-1.5 bg-neutral-700/80 rounded-full mx-auto mt-2.5 mb-1 sm:hidden shrink-0" />
+
         {/* Header Hero Area */}
         <div
-          className="p-6 relative overflow-hidden border-b border-neutral-800"
+          className="p-4 sm:p-6 relative overflow-hidden border-b border-neutral-800"
           style={{
             background: `linear-gradient(135deg, ${stage?.color}20 0%, #171717 100%)`,
           }}
@@ -74,13 +80,13 @@ export const ActDetailModal: React.FC<ActDetailModalProps> = ({
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-5 right-5 p-2 rounded-full bg-neutral-950/60 hover:bg-neutral-800 text-neutral-400 hover:text-white transition-colors"
+            className="absolute top-4 right-4 sm:top-5 sm:right-5 p-2 rounded-full bg-neutral-950/70 hover:bg-neutral-800 text-neutral-300 hover:text-white transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
 
           {/* Badges */}
-          <div className="flex items-center gap-2 flex-wrap mb-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap mb-2 pr-10">
             <span
               className="px-2.5 py-0.5 rounded-full text-xs font-bold border"
               style={{
@@ -103,14 +109,20 @@ export const ActDetailModal: React.FC<ActDetailModalProps> = ({
                 Irish ☘️
               </span>
             )}
+
+            {act.startMinutes >= 720 && (
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                Late Night 🌙
+              </span>
+            )}
           </div>
 
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-extrabold text-white tracking-tight">
             {act.name}
           </h2>
 
-          <div className="flex items-center gap-3 text-xs sm:text-sm text-neutral-300 mt-2 flex-wrap font-medium">
-            <div className="flex items-center gap-1.5 text-amber-400">
+          <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm text-neutral-300 mt-2 flex-wrap font-medium">
+            <div className="flex items-center gap-1.5 text-amber-400 font-bold">
               <Clock className="w-4 h-4" />
               <span>{act.displayTime}</span>
               <span>({act.durationMinutes} mins)</span>
@@ -121,7 +133,7 @@ export const ActDetailModal: React.FC<ActDetailModalProps> = ({
         </div>
 
         {/* Content Body */}
-        <div className="p-6 space-y-6 flex-1">
+        <div className="p-4 sm:p-6 space-y-5 sm:space-y-6 flex-1 pb-8 sm:pb-6">
           {/* Priority Level Selector */}
           <div className="space-y-2">
             <label className="block text-xs font-bold text-neutral-300 uppercase tracking-wider">
@@ -130,7 +142,7 @@ export const ActDetailModal: React.FC<ActDetailModalProps> = ({
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               <button
                 onClick={() => onUpdatePriority(act.id, 'must_see')}
-                className={`p-2.5 rounded-xl border text-xs font-bold transition-all flex flex-col items-center gap-1.5 ${
+                className={`p-3 rounded-xl border text-xs font-bold transition-all flex flex-col items-center gap-1.5 min-h-[58px] justify-center ${
                   priority === 'must_see'
                     ? 'bg-amber-500 text-neutral-950 border-amber-400 shadow-md shadow-amber-500/20 scale-[1.02]'
                     : 'bg-neutral-950 border-neutral-800 text-neutral-300 hover:border-amber-500/50'
@@ -142,7 +154,7 @@ export const ActDetailModal: React.FC<ActDetailModalProps> = ({
 
               <button
                 onClick={() => onUpdatePriority(act.id, 'want_to_see')}
-                className={`p-2.5 rounded-xl border text-xs font-bold transition-all flex flex-col items-center gap-1.5 ${
+                className={`p-3 rounded-xl border text-xs font-bold transition-all flex flex-col items-center gap-1.5 min-h-[58px] justify-center ${
                   priority === 'want_to_see'
                     ? 'bg-emerald-500 text-neutral-950 border-emerald-400 shadow-md shadow-emerald-500/20 scale-[1.02]'
                     : 'bg-neutral-950 border-neutral-800 text-neutral-300 hover:border-emerald-500/50'
@@ -154,19 +166,19 @@ export const ActDetailModal: React.FC<ActDetailModalProps> = ({
 
               <button
                 onClick={() => onUpdatePriority(act.id, 'maybe')}
-                className={`p-2.5 rounded-xl border text-xs font-bold transition-all flex flex-col items-center gap-1.5 ${
+                className={`p-3 rounded-xl border text-xs font-bold transition-all flex flex-col items-center gap-1.5 min-h-[58px] justify-center ${
                   priority === 'maybe'
                     ? 'bg-sky-500 text-neutral-950 border-sky-400 shadow-md shadow-sky-500/20 scale-[1.02]'
                     : 'bg-neutral-950 border-neutral-800 text-neutral-300 hover:border-sky-500/50'
                 }`}
               >
                 <Eye className="w-4 h-4" />
-                <span>Maybe / Backup</span>
+                <span>Maybe</span>
               </button>
 
               <button
                 onClick={() => onUpdatePriority(act.id, 'none')}
-                className={`p-2.5 rounded-xl border text-xs font-bold transition-all flex flex-col items-center gap-1.5 ${
+                className={`p-3 rounded-xl border text-xs font-bold transition-all flex flex-col items-center gap-1.5 min-h-[58px] justify-center ${
                   priority === 'none'
                     ? 'bg-neutral-800 text-neutral-300 border-neutral-700'
                     : 'bg-neutral-950 border-neutral-800 text-neutral-500 hover:text-neutral-300 hover:border-neutral-700'

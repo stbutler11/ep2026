@@ -150,7 +150,7 @@ export default function App() {
       />
 
       {/* Main Dynamic View Content */}
-      <main className="flex-1 flex flex-col">
+      <main className="flex-1 flex flex-col pb-16 sm:pb-0">
         {activeView === 'timetable' && (
           <TimetableGrid
             day={activeDay}
