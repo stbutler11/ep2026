@@ -204,8 +204,11 @@ export function generateICS(
     const [startH, startM] = act.startTime.split(':').map(Number);
     const [endH, endM] = act.endTime.split(':').map(Number);
 
-    const startDateStr = startH < 6 ? dayToNextDayMap[act.day] : dayToDateMap[act.day];
-    const endDateStr = endH < 6 ? dayToNextDayMap[act.day] : dayToDateMap[act.day];
+    // Acts between midnight and 5:00 AM appear on the festival calendar for the previous day (e.g. Friday night's 1:00 AM set appears on Friday)
+    const startDateStr = dayToDateMap[act.day];
+    // If an act starts late in evening (e.g. 23:30) and finishes past midnight (e.g. 00:30), advance end date for RFC5545 validity
+    const isOverMidnight = startH >= 12 && endH < 12;
+    const endDateStr = isOverMidnight ? dayToNextDayMap[act.day] : dayToDateMap[act.day];
 
     const dtStart = `${startDateStr}T${startH.toString().padStart(2, '0')}${startM.toString().padStart(2, '0')}00`;
     const dtEnd = `${endDateStr}T${endH.toString().padStart(2, '0')}${endM.toString().padStart(2, '0')}00`;

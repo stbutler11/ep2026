@@ -119,13 +119,13 @@ export function normalizeFestivalDay(dayRaw: string): FestivalDay {
 }
 
 // Helper to calculate minutes relative to 12:00 PM (Midday)
-// 09:00 AM = -180, 10:00 AM = -120, 11:00 AM = -60, 12:00 PM = 0, 13:00 = 60, ..., 24:00 (00:00) = 720, 01:00 (next day morning) = 780, 04:00 = 960
+// 12:00 PM = 0, 13:00 = 60, ..., 24:00 = 720, 01:00 (next day) = 780
 export function parseFestivalTime(time24: string): number {
   const [h, m] = (time24 || '0:0').split(':').map(Number);
   const hour = isNaN(h) ? 0 : h;
   const minute = isNaN(m) ? 0 : m;
-  // If time is between 00:00 and 07:00, it's late night / early hours of the festival night (after midnight)
-  if (hour < 7) {
+  // If time is between 00:00 and 06:00, it's late night (after midnight)
+  if (hour < 6) {
     return (hour + 24 - 12) * 60 + minute;
   }
   return (hour - 12) * 60 + minute;
@@ -140,32 +140,6 @@ export function formatTimeDisplay(time24: string): string {
   if (hour12 === 0) hour12 = 12;
   const minStr = minute === 0 ? ':00' : `:${minute.toString().padStart(2, '0')}`;
   return `${hour12}${minStr} ${period}`;
-}
-
-export function getNextDayName(day: FestivalDay): string {
-  switch (day) {
-    case 'thursday':
-      return 'Friday';
-    case 'friday':
-      return 'Saturday';
-    case 'saturday':
-      return 'Sunday';
-    case 'sunday':
-      return 'Monday';
-  }
-}
-
-export function getDayDisplayName(day: FestivalDay): string {
-  switch (day) {
-    case 'thursday':
-      return 'Thursday 27th Aug';
-    case 'friday':
-      return 'Friday 28th Aug';
-    case 'saturday':
-      return 'Saturday 29th Aug';
-    case 'sunday':
-      return 'Sunday 30th Aug';
-  }
 }
 
 export function parseScheduleFromCsv(csvText: string): Act[] {

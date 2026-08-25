@@ -222,7 +222,7 @@ export const Header: React.FC<HeaderProps> = ({
 
           <div className="hidden sm:flex items-center gap-1.5 text-xs text-neutral-400">
             <Clock className="w-3.5 h-3.5 text-amber-400" />
-            <span>Festival Hours: 12:00 PM – 02:00 AM</span>
+            <span>Festival Hours: 12:00 PM – Late (04:00 AM+)</span>
           </div>
         </div>
       </div>

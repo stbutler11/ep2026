@@ -461,6 +461,11 @@ export const LineupExplorer: React.FC<LineupExplorerProps> = ({
                           Irish ☘️
                         </span>
                       )}
+                      {act.startMinutes >= 720 && (
+                        <span className="px-1.5 py-0.5 rounded text-[9px] font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                          Late Night 🌙
+                        </span>
+                      )}
                     </div>
                   </div>
 
