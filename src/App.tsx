@@ -25,6 +25,18 @@ export default function App() {
   const [activeView, setActiveView] = useState<ViewMode>('timetable');
   const [activeActModal, setActiveActModal] = useState<Act | null>(null);
   const [isPrintModalOpen, setIsPrintModalOpen] = useState(false);
+  const [printSettings, setPrintSettings] = useState<PrintSettings>({
+    format: 'pocket_pass',
+    colorMode: 'vibrant',
+    density: 'standard',
+    dayScope: 'all',
+    attendeeName: 'My EP \'26 Itinerary',
+    showNotes: true,
+    showWalkingTimes: true,
+    showFestivalEssentials: true,
+    showClashes: true,
+    pageBreaks: 'per_day',
+  });
 
   // Load preferences from localStorage with fallback to empty schedule
   const [userPreferences, setUserPreferences] = useState<
@@ -229,22 +241,15 @@ export default function App() {
             userPreferences={userPreferences}
             clashes={allClashes}
             initialDay={activeDay}
+            settings={printSettings}
+            onUpdateSettings={setPrintSettings}
           />
         )}
       </div>
 
       {/* Hidden container targeted exclusively during window.print() */}
       <PrintableItineraryDocument
-        settings={{
-          format: 'pocket_pass',
-          colorMode: 'vibrant',
-          dayScope: 'all',
-          attendeeName: 'Electric Picnic \'26 Itinerary',
-          showNotes: true,
-          showWalkingTimes: true,
-          showFestivalEssentials: true,
-          showClashes: true,
-        }}
+        settings={printSettings}
         userPreferences={userPreferences}
         clashes={allClashes}
         id="festival-print-document"

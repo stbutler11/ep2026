@@ -54,4 +54,10 @@
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
+
+  /* Force clean page break before subsequent festival days */
+  .print-page-break-before {
+    break-before: page !important;
+    page-break-before: always !important;
+  }
 }
