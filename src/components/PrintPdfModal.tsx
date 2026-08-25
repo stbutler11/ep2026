@@ -6,17 +6,15 @@ import {
   Palette,
   Calendar,
   User,
-  Eye,
-  Download,
-  Sparkles,
-  Sliders,
-  Maximize2,
   Image as ImageIcon,
   CheckCircle2,
   Loader2,
+  Sliders,
   Layers,
+  Sparkles,
+  Share2,
 } from 'lucide-react';
-import { toJpeg, toPng } from 'html-to-image';
+import { toJpeg } from 'html-to-image';
 import { ClashDetail, FestivalDay, PriorityLevel, UserActPreference } from '../types';
 import { PrintableItineraryDocument, PrintSettings } from './PrintableItineraryDocument';
 
@@ -62,11 +60,12 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
         throw new Error('Preview element not found');
       }
 
-      // Temporarily ensure full opacity and standard render for canvas capture
+      // High quality, crisp pixel ratio for zoomable WhatsApp readability
+      // When ultra_compact or pocket_pass is active, it renders across 2 or 3 dense columns
       const dataUrl = await toJpeg(previewElement, {
-        quality: 0.95,
+        quality: 0.92,
         backgroundColor: settings.colorMode === 'eco' ? '#ffffff' : '#0a0a0a',
-        pixelRatio: 2.5, // Crisp high-res for zoom and printing
+        pixelRatio: 2.2, // Crisp, ultra-sharp text without creating massive 30MB files
         cacheBust: true,
       });
 
@@ -100,7 +99,7 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Bar */}
-        <div className="p-4 sm:p-5 border-b border-neutral-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-neutral-950/90">
+        <div className="p-4 sm:p-5 border-b border-neutral-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-neutral-950/90 shrink-0">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-linear-to-br from-amber-500 to-rose-600 flex items-center justify-center shadow-lg shadow-amber-500/20 shrink-0">
               <Printer className="w-5 h-5 text-white" />
@@ -108,14 +107,14 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
             <div>
               <div className="flex items-center gap-2">
                 <h2 className="text-base sm:text-xl font-black text-white tracking-tight">
-                  Festival Itinerary • PDF &amp; JPEG Export
+                  Festival Itinerary • PDF &amp; WhatsApp JPEG Export
                 </h2>
                 <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
                   Ready to Export
                 </span>
               </div>
               <p className="text-xs text-neutral-400">
-                Custom festival pocket guide formatted for A4 printing, PDF saving, or High-Res JPEG wallpaper
+                Sharable festival passes optimized for WhatsApp group chats, phone wallpapers, and A4 printouts
               </p>
             </div>
           </div>
@@ -127,7 +126,7 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
               onClick={handleExportJpeg}
               disabled={isExportingJpeg}
               className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-neutral-100 font-bold text-xs sm:text-sm border border-neutral-700 transition-all shadow-sm active:scale-95 disabled:opacity-50"
-              title="Save as a high-resolution JPEG image (great for phone lock screen or sharing)"
+              title="Save as a high-resolution JPEG image (great for phone lock screen or WhatsApp)"
             >
               {isExportingJpeg ? (
                 <>
@@ -142,7 +141,7 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
               ) : (
                 <>
                   <ImageIcon className="w-4 h-4 text-amber-400" />
-                  <span>Save as JPEG</span>
+                  <span>Save as WhatsApp JPEG</span>
                 </>
               )}
             </button>
@@ -167,7 +166,7 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
         </div>
 
         {/* 2-Column Body: Controls & Settings on Left, Live Paper Preview on Right */}
-        <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
+        <div className="flex-1 min-h-0 flex flex-col lg:flex-row overflow-hidden">
           {/* Left Column: Settings Panel */}
           <div className="w-full lg:w-80 xl:w-96 border-b lg:border-b-0 lg:border-r border-neutral-800 p-4 sm:p-5 overflow-y-auto space-y-4 bg-neutral-900/90 shrink-0">
             {/* Personalized Pass Name */}
@@ -177,7 +176,7 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
                   <User className="w-3.5 h-3.5 text-amber-400" />
                   <span>Passholder / Crew Name</span>
                 </span>
-                <span className="text-[10px] text-neutral-500 font-normal">Shown on header pass</span>
+                <span className="text-[10px] text-neutral-500 font-normal">Header badge</span>
               </label>
               <input
                 type="text"
@@ -197,9 +196,26 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
                   <Sliders className="w-3.5 h-3.5 text-amber-400" />
                   <span>Layout Density</span>
                 </span>
-                <span className="text-[10px] text-neutral-500 font-normal">Scale content to fit</span>
+                <span className="text-[10px] text-amber-400 font-semibold">WhatsApp &amp; Multi-day</span>
               </label>
               <div className="grid grid-cols-3 gap-1.5">
+                <button
+                  type="button"
+                  onClick={() => onUpdateSettings((s) => ({ ...s, density: 'ultra_compact', format: 'pocket_pass' }))}
+                  className={`p-2 rounded-xl border text-center text-xs transition-all ${
+                    settings.density === 'ultra_compact'
+                      ? 'bg-amber-500 text-neutral-950 font-bold border-amber-400 shadow-xs ring-2 ring-amber-500/20'
+                      : 'bg-neutral-950 border-neutral-800 text-neutral-400 hover:text-neutral-200'
+                  }`}
+                >
+                  <div className="font-black text-[11px] flex items-center justify-center gap-1">
+                    <span>⚡ Ultra</span>
+                  </div>
+                  <div className={`text-[8.5px] leading-tight mt-0.5 ${settings.density === 'ultra_compact' ? 'text-neutral-950 font-semibold' : 'text-neutral-500'}`}>
+                    3-Col WhatsApp
+                  </div>
+                </button>
+
                 <button
                   type="button"
                   onClick={() => onUpdateSettings((s) => ({ ...s, density: 'compact' }))}
@@ -210,8 +226,8 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
                   }`}
                 >
                   <div className="font-bold text-[11px]">Compact</div>
-                  <div className={`text-[9px] ${settings.density === 'compact' ? 'text-neutral-900' : 'text-neutral-500'}`}>
-                    Phone / Pocket
+                  <div className={`text-[8.5px] leading-tight mt-0.5 ${settings.density === 'compact' ? 'text-neutral-900' : 'text-neutral-500'}`}>
+                    2-Col Pocket
                   </div>
                 </button>
 
@@ -225,23 +241,8 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
                   }`}
                 >
                   <div className="font-bold text-[11px]">Standard</div>
-                  <div className={`text-[9px] ${settings.density === 'standard' ? 'text-neutral-900' : 'text-neutral-500'}`}>
+                  <div className={`text-[8.5px] leading-tight mt-0.5 ${settings.density === 'standard' ? 'text-neutral-900' : 'text-neutral-500'}`}>
                     Standard A4
-                  </div>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => onUpdateSettings((s) => ({ ...s, density: 'spacious' }))}
-                  className={`p-2 rounded-xl border text-center text-xs transition-all ${
-                    settings.density === 'spacious'
-                      ? 'bg-amber-500 text-neutral-950 font-bold border-amber-400 shadow-xs'
-                      : 'bg-neutral-950 border-neutral-800 text-neutral-400 hover:text-neutral-200'
-                  }`}
-                >
-                  <div className="font-bold text-[11px]">Spacious</div>
-                  <div className={`text-[9px] ${settings.density === 'spacious' ? 'text-neutral-900' : 'text-neutral-500'}`}>
-                    Poster
                   </div>
                 </button>
               </div>
@@ -254,7 +255,7 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
                   <Palette className="w-3.5 h-3.5 text-amber-400" />
                   <span>Color Theme</span>
                 </span>
-                <span className="text-[10px] text-neutral-500 font-normal">Ink vs Poster</span>
+                <span className="text-[10px] text-neutral-500 font-normal">Ink vs Digital</span>
               </label>
               <div className="grid grid-cols-2 gap-2">
                 <button
@@ -291,7 +292,7 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
               </div>
             </div>
 
-            {/* Layout Format (Pocket vs Timeline) */}
+            {/* Layout Format (Pocket 2/3-Col vs Timeline Rows) */}
             <div className="space-y-1.5">
               <label className="block text-xs font-bold uppercase tracking-wider text-neutral-300 flex items-center gap-1.5">
                 <FileText className="w-3.5 h-3.5 text-amber-400" />
@@ -307,9 +308,9 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
                       : 'bg-neutral-950 border-neutral-800 text-neutral-300 hover:border-neutral-700'
                   }`}
                 >
-                  <div className="font-bold text-[11px]">2-Column Booklet</div>
+                  <div className="font-bold text-[11px]">Multi-Column Grid</div>
                   <div className={`text-[9px] ${settings.format === 'pocket_pass' ? 'text-neutral-900' : 'text-neutral-500'}`}>
-                    Foldable pocket pass
+                    Wide horizontal layout
                   </div>
                 </button>
 
@@ -332,9 +333,14 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
 
             {/* Days Scope */}
             <div className="space-y-1.5">
-              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-300 flex items-center gap-1.5">
-                <Calendar className="w-3.5 h-3.5 text-amber-400" />
-                <span>Days to Include</span>
+              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-300 flex items-center justify-between">
+                <span className="flex items-center gap-1.5">
+                  <Calendar className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Days to Include</span>
+                </span>
+                {settings.dayScope !== 'all' && (
+                  <span className="text-[10px] text-emerald-400 font-semibold">Single-Day High-Res</span>
+                )}
               </label>
               <div className="grid grid-cols-3 gap-1">
                 <button
@@ -400,9 +406,8 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
               <label className="block text-xs font-bold uppercase tracking-wider text-neutral-300 flex items-center justify-between">
                 <span className="flex items-center gap-1.5">
                   <Layers className="w-3.5 h-3.5 text-amber-400" />
-                  <span>A4 Page Splitting</span>
+                  <span>A4 Page Splitting (PDF/Print)</span>
                 </span>
-                <span className="text-[10px] text-neutral-500 font-normal">Clean multi-page breaks</span>
               </label>
               <div className="grid grid-cols-2 gap-1.5">
                 <button
@@ -499,33 +504,34 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
             {/* Quick Export Tips */}
             <div className="bg-neutral-950 p-3 rounded-xl border border-neutral-800 text-[11px] text-neutral-400 space-y-1">
               <div className="font-bold text-amber-400 flex items-center gap-1">
-                <Sparkles className="w-3 h-3" /> Export Tips
+                <Share2 className="w-3 h-3" /> WhatsApp Tip
               </div>
               <p>
-                • <strong>Save as JPEG</strong> downloads a high-res image directly to your device (ideal for offline phone wallpapers).
-              </p>
-              <p>
-                • <strong>Print / PDF</strong> opens the print window — select <em>"Save as PDF"</em> and check <em>"Background graphics"</em>.
+                Use <strong>⚡ Ultra Compact</strong> + <strong>Multi-Column Grid</strong> for wide, sharp images that fit all 4 days without blur when compressed by WhatsApp.
               </p>
             </div>
           </div>
 
           {/* Right Column: Live Interactive Paper Preview */}
-          <div className="flex-1 bg-neutral-950 p-3 sm:p-5 overflow-y-auto flex flex-col items-center justify-start">
+          <div className="flex-1 min-h-0 bg-neutral-950 p-3 sm:p-5 overflow-y-auto flex flex-col items-center justify-start">
             {/* Preview Toolbar */}
-            <div className="w-full max-w-3xl flex items-center justify-between mb-3 text-xs text-neutral-400">
+            <div className="w-full max-w-4xl flex items-center justify-between mb-3 text-xs text-neutral-400 shrink-0">
               <div className="flex items-center gap-2">
                 <span className="font-bold text-neutral-200">Live Export Preview</span>
                 <span className="text-neutral-600">•</span>
                 <span className="text-[11px] text-amber-400 font-medium">
                   {settings.colorMode === 'eco' ? 'Ink Saver Paper' : 'Festival Vibrant Poster'}
-                  {settings.density === 'compact' ? ' (Compact Mode)' : ''}
+                  {settings.density === 'ultra_compact'
+                    ? ' (⚡ Ultra Compact WhatsApp Grid)'
+                    : settings.density === 'compact'
+                    ? ' (Compact 2-Col)'
+                    : ''}
                 </span>
               </div>
               <div className="flex items-center gap-1 bg-neutral-900 border border-neutral-800 rounded-lg p-0.5">
                 <button
                   type="button"
-                  onClick={() => setPreviewScale((s) => Math.max(0.5, s - 0.1))}
+                  onClick={() => setPreviewScale((s) => Math.max(0.4, Number((s - 0.1).toFixed(1))))}
                   className="px-2 py-0.5 hover:bg-neutral-800 rounded text-neutral-300 font-bold"
                   title="Zoom Out"
                 >
@@ -534,7 +540,7 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
                 <span className="px-1.5 text-[10px] font-mono">{Math.round(previewScale * 100)}%</span>
                 <button
                   type="button"
-                  onClick={() => setPreviewScale((s) => Math.min(1.2, s + 0.1))}
+                  onClick={() => setPreviewScale((s) => Math.min(1.2, Number((s + 0.1).toFixed(1))))}
                   className="px-2 py-0.5 hover:bg-neutral-800 rounded text-neutral-300 font-bold"
                   title="Zoom In"
                 >
@@ -545,7 +551,7 @@ export const PrintPdfModal: React.FC<PrintPdfModalProps> = ({
 
             {/* Paper Sheet Preview Container */}
             <div
-              className="w-full max-w-3xl origin-top transition-transform duration-150"
+              className="w-full max-w-4xl origin-top transition-transform duration-150"
               style={{
                 transform: `scale(${previewScale})`,
                 transformOrigin: 'top center',
